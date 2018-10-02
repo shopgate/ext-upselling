@@ -1,0 +1,39 @@
+{
+  "name": "@shopgate/upselling",
+  "version": "0.1.0",
+  "description": "",
+  "license": "Apache-2.0",
+  "scripts": {
+    "lint": "eslint --parser babel-eslint --ignore-path ../.gitignore --ignore-path .eslintignore --ext .js --ext .jsx .",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch",
+    "coverage": "jest --coverage",
+    "coverage:watch": "npm run coverage -- --watch",
+    "check": "nsp check",
+    "dummy": ""
+  },
+  "devDependencies": {
+    "@shopgate/eslint-config": "*",
+    "@shopgate/pwa-common": "*",
+    "@shopgate/pwa-common-commerce": "*",
+    "@shopgate/pwa-core": "*",
+    "jest": "^22.4.2",
+    "@shopgate/pwa-unit-test": "*",
+    "babel-core": "^6.26.0",
+    "babel-plugin-react-transform": "^3.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-inline-elements": "^6.22.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.17.0",
+    "nsp": "^3.1.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-hot-loader": "^3.1.3",
+    "react-transform-catch-errors": "^1.0.2"
+  }
+}
