@@ -28,7 +28,7 @@ const wrapper = css({
     bottom: 0,
     left: 0,
     background: 'linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.35) 29%,rgba(255,255,255,0.35) 30%,rgba(255,255,255,0.35) 48%,rgba(255,255,255,0.35) 52%,rgba(255,255,255,0.35) 70%,rgba(255,255,255,0) 100%)',
-    backgroundSize: '60%',
+    backgroundSize: '60% 100%',
     backgroundRepeat: 'no-repeat',
     animation: `${placeholderCycle} 1s infinite`,
     transform: 'translate3d(0,0,0)',

@@ -24,8 +24,10 @@ jest.mock('@shopgate/pwa-common-commerce/product/actions/getProductRelations', (
 });
 
 const mockedRelatedProducts = [];
+const mockedProductRelations = [];
 jest.mock('@shopgate/pwa-common-commerce/product/selectors/relations', () => ({
   getRelatedProducts: () => () => mockedRelatedProducts,
+  getProductRelations: () => () => mockedProductRelations,
 }));
 
 jest.mock('../../helpers/isiOSTheme', () => () => false);
@@ -45,7 +47,7 @@ describe('Slider', () => {
       />
     </Provider>
   ));
-  it('should call action on mound and render nothing', () => {
+  it('should call action on mount and render nothing', () => {
     const component = makeComponent();
 
     expect(mockedGetProductRelationsAction).toHaveBeenCalledWith({
@@ -57,10 +59,11 @@ describe('Slider', () => {
 
   it('should render a slider', () => {
     mockedRelatedProducts.push({ id: 'mockedRelatedId' });
+    mockedProductRelations.push('mockedRelatedId');
     const component = makeComponent();
 
     expect(component.find('MockedDummyComponent').props()).toMatchObject({
-      products: [{ id: 'mockedRelatedId' }],
+      products: { mockedRelatedId: { id: 'mockedRelatedId' } },
       showPrice: true,
       showName: true,
     });

@@ -8,7 +8,12 @@
 ### Fixed
 ### Removed
 
- ## [0.0.1] - 2018-10-02
+## [1.0.0] - 2018-10-16
+First version of the extension.
+### Added
+- Upselling slider which is shown on the Product Detail Page within the configured portal position. Slider shows image (always), name (optional) and price (optional).
+
+## [0.0.1] - 2018-10-02
 ### Added
 Initial commmit.
 
