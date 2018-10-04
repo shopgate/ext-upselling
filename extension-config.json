@@ -1,9 +1,37 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.1-beta.2",
   "id": "@shopgate/upselling",
   "components": [
-    
+    {
+      "id": "Trampoline",
+      "path": "frontend/routes/Trampoline.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+
+    {
+      "id": "PDPDescriptionAfter",
+      "type": "portals",
+      "path": "frontend/portals/ProductDetailPage",
+      "target": "product.description.after"
+    },
+    {
+      "id": "PDPHeaderAfter",
+      "type": "portals",
+      "path": "frontend/portals/ProductDetailPage",
+      "target": "product.header.after"
+    }
   ],
   "configuration": {
+    "productPage": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {},
+      "params": {
+        "type": "json",
+        "label": "Product page settings (see README)",
+        "required": false
+      }
+    }
   }
 }

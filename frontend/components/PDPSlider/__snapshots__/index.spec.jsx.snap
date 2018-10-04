@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PDPSlider should render with price and names 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(PDPSlider)>
+    <PDPSlider
+      dispatch={[Function]}
+      productId="mockedProductId"
+    >
+      <Component
+        headline="mockedHeadline"
+        productId="mockedProductId"
+        showName={true}
+        showPrice={true}
+        type="mockedType"
+      >
+        <MockedDummyComponent
+          headline="mockedHeadline"
+          productId="mockedProductId"
+          showName={true}
+          showPrice={true}
+          type="mockedType"
+        >
+          <div>
+            Mocked Slider
+          </div>
+        </MockedDummyComponent>
+      </Component>
+    </PDPSlider>
+  </Connect(PDPSlider)>
+</Provider>
+`;
+
+exports[`PDPSlider should render without price and names as default 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(PDPSlider)>
+    <PDPSlider
+      dispatch={[Function]}
+      productId="mockedProductId"
+    >
+      <Component
+        headline="mockedHeadline"
+        productId="mockedProductId"
+        showName={false}
+        showPrice={false}
+        type="mockedType"
+      >
+        <MockedDummyComponent
+          headline="mockedHeadline"
+          productId="mockedProductId"
+          showName={false}
+          showPrice={false}
+          type="mockedType"
+        >
+          <div>
+            Mocked Slider
+          </div>
+        </MockedDummyComponent>
+      </Component>
+    </PDPSlider>
+  </Connect(PDPSlider)>
+</Provider>
+`;
