@@ -1,9 +1,30 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.1",
   "id": "@shopgate/upselling",
   "components": [
-    
+    {
+      "id": "PDPDescriptionAfter",
+      "type": "portals",
+      "path": "frontend/portals/ProductDetailPage",
+      "target": "product.description.after"
+    },
+    {
+      "id": "PDPHeaderAfter",
+      "type": "portals",
+      "path": "frontend/portals/ProductDetailPage",
+      "target": "product.header.after"
+    }
   ],
   "configuration": {
+    "productPage": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {},
+      "params": {
+        "type": "json",
+        "label": "Product page settings (see README)",
+        "required": false
+      }
+    }
   }
 }
