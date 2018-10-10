@@ -5,6 +5,7 @@ const { colors, variables } = themeConfig;
 const wrapper = {
   background: colors.background,
   padding: variables.gap.small,
+  marginBottom: variables.gap.big,
 };
 
 const headline ={
