@@ -8,6 +8,7 @@ import Portal from '@shopgate/pwa-common/components/Portal';
 import * as portals from '@shopgate/pwa-common-commerce/category/constants/Portals';
 import RatingStars from '@shopgate/pwa-ui-shared/RatingStars';
 import DiscountBadge from '@shopgate/pwa-ui-shared/DiscountBadge';
+import Trampoline from '../../../../../../../../Trampoline';
 import ProductImage from '../ProductImage';
 import ProductGridPrice from '../ProductGridPrice';
 import styles from './style';
@@ -27,7 +28,7 @@ const ProductCard = ({
 }) => (
   <Link
     tagName="a"
-    href={`${ITEM_PATH}/${bin2hex(product.id)}`}
+    href={Trampoline.getTrampolineUrl(`${ITEM_PATH}/${bin2hex(product.id)}`)}
     itemProp="item"
     itemScope
     itemType="http://schema.org/Product"

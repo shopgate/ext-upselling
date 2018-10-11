@@ -3,6 +3,13 @@
   "id": "@shopgate/upselling",
   "components": [
     {
+      "id": "Trampoline",
+      "path": "frontend/routes/Trampoline.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+
+    {
       "id": "PDPDescriptionAfter",
       "type": "portals",
       "path": "frontend/portals/ProductDetailPage",
