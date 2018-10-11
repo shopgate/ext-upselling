@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getCurrentBaseProductId } from '@shopgate/pwa-common-commerce/product/selectors/product';
 import Slider from '../Slider';
 import getConfig from '../../helpers/getConfig';
+
 const { productPage } = getConfig();
 
 /**

@@ -10,15 +10,15 @@ const styles = getStyles();
 
 class Slider extends Component {
   static propTypes = {
+    productId: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
     headline: PropTypes.string,
-    productIds: PropTypes.array,
     showName: PropTypes.bool,
     showPrice: PropTypes.bool,
   };
 
   static defaultProps = {
     headline: null,
-    productIds: null,
   };
 
   constructor(props) {

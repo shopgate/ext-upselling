@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pageComponentFactory should render a component in a view 1`] = `
+<_class>
+  <ComponentProto
+    View={[Function]}
+  >
+    <View>
+      <div
+        id="view"
+      >
+        <div
+          id="component"
+        >
+          Hello world
+        </div>
+      </div>
+    </View>
+  </ComponentProto>
+</_class>
+`;
