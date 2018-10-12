@@ -6,8 +6,10 @@ import Slider from './index';
 
 const mockedStore = configureStore();
 
-const MockedDummyComponent = (props) => (<div>{props.children}</div>);
-jest.mock('./components/DefaultSlider', () => (props) => (
+// eslint-disable-next-line react/prop-types, require-jsdoc
+const MockedDummyComponent = props => (<div>{props.children}</div>);
+
+jest.mock('./components/DefaultSlider', () => props => (
   <MockedDummyComponent {...props}>
     Mocked Slider
   </MockedDummyComponent>
@@ -21,7 +23,7 @@ jest.mock('@shopgate/pwa-common-commerce/product/actions/getProductRelations', (
   };
 });
 
-let mockedRelatedProducts = [];
+const mockedRelatedProducts = [];
 jest.mock('@shopgate/pwa-common-commerce/product/selectors/relations', () => ({
   getRelatedProducts: () => () => mockedRelatedProducts,
 }));
@@ -29,10 +31,14 @@ jest.mock('@shopgate/pwa-common-commerce/product/selectors/relations', () => ({
 jest.mock('../../helpers/isiOSTheme', () => () => false);
 
 describe('Slider', () => {
+  /**
+   * Makes a component.
+   * @returns {Object}
+   */
   const makeComponent = () => mount((
     <Provider store={mockedStore({})}>
       <Slider
-        productId={'mockedId'}
+        productId="mockedId"
         type="mockedType"
         showPrice
         showName
@@ -44,7 +50,7 @@ describe('Slider', () => {
 
     expect(mockedGetProductRelationsAction).toHaveBeenCalledWith({
       productId: 'mockedId',
-      type: 'mockedType'
+      type: 'mockedType',
     });
     expect(component.html()).toBe(null);
   });
@@ -58,6 +64,6 @@ describe('Slider', () => {
       showPrice: true,
       showName: true,
     });
-   expect(component.html()).toMatchSnapshot();
-  })
+    expect(component.html()).toMatchSnapshot();
+  });
 });

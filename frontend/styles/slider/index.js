@@ -11,8 +11,8 @@ export default () => {
   const styles = isiOSTheme() ? iosStyles : gmdStyles;
 
   const result = {};
-  Object.keys(styles).forEach(key => {
-    result[key] = css(styles[key]).toString()
+  Object.keys(styles).forEach((key) => {
+    result[key] = css(styles[key]).toString();
   });
 
   return result;

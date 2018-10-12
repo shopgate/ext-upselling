@@ -2,9 +2,10 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Trampoline from './Trampoline';
 
-const MockedDummyComponent = (props) => <div>{props.children}</div>;
+// eslint-disable-next-line react/prop-types, require-jsdoc
+const MockedDummyComponent = props => <div>{props.children}</div>;
 
-jest.mock('@shopgate/pwa-common/components/Router/components/Route', () => (props) => (
+jest.mock('@shopgate/pwa-common/components/Router/components/Route', () => props => (
   <MockedDummyComponent {...props} />
 ));
 

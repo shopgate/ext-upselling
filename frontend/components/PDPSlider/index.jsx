@@ -12,7 +12,7 @@ const { productPage } = getConfig();
  * @param {Object} props Props.
  * @returns {JSX}
  */
-const PDPSlider = (props) => (
+const PDPSlider = props => (
   <Slider
     headline={productPage.headline}
     type={productPage.type}
@@ -26,8 +26,13 @@ PDPSlider.propTypes = {
   productId: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  productId: getCurrentBaseProductId(state)
+/**
+ * Maps state to props.
+ * @param {Object} state State.
+ * @returns {Object}
+ */
+const mapStateToProps = state => ({
+  productId: getCurrentBaseProductId(state),
 });
 
 export default connect(mapStateToProps)(PDPSlider);

@@ -14,6 +14,7 @@ class TrampolinePage extends Component {
    */
   static getTrampolineUrl(pathname) {
     if (pathname.startsWith('/')) {
+      // eslint-disable-next-line no-param-reassign
       pathname = pathname.slice(1);
     }
     return `${this.TRAMPOLINE_PATH}/${pathname}`;

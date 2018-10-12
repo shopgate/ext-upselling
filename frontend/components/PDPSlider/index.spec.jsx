@@ -9,12 +9,14 @@ const mockedConfig = {
     headline: 'mockedHeadline',
     showPrice: true,
     showName: true,
-  }
+  },
 };
 
 jest.mock('../../helpers/getConfig', () => () => mockedConfig);
-const MockedDummyComponent = (props) => (<div>{props.children}</div>);
-jest.mock('../Slider', () => (props) => ((
+// eslint-disable-next-line require-jsdoc, react/prop-types
+const MockedDummyComponent = props => (<div>{props.children}</div>);
+
+jest.mock('../Slider', () => props => ((
   <MockedDummyComponent {...props}>
     Mocked Slider
   </MockedDummyComponent>
@@ -22,17 +24,19 @@ jest.mock('../Slider', () => (props) => ((
 
 const mockedProductId = 'mockedProductId';
 jest.mock('@shopgate/pwa-common-commerce/product/selectors/product', () => ({
-  getCurrentBaseProductId: () => mockedProductId
+  getCurrentBaseProductId: () => mockedProductId,
 }));
 
 describe('PDPSlider', () => {
+  // eslint-disable-next-line global-require
   const PDPSlider = require('./index').default;
+
   it('should render with price and names', () => {
-    const component = mount(
+    const component = mount((
       <Provider store={configureStore()({})}>
         <PDPSlider />
       </Provider>
-    );
+    ));
     expect(component.find('PDPSlider').props().productId).toBe(mockedProductId);
     expect(component.find('MockedDummyComponent').props()).toMatchObject(mockedConfig.productPage);
     expect(component).toMatchSnapshot();
@@ -42,16 +46,16 @@ describe('PDPSlider', () => {
     delete mockedConfig.productPage.showName;
     delete mockedConfig.productPage.showPrice;
 
-    const component = mount(
+    const component = mount((
       <Provider store={configureStore()({})}>
         <PDPSlider />
       </Provider>
-    );
+    ));
 
     expect(component.find('PDPSlider').props().productId).toBe(mockedProductId);
     expect(component.find('MockedDummyComponent').props()).toMatchObject(mockedConfig.productPage);
     expect(component.find('MockedDummyComponent').props().showPrice).toBe(false);
     expect(component.find('MockedDummyComponent').props().showName).toBe(false);
     expect(component).toMatchSnapshot();
-  })
+  });
 });
