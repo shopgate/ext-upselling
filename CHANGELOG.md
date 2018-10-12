@@ -12,5 +12,5 @@
 ### Added
 Initial commmit.
 
-[Unreleased]: https://github.com/shopgate/ext-cliplister/compare/v0.0.1...HEAD
-[1.0.0]: https://github.com/shopgate/ext-cliplister/compare/v0.0.1...v1.0.0
+[Unreleased]: https://github.com/shopgate/ext-upselling/compare/v0.0.1...HEAD
+[1.0.0]: https://github.com/shopgate/ext-upselling/compare/v0.0.1...v1.0.0
