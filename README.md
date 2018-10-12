@@ -1,4 +1,5 @@
 # Shopgate Connect - Upselling extension
+[![Build Status](https://travis-ci.org/shopgate/ext-upselling.svg?branch=master)](https://travis-ci.org/shopgate/ext-upselling) [![Coverage Status](https://coveralls.io/repos/github/shopgate/ext-upselling/badge.svg?branch=master)](https://coveralls.io/github/shopgate/ext-upselling?branch=master)
 
 ## About Shopgate
 
