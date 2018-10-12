@@ -23,7 +23,7 @@ const Item = ({ product, showName = true, showPrice = true }) => {
         />
       </Card>
     </Slider.Item>
-  )
+  );
 };
 
 export default Item;

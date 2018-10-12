@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import getProductRelationsAction from '@shopgate/pwa-common-commerce/product/actions/getProductRelations';
-import { getRelatedProducts } from '@shopgate/pwa-common-commerce/product/selectors/relations';
+import { getRelatedProductsFiltered } from '../../selectors';
 import DefaultSlider from './components/DefaultSlider';
 import getStyles from '../../styles/slider';
 
@@ -19,6 +19,8 @@ class Slider extends Component {
 
   static defaultProps = {
     headline: null,
+    showName: false,
+    showPrice: false,
   };
 
   constructor(props) {
@@ -52,10 +54,10 @@ class Slider extends Component {
 }
 
 const mapStateToProps = (state, props) => ({
-  products: getRelatedProducts({
+  products: getRelatedProductsFiltered({
     productId: props.productId,
     type: props.type,
-  })(state)
+  })(state),
 });
 
 export default connect(mapStateToProps)(Slider);

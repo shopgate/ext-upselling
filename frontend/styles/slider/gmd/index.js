@@ -8,18 +8,17 @@ const wrapper = {
   marginBottom: variables.gap.big,
 };
 
-const headline ={
+const headline = {
   textAlign: 'center',
+  margin: `0 0 ${variables.gap.small}px`,
 };
 
-const defaultSliderContainer ={
-  paddingBottom: variables.gap.big,
+const defaultSliderContainer = {
   position: 'relative',
 };
 
-
 const defaultSliderCard = {
-  height: '100%',
+  height: 'auto',
 };
 
 export default {

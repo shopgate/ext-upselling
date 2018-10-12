@@ -1,8 +1,23 @@
-import config from '../config';
+import { logger } from '@shopgate/pwa-core/helpers';
+
+let cached;
 
 /**
- * Config wrapper.
+ * Gets extension config or empty object on failure.
+ * @returns {Object}
  */
-export default function getConfig() {
-  return config;
+function getConfig() {
+  if (!cached) {
+    try {
+      // eslint-disable-next-line global-require
+      cached = require('../config');
+    } catch (e) {
+      logger.error('Could not read config.', e);
+      cached = {};
+    }
+  }
+
+  return cached;
 }
+
+export default getConfig;
