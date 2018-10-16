@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import getProductRelationsAction from '@shopgate/pwa-common-commerce/product/actions/getProductRelations';
-import { getRelatedProductsFiltered } from '../../selectors';
+import {
+  getProductRelationsFiletered,
+  getRelatedProductsByIdFiltered,
+} from '../../selectors';
 import DefaultSlider from './components/DefaultSlider';
 import getStyles from '../../styles/slider';
 
@@ -16,6 +19,7 @@ class Slider extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     productId: PropTypes.string.isRequired,
+    productIds: PropTypes.arrayOf(PropTypes.string).isRequired,
     type: PropTypes.string.isRequired,
     headline: PropTypes.string,
     products: PropTypes.arrayOf(PropTypes.shape({})),
@@ -46,7 +50,7 @@ class Slider extends Component {
    * @returns {JSX}
    */
   render() {
-    if (!this.props.products.length) {
+    if (!this.props.productIds.length) {
       return null;
     }
 
@@ -55,6 +59,7 @@ class Slider extends Component {
         {this.props.headline && <h3 className={styles.headline}>{this.props.headline}</h3> }
         <DefaultSlider
           products={this.props.products}
+          productIds={this.props.productIds}
           showPrice={this.props.showPrice}
           showName={this.props.showName}
         />
@@ -69,11 +74,15 @@ class Slider extends Component {
  * @param {Object} props Props.
  * @returns {Object}
  */
-const mapStateToProps = (state, props) => ({
-  products: getRelatedProductsFiltered({
+const mapStateToProps = (state, props) => {
+  const params = {
     productId: props.productId,
     type: props.type,
-  })(state),
-});
+  };
+  return {
+    productIds: getProductRelationsFiletered(params)(state),
+    products: getRelatedProductsByIdFiltered(params)(state),
+  };
+};
 
 export default connect(mapStateToProps)(Slider);

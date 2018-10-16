@@ -5,6 +5,7 @@ import Card from '@shopgate/pwa-ui-shared/Card';
 import isiOSTheme from '../../../../../../helpers/isiOSTheme';
 import IOSProductCard from './components/ios11/ProductCard';
 import GMDProductCard from './components/gmd/ProductCard';
+import PlaceholderCard from './components/PlaceholderCard';
 import getStyles from '../../../../../../styles/slider';
 
 const styles = getStyles();
@@ -18,10 +19,15 @@ const styles = getStyles();
  * @returns {JSX}
  */
 const Item = ({ product, showName = true, showPrice = true }) => {
-  const ProductCard = isiOSTheme() ? IOSProductCard : GMDProductCard;
+  let ProductCard = isiOSTheme() ? IOSProductCard : GMDProductCard;
+
+  // Show a placehoolder if product is not yet available.
+  if (!product) {
+    ProductCard = PlaceholderCard;
+  }
 
   return (
-    <Slider.Item key={product.id}>
+    <Slider.Item>
       <Card className={styles.defaultSliderCard}>
         <ProductCard
           product={product}
@@ -36,12 +42,13 @@ const Item = ({ product, showName = true, showPrice = true }) => {
 };
 
 Item.propTypes = {
-  product: PropTypes.shape({}).isRequired,
+  product: PropTypes.shape({}),
   showName: PropTypes.bool,
   showPrice: PropTypes.bool,
 };
 
 Item.defaultProps = {
+  product: null,
   showName: false,
   showPrice: false,
 };

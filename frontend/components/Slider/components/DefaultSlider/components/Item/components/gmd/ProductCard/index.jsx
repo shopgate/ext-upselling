@@ -44,7 +44,7 @@ const ProductCard = ({
       </div>
     )}
     {/* <FavoritesButton className={styles.wishlist} productId={product.id} /> */}
-    {(!(hidePrice && hideRating)) && (
+    {(!(hidePrice && hideRating && hideName)) && (
       <div className={styles.details}>
         {!hideRating && product.rating && product.rating.average > 0 && (
           <RatingStars value={product.rating.average} />

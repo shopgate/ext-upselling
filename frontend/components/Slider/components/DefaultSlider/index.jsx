@@ -10,11 +10,17 @@ const styles = getStyles();
  * Renders default Slider.
  * @param {Object} props Props.
  * @param {Array} props.products Products.
+ * @param {Array} props.productIds Product ids.
  * @param {boolean} showPrice Show price.
  * @param {boolean} showName Show name.
  * @returns {JSX}
  */
-const DefaultSlider = ({ products, showPrice, showName }) => (
+const DefaultSlider = ({
+  products,
+  productIds,
+  showPrice,
+  showName,
+}) => (
   <Slider
     slidesPerView={2.3}
     classNames={{
@@ -22,25 +28,31 @@ const DefaultSlider = ({ products, showPrice, showName }) => (
     }}
   >
     {
-      products.map(product => (
-        <Item
-          product={product}
-          key={product.id}
-          showPrice={showPrice}
-          showName={showName}
-        />
-      ))
+      productIds.map((id) => {
+        const product = products[id] || undefined;
+        const key = product ? `product-${id}` : `placeholder-${id}`;
+        return (
+          <Item
+            product={product}
+            key={key}
+            showPrice={showPrice}
+            showName={showName}
+          />
+        );
+      })
     }
   </Slider>
 );
 
 DefaultSlider.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.shape({})),
+  productIds: PropTypes.arrayOf(PropTypes.string),
+  products: PropTypes.shape({}),
   showName: PropTypes.bool,
   showPrice: PropTypes.bool,
 };
 
 DefaultSlider.defaultProps = {
+  productIds: [],
   products: [],
   showPrice: false,
   showName: false,
