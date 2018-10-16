@@ -20,8 +20,8 @@ jest.mock('../../../../helpers/isiOSTheme', () => () => mockedIsiOSTheme);
 
 describe('DefaultSlider', () => {
   it('should render gmd slider', () => {
-    const products = [
-      {
+    const products = {
+      mockedId: {
         id: 'mockedId',
         name: 'Mocked Product',
         price: {
@@ -29,8 +29,8 @@ describe('DefaultSlider', () => {
           currency: 'EUR',
         },
       },
-    ];
-    const component = mount(<DefaultSlider products={products} />);
+    };
+    const component = mount(<DefaultSlider products={products} productIds={['mockedId']} />);
     expect(component.find('Item').exists()).toBe(true);
     expect(component.find(GMDProductCard).exists()).toBe(true);
     expect(component).toMatchSnapshot();
@@ -38,8 +38,8 @@ describe('DefaultSlider', () => {
 
   it('should render gmd slider', () => {
     mockedIsiOSTheme = true;
-    const products = [
-      {
+    const products = {
+      mockedId: {
         id: 'mockedId',
         name: 'Mocked Product',
         price: {
@@ -47,8 +47,8 @@ describe('DefaultSlider', () => {
           currency: 'EUR',
         },
       },
-    ];
-    const component = mount(<DefaultSlider products={products} />);
+    };
+    const component = mount(<DefaultSlider products={products} productIds={['mockedId']}/>);
     expect(component.find('Item').exists()).toBe(true);
     expect(component.find(IOSProductCard).exists()).toBe(true);
     expect(component).toMatchSnapshot();
