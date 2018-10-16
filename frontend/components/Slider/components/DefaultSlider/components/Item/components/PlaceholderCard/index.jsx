@@ -12,7 +12,7 @@ import cardStyles from '../gmd/ProductCard/style';
  */
 const PlaceholderCard = ({ titleRows, hideName, hidePrice }) => (
   <div className={styles.wrapper}>
-    <div>
+    <div data-test-id="upselling-placeholder-image">
       <img
         alt=""
         className={styles.image}
@@ -20,10 +20,10 @@ const PlaceholderCard = ({ titleRows, hideName, hidePrice }) => (
       />
     </div>
     {!(hideName && hidePrice) &&
-      <div className={cardStyles.details}>
+      <div className={cardStyles.details} data-test-id="upselling-placeholder-details">
         <div
           className={[
-            styles.paragraph(titleRows || 3, hideName, hidePrice),
+            styles.paragraph(titleRows, hideName, hidePrice),
             cardStyles.title,
           ].join(' ')}
           aria-hidden

@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import DefaultSlider from './index';
 import IOSProductCard from './components/Item/components/ios11/ProductCard';
 import GMDProductCard from './components/Item/components/gmd/ProductCard';
+import PlaceholderCard from './components/Item/components/PlaceholderCard';
 
 jest.mock('@shopgate/pwa-common/components/Slider', () => class extends MockedComponent {
   // eslint-disable-next-line require-jsdoc
@@ -51,6 +52,14 @@ describe('DefaultSlider', () => {
     const component = mount(<DefaultSlider products={products} productIds={['mockedId']}/>);
     expect(component.find('Item').exists()).toBe(true);
     expect(component.find(IOSProductCard).exists()).toBe(true);
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render a placeholder', () => {
+    const products = {};
+    const component = mount(<DefaultSlider products={products} productIds={['mockedId']}/>);
+    expect(component.find('Item').exists()).toBe(true);
+    expect(component.find(PlaceholderCard).exists()).toBe(true);
     expect(component).toMatchSnapshot();
   });
 });

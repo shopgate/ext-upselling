@@ -1,5 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DefaultSlider should render a placeholder 1`] = `
+<DefaultSlider
+  productIds={
+    Array [
+      "mockedId",
+    ]
+  }
+  products={Object {}}
+  showName={false}
+  showPrice={false}
+>
+  <_class
+    classNames={
+      Object {
+        "container": "css-13azwyo",
+      }
+    }
+    slidesPerView={2.3}
+  >
+    <div>
+      <Item
+        key="placeholder-mockedId"
+        product={null}
+        showName={false}
+        showPrice={false}
+      >
+        <Item>
+          <div>
+            <Card
+              className="css-d1ao1r"
+            >
+              <div
+                className="css-1l0if7f css-d1ao1r"
+              >
+                <PlaceholderCard
+                  hideName={true}
+                  hidePrice={true}
+                  hideRating={true}
+                  product={null}
+                  titleRows={2}
+                >
+                  <div
+                    className="css-ceelm9"
+                  >
+                    <div
+                      data-test-id="upselling-placeholder-image"
+                    >
+                      <img
+                        alt=""
+                        className="css-1kzppb9"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAG4CAQAAACdwzo4AAADg0lEQVR42u3TMQ0AAAzDsJU/6f0F0MuGECk5YCYSgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDwwGGA8OB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgMMB4YDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgPDAYYDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAeGAwwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MJwEYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4MBxgODAcYDgwHNAedDYBuQI5h3IAAAAASUVORK5CYII="
+                      />
+                    </div>
+                  </div>
+                </PlaceholderCard>
+              </div>
+            </Card>
+          </div>
+        </Item>
+      </Item>
+    </div>
+  </_class>
+</DefaultSlider>
+`;
+
 exports[`DefaultSlider should render gmd slider 1`] = `
 <DefaultSlider
   productIds={
