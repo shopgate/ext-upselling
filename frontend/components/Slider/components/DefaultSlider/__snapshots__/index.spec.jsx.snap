@@ -2,9 +2,14 @@
 
 exports[`DefaultSlider should render gmd slider 1`] = `
 <DefaultSlider
-  products={
+  productIds={
     Array [
-      Object {
+      "mockedId",
+    ]
+  }
+  products={
+    Object {
+      "mockedId": Object {
         "id": "mockedId",
         "name": "Mocked Product",
         "price": Object {
@@ -12,7 +17,7 @@ exports[`DefaultSlider should render gmd slider 1`] = `
           "unitPrice": 100,
         },
       },
-    ]
+    }
   }
   showName={false}
   showPrice={false}
@@ -27,7 +32,7 @@ exports[`DefaultSlider should render gmd slider 1`] = `
   >
     <div>
       <Item
-        key="mockedId"
+        key="product-mockedId"
         product={
           Object {
             "id": "mockedId",
@@ -41,9 +46,7 @@ exports[`DefaultSlider should render gmd slider 1`] = `
         showName={false}
         showPrice={false}
       >
-        <Item
-          key="mockedId"
-        >
+        <Item>
           <div>
             <Card
               className="css-d1ao1r"
@@ -158,9 +161,14 @@ exports[`DefaultSlider should render gmd slider 1`] = `
 
 exports[`DefaultSlider should render gmd slider 2`] = `
 <DefaultSlider
-  products={
+  productIds={
     Array [
-      Object {
+      "mockedId",
+    ]
+  }
+  products={
+    Object {
+      "mockedId": Object {
         "id": "mockedId",
         "name": "Mocked Product",
         "price": Object {
@@ -168,7 +176,7 @@ exports[`DefaultSlider should render gmd slider 2`] = `
           "unitPrice": 100,
         },
       },
-    ]
+    }
   }
   showName={false}
   showPrice={false}
@@ -183,7 +191,7 @@ exports[`DefaultSlider should render gmd slider 2`] = `
   >
     <div>
       <Item
-        key="mockedId"
+        key="product-mockedId"
         product={
           Object {
             "id": "mockedId",
@@ -197,9 +205,7 @@ exports[`DefaultSlider should render gmd slider 2`] = `
         showName={false}
         showPrice={false}
       >
-        <Item
-          key="mockedId"
-        >
+        <Item>
           <div>
             <Card
               className="css-d1ao1r"

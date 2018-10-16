@@ -22,7 +22,7 @@ class Slider extends Component {
     productIds: PropTypes.arrayOf(PropTypes.string).isRequired,
     type: PropTypes.string.isRequired,
     headline: PropTypes.string,
-    products: PropTypes.arrayOf(PropTypes.shape({})),
+    products: PropTypes.shape({}),
     showName: PropTypes.bool,
     showPrice: PropTypes.bool,
   };
