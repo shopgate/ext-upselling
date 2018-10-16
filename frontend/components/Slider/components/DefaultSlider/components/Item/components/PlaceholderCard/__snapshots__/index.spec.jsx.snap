@@ -7,7 +7,7 @@ exports[`PlaceholderCard should render all elements 1`] = `
   titleRows={2}
 >
   <div
-    className="css-ceelm9"
+    className="css-1dwnok8"
   >
     <div
       data-test-id="upselling-placeholder-image"
@@ -40,7 +40,7 @@ exports[`PlaceholderCard should render different classNames on ios 1`] = `
   titleRows={2}
 >
   <div
-    className="css-ceelm9"
+    className="css-1dwnok8"
   >
     <div
       data-test-id="upselling-placeholder-image"
@@ -73,7 +73,7 @@ exports[`PlaceholderCard should render image and name 1`] = `
   titleRows={2}
 >
   <div
-    className="css-ceelm9"
+    className="css-1dwnok8"
   >
     <div
       data-test-id="upselling-placeholder-image"
@@ -106,7 +106,7 @@ exports[`PlaceholderCard should render image and price 1`] = `
   titleRows={2}
 >
   <div
-    className="css-ceelm9"
+    className="css-1dwnok8"
   >
     <div
       data-test-id="upselling-placeholder-image"
@@ -139,7 +139,7 @@ exports[`PlaceholderCard should render image only 1`] = `
   titleRows={2}
 >
   <div
-    className="css-ceelm9"
+    className="css-1dwnok8"
   >
     <div
       data-test-id="upselling-placeholder-image"

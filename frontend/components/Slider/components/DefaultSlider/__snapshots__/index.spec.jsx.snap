@@ -42,7 +42,7 @@ exports[`DefaultSlider should render a placeholder 1`] = `
                   titleRows={2}
                 >
                   <div
-                    className="css-ceelm9"
+                    className="css-1dwnok8"
                   >
                     <div
                       data-test-id="upselling-placeholder-image"
