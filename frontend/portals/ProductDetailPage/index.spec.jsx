@@ -43,7 +43,7 @@ describe('ProductDetailPage', () => {
     // eslint-disable-next-line global-require
     const ProductDetailPage = require('./index').default;
     const component = mount((
-      <ProductDetailPage name="mockedPosition" type="mockedType" />
+      <ProductDetailPage name="mockedPosition" />
     ));
 
     expect(component.find('div').exists()).toBe(true);
