@@ -224,7 +224,7 @@ exports[`DefaultSlider should render gmd slider 1`] = `
 </DefaultSlider>
 `;
 
-exports[`DefaultSlider should render gmd slider 2`] = `
+exports[`DefaultSlider should render ios slider 1`] = `
 <DefaultSlider
   productIds={
     Array [
