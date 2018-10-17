@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Slider from '@shopgate/pwa-common/components/Slider';
-import Item from './components/Item';
+import Item from '../../../../components/Item';
 import getStyles from '../../../../styles/slider';
 
 const styles = getStyles();
@@ -32,12 +32,13 @@ const DefaultSlider = ({
         const product = products[id] || undefined;
         const key = product ? `product-${id}` : `placeholder-${id}`;
         return (
-          <Item
-            product={product}
-            key={key}
-            showPrice={showPrice}
-            showName={showName}
-          />
+          <Slider.Item key={key}>
+            <Item
+              product={product}
+              showPrice={showPrice}
+              showName={showName}
+            />
+          </Slider.Item>
         );
       })
     }

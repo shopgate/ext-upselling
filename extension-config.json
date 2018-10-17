@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0-alpha.1",
   "id": "@shopgate/upselling",
   "components": [
     {
@@ -12,18 +12,34 @@
     {
       "id": "PDPDescriptionAfter",
       "type": "portals",
-      "path": "frontend/portals/ProductDetailPage",
+      "path": "frontend/portals/ProductDetailPageSlider",
       "target": "product.description.after"
     },
     {
       "id": "PDPHeaderAfter",
       "type": "portals",
-      "path": "frontend/portals/ProductDetailPage",
+      "path": "frontend/portals/ProductDetailPageSlider",
       "target": "product.header.after"
+    },
+    {
+      "id": "PDPAddToCartSheet",
+      "type": "portals",
+      "path": "frontend/portals/ProductDetailPageAddToCartSheet",
+      "target": "product.tax-disclaimer.after"
     }
   ],
   "configuration": {
     "productPage": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {},
+      "params": {
+        "type": "json",
+        "label": "Product page settings (see README)",
+        "required": false
+      }
+    },
+    "productPageAddToCart": {
       "type": "admin",
       "destination": "frontend",
       "default": {},

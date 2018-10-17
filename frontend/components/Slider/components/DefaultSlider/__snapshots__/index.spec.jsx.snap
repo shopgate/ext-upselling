@@ -22,12 +22,13 @@ exports[`DefaultSlider should render a placeholder 1`] = `
     <div>
       <Item
         key="placeholder-mockedId"
-        product={null}
-        showName={false}
-        showPrice={false}
       >
-        <Item>
-          <div>
+        <div>
+          <Item
+            product={null}
+            showName={false}
+            showPrice={false}
+          >
             <Card
               className="css-d1ao1r"
             >
@@ -57,8 +58,8 @@ exports[`DefaultSlider should render a placeholder 1`] = `
                 </PlaceholderCard>
               </div>
             </Card>
-          </div>
-        </Item>
+          </Item>
+        </div>
       </Item>
     </div>
   </_class>
@@ -98,21 +99,22 @@ exports[`DefaultSlider should render gmd slider 1`] = `
     <div>
       <Item
         key="product-mockedId"
-        product={
-          Object {
-            "id": "mockedId",
-            "name": "Mocked Product",
-            "price": Object {
-              "currency": "EUR",
-              "unitPrice": 100,
-            },
-          }
-        }
-        showName={false}
-        showPrice={false}
       >
-        <Item>
-          <div>
+        <div>
+          <Item
+            product={
+              Object {
+                "id": "mockedId",
+                "name": "Mocked Product",
+                "price": Object {
+                  "currency": "EUR",
+                  "unitPrice": 100,
+                },
+              }
+            }
+            showName={false}
+            showPrice={false}
+          >
             <Card
               className="css-d1ao1r"
             >
@@ -216,8 +218,8 @@ exports[`DefaultSlider should render gmd slider 1`] = `
                 </ProductCard>
               </div>
             </Card>
-          </div>
-        </Item>
+          </Item>
+        </div>
       </Item>
     </div>
   </_class>
@@ -257,21 +259,22 @@ exports[`DefaultSlider should render gmd slider 2`] = `
     <div>
       <Item
         key="product-mockedId"
-        product={
-          Object {
-            "id": "mockedId",
-            "name": "Mocked Product",
-            "price": Object {
-              "currency": "EUR",
-              "unitPrice": 100,
-            },
-          }
-        }
-        showName={false}
-        showPrice={false}
       >
-        <Item>
-          <div>
+        <div>
+          <Item
+            product={
+              Object {
+                "id": "mockedId",
+                "name": "Mocked Product",
+                "price": Object {
+                  "currency": "EUR",
+                  "unitPrice": 100,
+                },
+              }
+            }
+            showName={false}
+            showPrice={false}
+          >
             <Card
               className="css-d1ao1r"
             >
@@ -386,8 +389,8 @@ exports[`DefaultSlider should render gmd slider 2`] = `
                 </ProductCard>
               </div>
             </Card>
-          </div>
-        </Item>
+          </Item>
+        </div>
       </Item>
     </div>
   </_class>

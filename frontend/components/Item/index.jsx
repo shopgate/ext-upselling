@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Slider from '@shopgate/pwa-common/components/Slider';
 import Card from '@shopgate/pwa-ui-shared/Card';
-import isiOSTheme from '../../../../../../helpers/isiOSTheme';
+import isiOSTheme from '../../helpers/isiOSTheme';
 import IOSProductCard from './components/ios11/ProductCard';
 import GMDProductCard from './components/gmd/ProductCard';
 import PlaceholderCard from './components/PlaceholderCard';
-import getStyles from '../../../../../../styles/slider';
+import getStyles from '../../styles/slider';
 
 const styles = getStyles();
 
@@ -27,17 +26,15 @@ const Item = ({ product, showName, showPrice }) => {
   }
 
   return (
-    <Slider.Item>
-      <Card className={styles.defaultSliderCard}>
-        <ProductCard
-          product={product}
-          hideName={!showName}
-          hidePrice={!showPrice}
-          hideRating
-          titleRows={2}
-        />
-      </Card>
-    </Slider.Item>
+    <Card className={styles.defaultSliderCard}>
+      <ProductCard
+        product={product}
+        hideName={!showName}
+        hidePrice={!showPrice}
+        hideRating
+        titleRows={2}
+      />
+    </Card>
   );
 };
 

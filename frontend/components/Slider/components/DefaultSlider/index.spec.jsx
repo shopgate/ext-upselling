@@ -1,9 +1,9 @@
 import React, { Component as MockedComponent } from 'react';
 import { mount } from 'enzyme';
 import DefaultSlider from './index';
-import IOSProductCard from './components/Item/components/ios11/ProductCard';
-import GMDProductCard from './components/Item/components/gmd/ProductCard';
-import PlaceholderCard from './components/Item/components/PlaceholderCard';
+import IOSProductCard from '../../../Item/components/ios11/ProductCard';
+import GMDProductCard from '../../../Item/components/gmd/ProductCard';
+import PlaceholderCard from '../../../Item/components/PlaceholderCard';
 
 jest.mock('@shopgate/pwa-common/components/Slider', () => class extends MockedComponent {
   // eslint-disable-next-line require-jsdoc

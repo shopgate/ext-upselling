@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import PlaceholderCard from './index';
 
 let mockedIsiOSTheme = false;
-jest.mock('../../../../../../../../helpers/isiOSTheme', () => () => mockedIsiOSTheme);
+jest.mock('../../../../helpers/isiOSTheme', () => () => mockedIsiOSTheme);
 
 describe('PlaceholderCard', () => {
   let htmlAll;

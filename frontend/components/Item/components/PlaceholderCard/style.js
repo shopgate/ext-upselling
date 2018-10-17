@@ -1,5 +1,5 @@
 import { css } from 'glamor';
-import isiOSTheme from '../../../../../../../../helpers/isiOSTheme';
+import isiOSTheme from '../../../../helpers/isiOSTheme';
 
 /**
  * Glow animation.
