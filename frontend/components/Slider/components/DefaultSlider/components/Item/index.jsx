@@ -18,7 +18,7 @@ const styles = getStyles();
  * @param {boolean} showPrice Show price.
  * @returns {JSX}
  */
-const Item = ({ product, showName = true, showPrice = true }) => {
+const Item = ({ product, showName, showPrice }) => {
   let ProductCard = isiOSTheme() ? IOSProductCard : GMDProductCard;
 
   // Show a placehoolder if product is not yet available.
