@@ -35,13 +35,12 @@ export const getRelatedProductsByIdFiltered = params => createSelector(
  * @param {Object} params As in getProductRelations
  * @return {function}
  */
-export const getProductRelationsFiletered = params => createSelector(
+export const getProductRelationsFiltered = params => createSelector(
   getProductRelations(params),
   (productIds) => {
     if (!productIds) {
       return [];
     }
-
 
     return productIds
       .filter((id, key) => productIds.indexOf(id) === key) // Dedupe.

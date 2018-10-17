@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import getProductRelationsAction from '@shopgate/pwa-common-commerce/product/actions/getProductRelations';
 import {
-  getProductRelationsFiletered,
+  getProductRelationsFiltered,
   getRelatedProductsByIdFiltered,
 } from '../../selectors';
 import DefaultSlider from './components/DefaultSlider';
@@ -80,7 +80,7 @@ const mapStateToProps = (state, props) => {
     type: props.type,
   };
   return {
-    productIds: getProductRelationsFiletered(params)(state),
+    productIds: getProductRelationsFiltered(params)(state),
     products: getRelatedProductsByIdFiltered(params)(state),
   };
 };

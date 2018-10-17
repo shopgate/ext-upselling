@@ -1,5 +1,5 @@
 import {
-  getProductRelationsFiletered,
+  getProductRelationsFiltered,
   getRelatedProductsFiltered,
 } from './index';
 
@@ -39,7 +39,7 @@ describe('Selectors', () => {
     });
   });
 
-  describe('getProductRelationsFiletered', () => {
+  describe('getProductRelationsFiltered', () => {
     const state = {
       product: {
         productRelationsByHash: {
@@ -53,7 +53,7 @@ describe('Selectors', () => {
       },
     };
 
-    const result = getProductRelationsFiletered({
+    const result = getProductRelationsFiltered({
       productId: 'parentId',
       type: 'upselling',
     })(state);
