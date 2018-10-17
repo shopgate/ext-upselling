@@ -42,7 +42,10 @@ export const getProductRelationsFiletered = params => createSelector(
       return [];
     }
 
-    return productIds.filter(id => params.productId !== id);
+
+    return productIds
+      .filter((id, key) => productIds.indexOf(id) === key) // Dedupe.
+      .filter(id => params.productId !== id);
   }
 );
 
