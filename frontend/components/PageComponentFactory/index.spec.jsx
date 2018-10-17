@@ -15,8 +15,8 @@ describe('pageComponentFactory', () => {
     });
     const component = mount(<ComponentClass />);
 
-    expect(component.find('#view').length).toBe(1);
-    expect(component.find('#component').length).toBe(1);
+    expect(component.exists('#view')).toBe(true);
+    expect(component.exists('#component')).toBe(true);
     expect(component).toMatchSnapshot();
   });
 });

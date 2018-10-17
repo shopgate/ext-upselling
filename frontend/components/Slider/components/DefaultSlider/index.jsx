@@ -29,7 +29,7 @@ const DefaultSlider = ({
   >
     {
       productIds.map((id) => {
-        const product = products[id] || undefined;
+        const product = products[id];
         const key = product ? `product-${id}` : `placeholder-${id}`;
         return (
           <Item
