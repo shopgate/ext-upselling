@@ -22,7 +22,7 @@ jest.mock('../Slider', () => props => ((
   </MockedDummyComponent>
 )));
 
-const mockedProductId = 'mockedProductId';
+let mockedProductId = 'mockedProductId';
 jest.mock('@shopgate/pwa-common-commerce/product/selectors/product', () => ({
   getCurrentBaseProductId: () => mockedProductId,
 }));
@@ -30,32 +30,40 @@ jest.mock('@shopgate/pwa-common-commerce/product/selectors/product', () => ({
 describe('PDPSlider', () => {
   // eslint-disable-next-line global-require
   const PDPSlider = require('./index').default;
+  const makeComponent = () => mount((
+    <Provider store={configureStore()({})}>
+      <PDPSlider />
+    </Provider>
+  ));
 
   it('should render with price and names', () => {
-    const component = mount((
-      <Provider store={configureStore()({})}>
-        <PDPSlider />
-      </Provider>
-    ));
+    const component = makeComponent();
+
     expect(component.find('PDPSlider').props().productId).toBe(mockedProductId);
     expect(component.find('MockedDummyComponent').props()).toMatchObject(mockedConfig.productPage);
+    // Component should never update once rendered something.
+    expect(component.find('PDPSlider').instance().shouldComponentUpdate()).toBe(false);
     expect(component).toMatchSnapshot();
   });
 
   it('should render without price and names as default', () => {
     delete mockedConfig.productPage.showName;
     delete mockedConfig.productPage.showPrice;
-
-    const component = mount((
-      <Provider store={configureStore()({})}>
-        <PDPSlider />
-      </Provider>
-    ));
+    const component = makeComponent();
 
     expect(component.find('PDPSlider').props().productId).toBe(mockedProductId);
     expect(component.find('MockedDummyComponent').props()).toMatchObject(mockedConfig.productPage);
     expect(component.find('MockedDummyComponent').props().showPrice).toBe(false);
     expect(component.find('MockedDummyComponent').props().showName).toBe(false);
     expect(component).toMatchSnapshot();
+  });
+
+  it('should render nothing when productId is not ready', () => {
+    mockedProductId = undefined;
+    const component = makeComponent();
+
+    expect(component.html()).toBe(null);
+    expect(component.find('PDPSlider').instance().shouldComponentUpdate()).toBe(true);
+    expect(component.find('PDPSlider').instance().shouldComponentUpdate()).toBe(true);
   });
 });

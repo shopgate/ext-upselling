@@ -37,6 +37,7 @@ describe('Sheet', () => {
       </Provider>
     ));
     expect(component.find(MockedGridComponent).props().itemsPerLine).toBe(3);
+    expect(component).toMatchSnapshot();
   });
 
   it('should render with 2 items per line', () => {
@@ -47,6 +48,18 @@ describe('Sheet', () => {
       </Provider>
     ));
     expect(component.find(MockedGridComponent).props().itemsPerLine).toBe(2);
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render with 1 item per line', () => {
+    mockedProductRelationsFiltered = [1];
+    const component = mount((
+      <Provider store={mockedStore({})}>
+        <Sheet {...defaultProps} />
+      </Provider>
+    ));
+    expect(component.find(MockedGridComponent).props().itemsPerLine).toBe(1);
+    expect(component).toMatchSnapshot();
   });
 
   it('should keep the sheet closed when there are no items to show', () => {
@@ -60,5 +73,6 @@ describe('Sheet', () => {
     expect(component.find(Sheet).props().isOpen).toBe(true);
     // Check if SheetComponent is still closed.
     expect(component.find(MockedSheetComponent).props().isOpen).toBe(false);
+    expect(component).toMatchSnapshot();
   });
 });

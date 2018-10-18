@@ -1,9 +1,10 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentBaseProductId } from '@shopgate/pwa-common-commerce/product/selectors/product';
 import getProductRelationsAction
   from '@shopgate/pwa-common-commerce/product/actions/getProductRelations';
+import { routeDidChange$ } from '@shopgate/pwa-common/streams/history';
 import Sheet from '../Sheet';
 import getConfig from '../../helpers/getConfig';
 import { pdpAddToCartSuccess$ } from '../../streams';
@@ -14,10 +15,14 @@ const { productPageAddToCart } = getConfig();
  * PDP Upselling sheet.
  * Shows up on pdpAddToCartSuccess$.
  */
-class PDPSheet extends PureComponent {
+class PDPSheet extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
-    productId: PropTypes.string.isRequired,
+    productId: PropTypes.string,
+  };
+
+  static defaultProps = {
+    productId: null,
   };
 
   /**
@@ -26,37 +31,72 @@ class PDPSheet extends PureComponent {
    */
   constructor(props) {
     super(props);
+
     this.state = {
       isOpen: false,
       disabled: !(productPageAddToCart.type && productPageAddToCart.headline),
     };
-
-    if (!this.state.disabled) {
-      pdpAddToCartSuccess$.subscribe(this.handleOpen);
-    }
   }
 
   /**
    * Fetches the products on component did mount.
+   * @inheritDoc
    */
   componentDidMount() {
+    if (this.state.disabled) {
+      return;
+    }
+    pdpAddToCartSuccess$.subscribe(this.handleOpen);
+    routeDidChange$.subscribe(this.handleClose);
+    this.fetchProductData();
+  }
+
+  /**
+   * @inheritDoc
+   */
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.disabled) {
+      return false;
+    }
+    if (this.props.productId !== nextProps.productId) {
+      return true;
+    }
+
+    return this.state.isOpen !== nextState.isOpen;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  componentDidUpdate(prevProps) {
+    if (this.state.disabled) {
+      return;
+    }
+    if (
+      !this.props.productId
+      || prevProps.productId === this.props.productId
+    ) {
+      return;
+    }
+    this.fetchProductData();
+  }
+
+  fetchProductData = () => {
+    if (!this.props.productId) {
+      return;
+    }
     this.props.dispatch(getProductRelationsAction({
       productId: this.props.productId,
       type: productPageAddToCart.type,
     }));
-  }
-
-  /**
-   * Cleanup.
-   */
-  componentWillUnmount() {
-    pdpAddToCartSuccess$.unsubscribe(this.handleOpen);
-  }
-
+  };
   /**
    * Handles sheet opening.
    */
   handleOpen = () => {
+    if (!this.props.productId) {
+      return;
+    }
     this.setState({
       isOpen: true,
     });
@@ -76,6 +116,13 @@ class PDPSheet extends PureComponent {
    * @returns {JSX}
    */
   render() {
+    if (this.state.disabled) {
+      return null;
+    }
+
+    if (!this.props.productId) {
+      return null;
+    }
     return (
       <Sheet
         type={productPageAddToCart.type}
@@ -94,7 +141,7 @@ class PDPSheet extends PureComponent {
  * @param {Object} state State.
  * @returns {Object}
  */
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   productId: getCurrentBaseProductId(state),
 });
 

@@ -25,7 +25,7 @@
       "id": "PDPAddToCartSheet",
       "type": "portals",
       "path": "frontend/portals/ProductDetailPageAddToCartSheet",
-      "target": "product.tax-disclaimer.after"
+      "target": "app.globals"
     }
   ],
   "configuration": {
@@ -45,7 +45,7 @@
       "default": {},
       "params": {
         "type": "json",
-        "label": "Product page settings (see README)",
+        "label": "Product page add to cart settings (see README)",
         "required": false
       }
     }
