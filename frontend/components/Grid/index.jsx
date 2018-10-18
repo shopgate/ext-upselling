@@ -61,7 +61,7 @@ class Grid extends Component {
         <GridComponent className={styles.wrapper} wrap>
           {
             this.props.productIds.map((id) => {
-              const product = this.props.products[id] || undefined;
+              const product = this.props.products[id];
               const key = product ? `product-${id}` : `placeholder-${id}`;
 
               return (
