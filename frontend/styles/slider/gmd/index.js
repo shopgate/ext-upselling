@@ -17,6 +17,11 @@ const defaultSliderContainer = {
   position: 'relative',
 };
 
+const defaultSliderItem = {
+  display: 'flex',
+  height: '100%',
+};
+
 const defaultSliderCard = {
   height: 'auto',
 };
@@ -25,5 +30,6 @@ export default {
   wrapper,
   headline,
   defaultSliderContainer,
+  defaultSliderItem,
   defaultSliderCard,
 };

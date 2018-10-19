@@ -32,15 +32,17 @@ const Item = ({
   }
 
   return (
-    <Card className={styles.defaultSliderCard}>
-      <ProductCard
-        product={product}
-        hideName={!showName}
-        hidePrice={!showPrice}
-        hideRating
-        titleRows={titleRows}
-      />
-    </Card>
+    <div className={styles.defaultSliderItem}>
+      <Card className={styles.defaultSliderCard}>
+        <ProductCard
+          product={product}
+          hideName={!showName}
+          hidePrice={!showPrice}
+          hideRating
+          titleRows={titleRows}
+        />
+      </Card>
+    </div>
   );
 };
 

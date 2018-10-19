@@ -14,6 +14,7 @@
 - It's possible to configure how many lines of item name is visible in the Product Card.
 ### Fixed
 - Fixes small issues related to router problems.
+- Product Cards has same heights even if content differs.
 
 ## [1.0.0] - 2018-10-16
 First version of the extension.
