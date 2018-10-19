@@ -13,6 +13,7 @@ const mockedConfig = {
 };
 jest.mock('../../helpers/getConfig', () => () => mockedConfig);
 
+// eslint-disable-next-line require-jsdoc
 const MockedSheet = () => (<div>Hello world</div>);
 jest.mock('../Sheet', () => MockedSheet);
 
