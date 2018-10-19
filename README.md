@@ -6,7 +6,8 @@ Frontend extension which shows the upselling/related products slider on a Produc
 
 ## Configuration
 
-Currently it's possible to configure a slider which is rendered on the Product Detail Page.
+Currently it's possible to configure a slider which is rendered on the Product Detail Page and a product list which is shown as a Sheet/Drawer after user adds a product to a cart on Product Detail Page.
+
 The configuration is done in the deployment process, as an extension config.
 
 Product Detail Page configuration is a json with a following schema
@@ -22,6 +23,17 @@ Product Detail Page configuration is a json with a following schema
 }
 ```
 
+Product page add to cart sheet is a json with following schema:
+```json
+{
+    "productPageAddToCart": {
+        "type": "Relation type. If empty Sheet will never appear. Possible: upselling, crossSelling, bonus, boughtWith, custom.",
+        "headline": "Headline text rendered as a Sheet title. If empty Sheet will never appear.",
+        "showPrice": "Boolean. If not true, no product price is shown",
+        "showName": "Boolean. If not true, no product name is shown"
+    }
+}
+```
 
 ## About Shopgate
 

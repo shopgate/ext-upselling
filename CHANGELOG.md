@@ -8,6 +8,12 @@
 ### Fixed
 ### Removed
 
+## [1.1.0] - 2018-10-19
+### Added
+Upselling product list shown within a Sheet/Drawer which opens on `AddToCartSuccess` action.
+### Fixed
+Fixes small issues related to router problems.
+
 ## [1.0.0] - 2018-10-16
 First version of the extension.
 ### Added
@@ -17,5 +23,6 @@ First version of the extension.
 ### Added
 Initial commmit.
 
-[Unreleased]: https://github.com/shopgate/ext-upselling/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/shopgate/ext-upselling/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/shopgate/ext-upselling/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/shopgate/ext-upselling/compare/v0.0.1...v1.0.0
