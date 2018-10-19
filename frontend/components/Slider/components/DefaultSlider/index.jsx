@@ -20,6 +20,7 @@ const DefaultSlider = ({
   productIds,
   showPrice,
   showName,
+  titleRows
 }) => (
   <Slider
     slidesPerView={2.3}
@@ -37,6 +38,7 @@ const DefaultSlider = ({
               product={product}
               showPrice={showPrice}
               showName={showName}
+              titleRows={titleRows}
             />
           </Slider.Item>
         );
@@ -50,6 +52,7 @@ DefaultSlider.propTypes = {
   products: PropTypes.shape({}),
   showName: PropTypes.bool,
   showPrice: PropTypes.bool,
+  titleRows: PropTypes.number,
 };
 
 DefaultSlider.defaultProps = {
@@ -57,6 +60,7 @@ DefaultSlider.defaultProps = {
   products: [],
   showPrice: false,
   showName: false,
+  titleRows: 2,
 };
 
 export default DefaultSlider;

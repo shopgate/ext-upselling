@@ -23,6 +23,7 @@ exports[`PDPSlider should render with price and names 1`] = `
         productId="mockedProductId"
         showName={true}
         showPrice={true}
+        titleRows={2}
         type="mockedType"
       >
         <MockedDummyComponent
@@ -30,6 +31,7 @@ exports[`PDPSlider should render with price and names 1`] = `
           productId="mockedProductId"
           showName={true}
           showPrice={true}
+          titleRows={2}
           type="mockedType"
         >
           <div>
@@ -65,6 +67,7 @@ exports[`PDPSlider should render without price and names as default 1`] = `
         productId="mockedProductId"
         showName={false}
         showPrice={false}
+        titleRows={2}
         type="mockedType"
       >
         <MockedDummyComponent
@@ -72,6 +75,7 @@ exports[`PDPSlider should render without price and names as default 1`] = `
           productId="mockedProductId"
           showName={false}
           showPrice={false}
+          titleRows={2}
           type="mockedType"
         >
           <div>

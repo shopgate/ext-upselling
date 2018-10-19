@@ -10,9 +10,10 @@
 
 ## [1.1.0] - 2018-10-19
 ### Added
-Upselling product list shown within a Sheet/Drawer which opens on `AddToCartSuccess` action.
+- Upselling product list shown within a Sheet/Drawer which opens on `AddToCartSuccess` action.
+- It's possible to configure how many lines of item name is visible in the Product Card.
 ### Fixed
-Fixes small issues related to router problems.
+- Fixes small issues related to router problems.
 
 ## [1.0.0] - 2018-10-16
 First version of the extension.

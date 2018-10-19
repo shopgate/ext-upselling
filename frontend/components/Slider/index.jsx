@@ -25,6 +25,7 @@ class Slider extends Component {
     products: PropTypes.shape({}),
     showName: PropTypes.bool,
     showPrice: PropTypes.bool,
+    titleRows: PropTypes.number,
   };
 
   static defaultProps = {
@@ -32,6 +33,7 @@ class Slider extends Component {
     products: [],
     showName: false,
     showPrice: false,
+    titleRows: 2,
   };
 
   /**
@@ -62,6 +64,7 @@ class Slider extends Component {
           productIds={this.props.productIds}
           showPrice={this.props.showPrice}
           showName={this.props.showName}
+          titleRows={this.props.titleRows}
         />
       </div>
     );

@@ -34,6 +34,7 @@ const Sheet = (props) => (
       showName={props.showName}
       showPrice={props.showPrice}
       itemsPerLine={getItemsPerLine(props.productsCount)}
+      titleRows={props.titleRows}
     />
   </SheetComponent>
 );
@@ -46,6 +47,7 @@ Sheet.propTypes = {
   productsCount: PropTypes.number.isRequired,
   showName: PropTypes.bool.isRequired,
   showPrice: PropTypes.bool.isRequired,
+  titleRows: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
 };
 

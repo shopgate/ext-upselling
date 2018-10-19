@@ -25,6 +25,7 @@ class Grid extends Component {
     products: PropTypes.shape({}),
     showName: PropTypes.bool,
     showPrice: PropTypes.bool,
+    titleRows: PropTypes.number,
   };
 
   static defaultProps = {
@@ -33,6 +34,7 @@ class Grid extends Component {
     products: [],
     showName: false,
     showPrice: false,
+    titleRows: 2,
   };
 
   /**
@@ -70,6 +72,7 @@ class Grid extends Component {
                     product={product}
                     showPrice={this.props.showPrice}
                     showName={this.props.showName}
+                    titleRows={this.props.titleRows}
                   />
                 </GridComponent.Item>
               );

@@ -129,9 +129,10 @@ class PDPSheet extends Component {
         productId={this.props.productId}
         isOpen={this.state.isOpen}
         onClose={this.handleClose}
-        showName={productPageAddToCart.showName}
-        showPrice={productPageAddToCart.showPrice}
         headline={productPageAddToCart.headline}
+        showName={productPageAddToCart.showName || false}
+        showPrice={productPageAddToCart.showPrice || false}
+        titleRows={productPageAddToCart.nameLines || 2}
       />
     );
   }

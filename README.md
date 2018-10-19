@@ -18,7 +18,8 @@ Product Detail Page configuration is a json with a following schema
         "position": "Portal position. If empty no slider is rendered on Product Page. Possible portal positions: product.description.after, product.header.after.",
         "headline": "Headline text rendered before the slider. If null or empty string, not headline is rendered.",
         "showPrice": "Boolean. If not true, no product price is shown",
-        "showName": "Boolean. If not true, no product name is shown"
+        "showName": "Boolean. If not true, no product name is shown",
+        "nameLines": "Number. Maximum lines item name should be possible. If empty defaults to 2",
     }
 }
 ```
@@ -30,7 +31,8 @@ Product page add to cart sheet is a json with following schema:
         "type": "Relation type. If empty Sheet will never appear. Possible: upselling, crossSelling, bonus, boughtWith, custom.",
         "headline": "Headline text rendered as a Sheet title. If empty Sheet will never appear.",
         "showPrice": "Boolean. If not true, no product price is shown",
-        "showName": "Boolean. If not true, no product name is shown"
+        "showName": "Boolean. If not true, no product name is shown",
+        "nameLines": "Number. Maximum lines item name should be possible. If empty defaults to 2",
     }
 }
 ```

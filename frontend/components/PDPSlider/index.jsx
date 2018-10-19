@@ -48,6 +48,7 @@ class PDPSlider extends Component {
         productId={this.props.productId}
         showPrice={productPage.showPrice || false}
         showName={productPage.showName || false}
+        titleRows={productPage.nameLines || 2}
       />
     );
   }
