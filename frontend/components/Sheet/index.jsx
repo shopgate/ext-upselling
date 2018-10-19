@@ -27,6 +27,7 @@ const Sheet = (props) => (
     contentClassName={styles.content(props.productsCount)}
     isOpen={props.isOpen && props.productsCount > 0}
     onClose={props.onClose}
+    backdrop={false}
   >
     <Grid
       productId={props.productId}

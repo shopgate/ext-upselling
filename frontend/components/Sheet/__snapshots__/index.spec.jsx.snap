@@ -34,7 +34,8 @@ exports[`Sheet should keep the sheet closed when there are no items to show 1`] 
       type="mockedType"
     >
       <MockedSheetComponent
-        className="css-dctx2g"
+        backdrop={false}
+        className="css-3g7q4h"
         contentClassName="css-19olcfv"
         isOpen={false}
         onClose={[Function]}
@@ -95,7 +96,8 @@ exports[`Sheet should render with 1 item per line 1`] = `
       type="mockedType"
     >
       <MockedSheetComponent
-        className="css-domgpv"
+        backdrop={false}
+        className="css-k24m6j"
         contentClassName="css-1vybkpy"
         isOpen={false}
         onClose={[Function]}
@@ -156,7 +158,8 @@ exports[`Sheet should render with 2 items per line 1`] = `
       type="mockedType"
     >
       <MockedSheetComponent
-        className="css-dctx2g"
+        backdrop={false}
+        className="css-3g7q4h"
         contentClassName="css-19olcfv"
         isOpen={false}
         onClose={[Function]}
@@ -217,7 +220,8 @@ exports[`Sheet should render with 3 items per line as default 1`] = `
       type="mockedType"
     >
       <MockedSheetComponent
-        className="css-dctx2g"
+        backdrop={false}
+        className="css-3g7q4h"
         contentClassName="css-19olcfv"
         isOpen={false}
         onClose={[Function]}
