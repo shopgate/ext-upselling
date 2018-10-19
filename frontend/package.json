@@ -11,12 +11,12 @@
     "coverage:watch": "npm run coverage -- --watch"
   },
   "devDependencies": {
-    "@shopgate/eslint-config": "5.9.0-beta.18",
-    "@shopgate/pwa-common": "5.9.0-beta.18",
-    "@shopgate/pwa-common-commerce": "5.9.0-beta.18",
-    "@shopgate/pwa-core": "5.9.0-beta.18",
-    "@shopgate/pwa-ui-shared": "5.9.0-beta.18",
-    "@shopgate/pwa-unit-test": "5.9.0-beta.18",
+    "@shopgate/eslint-config": "5.9.0-beta.19",
+    "@shopgate/pwa-common": "5.9.0-beta.19",
+    "@shopgate/pwa-common-commerce": "5.9.0-beta.19",
+    "@shopgate/pwa-core": "5.9.0-beta.19",
+    "@shopgate/pwa-ui-shared": "5.9.0-beta.19",
+    "@shopgate/pwa-unit-test": "5.9.0-beta.19",
     "babel-core": "^6.26.3",
     "babel-plugin-dynamic-import-webpack": "^1.0.2",
     "babel-plugin-lodash": "^3.3.2",
