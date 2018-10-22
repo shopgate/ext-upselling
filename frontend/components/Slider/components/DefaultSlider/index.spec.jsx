@@ -49,7 +49,7 @@ describe('DefaultSlider', () => {
         },
       },
     };
-    const component = mount(<DefaultSlider products={products} productIds={['mockedId']}/>);
+    const component = mount(<DefaultSlider products={products} productIds={['mockedId']} />);
     expect(component.find('Item').exists()).toBe(true);
     expect(component.find(IOSProductCard).exists()).toBe(true);
     expect(component).toMatchSnapshot();
@@ -57,7 +57,7 @@ describe('DefaultSlider', () => {
 
   it('should render a placeholder', () => {
     const products = {};
-    const component = mount(<DefaultSlider products={products} productIds={['mockedId']}/>);
+    const component = mount(<DefaultSlider products={products} productIds={['mockedId']} />);
     expect(component.find('Item').exists()).toBe(true);
     expect(component.find(PlaceholderCard).exists()).toBe(true);
     expect(component).toMatchSnapshot();

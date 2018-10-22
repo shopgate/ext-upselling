@@ -6,6 +6,11 @@ import Grid from '../../components/Grid';
 import styles from '../../styles/sheet';
 import { getProductRelationsFiltered } from '../../selectors';
 
+/**
+ * Gets items per line.
+ * @param {number} count Count.
+ * @returns {number}
+ */
 const getItemsPerLine = (count) => {
   if (count && count <= 2) {
     return count;
@@ -20,7 +25,7 @@ const getItemsPerLine = (count) => {
  * @param {Object} props Props.
  * @returns {JSX}
  */
-const Sheet = (props) => (
+const Sheet = props => (
   <SheetComponent
     title={props.headline}
     className={styles.sheet(props.productsCount)}

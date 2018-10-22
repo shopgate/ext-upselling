@@ -28,7 +28,7 @@ const sheet = itemsCount => css({
  * @param {number} itemsCount How many items are visible.
  * @returns {string}
  */
-const content = itemsCount =>  css({
+const content = itemsCount => css({
   maxHeight: `calc(${getBaseHeight(itemsCount)} - 56px - var(--safe-area-inset-top))`,
 }).toString();
 
