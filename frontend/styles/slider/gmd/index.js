@@ -24,6 +24,7 @@ const defaultSliderItem = {
 
 const defaultSliderCard = {
   height: 'auto',
+  width: '100%',
 };
 
 export default {
