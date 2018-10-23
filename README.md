@@ -33,6 +33,7 @@ Product page add to cart sheet is a json with following schema:
         "showPrice": "Boolean. If not true, no product price is shown",
         "showName": "Boolean. If not true, no product name is shown",
         "nameLines": "Number. Maximum lines item name should be possible. If empty defaults to 2",
+        "maxItemsPerLine": "Number. Maximum items per line. If empty defaults to 3. Must be a number between 1 and 3."
     }
 }
 ```

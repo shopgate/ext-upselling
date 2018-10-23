@@ -16,6 +16,7 @@ exports[`Sheet should keep the sheet closed when there are no items to show 1`] 
   <Connect(Sheet)
     headline="Mocked headline"
     isOpen={true}
+    maxItemsPerLine={3}
     onClose={[Function]}
     productId="mockedId"
     showName={true}
@@ -27,6 +28,7 @@ exports[`Sheet should keep the sheet closed when there are no items to show 1`] 
       dispatch={[Function]}
       headline="Mocked headline"
       isOpen={true}
+      maxItemsPerLine={3}
       onClose={[Function]}
       productId="mockedId"
       productsCount={0}
@@ -37,8 +39,8 @@ exports[`Sheet should keep the sheet closed when there are no items to show 1`] 
     >
       <MockedSheetComponent
         backdrop={false}
-        className="css-3g7q4h"
-        contentClassName="css-19olcfv"
+        className="css-k24m6j"
+        contentClassName="css-1vybkpy"
         isOpen={false}
         onClose={[Function]}
         title="Mocked headline"
@@ -81,6 +83,7 @@ exports[`Sheet should render with 1 item per line 1`] = `
   <Connect(Sheet)
     headline="Mocked headline"
     isOpen={false}
+    maxItemsPerLine={3}
     onClose={[Function]}
     productId="mockedId"
     showName={true}
@@ -92,6 +95,7 @@ exports[`Sheet should render with 1 item per line 1`] = `
       dispatch={[Function]}
       headline="Mocked headline"
       isOpen={false}
+      maxItemsPerLine={3}
       onClose={[Function]}
       productId="mockedId"
       productsCount={1}
@@ -146,6 +150,7 @@ exports[`Sheet should render with 2 items per line 1`] = `
   <Connect(Sheet)
     headline="Mocked headline"
     isOpen={false}
+    maxItemsPerLine={3}
     onClose={[Function]}
     productId="mockedId"
     showName={true}
@@ -157,6 +162,7 @@ exports[`Sheet should render with 2 items per line 1`] = `
       dispatch={[Function]}
       headline="Mocked headline"
       isOpen={false}
+      maxItemsPerLine={3}
       onClose={[Function]}
       productId="mockedId"
       productsCount={2}
@@ -167,8 +173,8 @@ exports[`Sheet should render with 2 items per line 1`] = `
     >
       <MockedSheetComponent
         backdrop={false}
-        className="css-3g7q4h"
-        contentClassName="css-19olcfv"
+        className="css-k24m6j"
+        contentClassName="css-1vybkpy"
         isOpen={false}
         onClose={[Function]}
         title="Mocked headline"
@@ -211,6 +217,7 @@ exports[`Sheet should render with 3 items per line as default 1`] = `
   <Connect(Sheet)
     headline="Mocked headline"
     isOpen={false}
+    maxItemsPerLine={3}
     onClose={[Function]}
     productId="mockedId"
     showName={true}
@@ -222,6 +229,7 @@ exports[`Sheet should render with 3 items per line as default 1`] = `
       dispatch={[Function]}
       headline="Mocked headline"
       isOpen={false}
+      maxItemsPerLine={3}
       onClose={[Function]}
       productId="mockedId"
       productsCount={3}
@@ -232,8 +240,8 @@ exports[`Sheet should render with 3 items per line as default 1`] = `
     >
       <MockedSheetComponent
         backdrop={false}
-        className="css-3g7q4h"
-        contentClassName="css-19olcfv"
+        className="css-k24m6j"
+        contentClassName="css-1vybkpy"
         isOpen={false}
         onClose={[Function]}
         title="Mocked headline"

@@ -28,6 +28,7 @@ describe('Sheet', () => {
     showPrice: true,
     type: 'mockedType',
     titleRows: 3,
+    maxItemsPerLine: 3,
   };
 
   it('should render with 3 items per line as default', () => {

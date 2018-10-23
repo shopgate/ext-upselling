@@ -9,9 +9,14 @@ import { getProductRelationsFiltered } from '../../selectors';
 /**
  * Gets items per line.
  * @param {number} count Count.
+ * @param {number} max Maximum allowed.
  * @returns {number}
  */
-const getItemsPerLine = (count) => {
+const getItemsPerLine = (count, max) => {
+  if (count >= max) {
+    return max;
+  }
+
   if (count && count <= 2) {
     return count;
   }
@@ -28,8 +33,8 @@ const getItemsPerLine = (count) => {
 const Sheet = props => (
   <SheetComponent
     title={props.headline}
-    className={styles.sheet(props.productsCount)}
-    contentClassName={styles.content(props.productsCount)}
+    className={styles.sheet(props.productsCount, props.maxItemsPerLine)}
+    contentClassName={styles.content(props.productsCount, props.maxItemsPerLine)}
     isOpen={props.isOpen && props.productsCount > 0}
     onClose={props.onClose}
     backdrop={false}
@@ -39,7 +44,7 @@ const Sheet = props => (
       type={props.type}
       showName={props.showName}
       showPrice={props.showPrice}
-      itemsPerLine={getItemsPerLine(props.productsCount)}
+      itemsPerLine={getItemsPerLine(props.productsCount, props.maxItemsPerLine)}
       titleRows={props.titleRows}
     />
   </SheetComponent>
@@ -48,6 +53,7 @@ const Sheet = props => (
 Sheet.propTypes = {
   headline: PropTypes.string.isRequired,
   isOpen: PropTypes.bool.isRequired,
+  maxItemsPerLine: PropTypes.number.isRequired,
   onClose: PropTypes.func.isRequired,
   productId: PropTypes.string.isRequired,
   productsCount: PropTypes.number.isRequired,

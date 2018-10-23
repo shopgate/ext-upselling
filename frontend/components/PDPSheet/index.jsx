@@ -26,6 +26,21 @@ class PDPSheet extends Component {
   };
 
   /**
+   * Gets max items per line from config or falls back to 3 is config is invalid or missing.
+   * @returns {number}
+   */
+  static get maxItemsPerLine() {
+    if (
+      productPageAddToCart.maxItemsPerLine >= 1
+      && productPageAddToCart.maxItemsPerLine <= 3
+    ) {
+      return productPageAddToCart.maxItemsPerLine;
+    }
+
+    return 3;
+  }
+
+  /**
    * Constructor.
    * @inheritDoc
    */
@@ -133,6 +148,7 @@ class PDPSheet extends Component {
         showName={productPageAddToCart.showName || false}
         showPrice={productPageAddToCart.showPrice || false}
         titleRows={productPageAddToCart.nameLines || 2}
+        maxItemsPerLine={this.constructor.maxItemsPerLine}
       />
     );
   }

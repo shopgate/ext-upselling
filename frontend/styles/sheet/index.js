@@ -3,33 +3,43 @@ import { css } from 'glamor';
 /**
  * Base height helper.
  * @param {number} itemsCount How many items are visible.
+ * @param {number} maxAllowed Maximum allowed items per line.
  * @returns {string}
  */
-const getBaseHeight = (itemsCount) => {
-  if (itemsCount === 1) {
-    return '200vw';
+const getBaseHeight = (itemsCount, maxAllowed) => {
+  if (itemsCount > maxAllowed) {
+    switch (maxAllowed) {
+      case 1:
+        return '150vw';
+      case 2:
+        return '125vw';
+      default:
+        return '100vw';
+    }
   }
-
-  return '100vw';
+  // Items count less or equal max -> one line, no need to shrink it.
+  return '200vw';
 };
 
 /**
  * Sheet.
  * @param {number} itemsCount How many items are visible.
+ * @param {number} maxAllowed Maximum allowed items per line
  * @returns {string}
  */
-const sheet = itemsCount => css({
-  maxHeight: getBaseHeight(itemsCount),
+const sheet = (itemsCount, maxAllowed) => css({
+  maxHeight: getBaseHeight(itemsCount, maxAllowed),
   boxShadow: '0 0 5px rgba(0,0,0,0.5)',
 }).toString();
 
 /**
  * Content.
  * @param {number} itemsCount How many items are visible.
+ * @param {number} maxAllowed Maximum allowed items per line
  * @returns {string}
  */
-const content = itemsCount => css({
-  maxHeight: `calc(${getBaseHeight(itemsCount)} - 56px - var(--safe-area-inset-top))`,
+const content = (itemsCount, maxAllowed) => css({
+  maxHeight: `calc(${getBaseHeight(itemsCount, maxAllowed)} - 56px - var(--safe-area-inset-top))`,
 }).toString();
 
 export default {
