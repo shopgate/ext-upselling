@@ -11,7 +11,7 @@ import styles from '../../styles/grid';
 import Item from '../Item';
 
 /**
- * Slider component. Takes productId, type and additional props and renders Slider with real
+ * Grid component. Takes productId, type and additional props and renders Slider with real
  * products.
  */
 class Grid extends Component {

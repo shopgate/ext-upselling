@@ -129,12 +129,14 @@ describe('PDPSheet', () => {
       // Simulate add to cart event
       addToCartSuccessFunc();
       expect(instance.state.isOpen).toBe(true);
+      expect(component.html()).not.toBe(null);
     });
 
     it('should react on route did change', () => {
       // Simulate route did change.
       routeDidChangeFunc();
       expect(instance.state.isOpen).toBe(false);
+      expect(component.html()).not.toBe(null);
     });
 
     it('should update when productId changes', () => {
