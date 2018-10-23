@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sheet should keep the sheet closed when there are no items to show 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Sheet)
+    headline="Mocked headline"
+    isOpen={true}
+    maxItemsPerLine={3}
+    onClose={[Function]}
+    productId="mockedId"
+    showName={true}
+    showPrice={true}
+    titleRows={3}
+    type="mockedType"
+  >
+    <Sheet
+      dispatch={[Function]}
+      headline="Mocked headline"
+      isOpen={true}
+      maxItemsPerLine={3}
+      onClose={[Function]}
+      productId="mockedId"
+      productsCount={0}
+      showName={true}
+      showPrice={true}
+      titleRows={3}
+      type="mockedType"
+    >
+      <MockedSheetComponent
+        backdrop={false}
+        className="css-k24m6j"
+        contentClassName="css-1vybkpy"
+        isOpen={false}
+        onClose={[Function]}
+        title="Mocked headline"
+      >
+        <div
+          id="sheet"
+        >
+          <MockedGridComponent
+            itemsPerLine={3}
+            productId="mockedId"
+            showName={true}
+            showPrice={true}
+            titleRows={3}
+            type="mockedType"
+          >
+            <div>
+              Hello world
+            </div>
+          </MockedGridComponent>
+        </div>
+      </MockedSheetComponent>
+    </Sheet>
+  </Connect(Sheet)>
+</Provider>
+`;
+
+exports[`Sheet should render with 1 item per line 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Sheet)
+    headline="Mocked headline"
+    isOpen={false}
+    maxItemsPerLine={3}
+    onClose={[Function]}
+    productId="mockedId"
+    showName={true}
+    showPrice={true}
+    titleRows={3}
+    type="mockedType"
+  >
+    <Sheet
+      dispatch={[Function]}
+      headline="Mocked headline"
+      isOpen={false}
+      maxItemsPerLine={3}
+      onClose={[Function]}
+      productId="mockedId"
+      productsCount={1}
+      showName={true}
+      showPrice={true}
+      titleRows={3}
+      type="mockedType"
+    >
+      <MockedSheetComponent
+        backdrop={false}
+        className="css-k24m6j"
+        contentClassName="css-1vybkpy"
+        isOpen={false}
+        onClose={[Function]}
+        title="Mocked headline"
+      >
+        <div
+          id="sheet"
+        >
+          <MockedGridComponent
+            itemsPerLine={1}
+            productId="mockedId"
+            showName={true}
+            showPrice={true}
+            titleRows={3}
+            type="mockedType"
+          >
+            <div>
+              Hello world
+            </div>
+          </MockedGridComponent>
+        </div>
+      </MockedSheetComponent>
+    </Sheet>
+  </Connect(Sheet)>
+</Provider>
+`;
+
+exports[`Sheet should render with 2 items per line 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Sheet)
+    headline="Mocked headline"
+    isOpen={false}
+    maxItemsPerLine={3}
+    onClose={[Function]}
+    productId="mockedId"
+    showName={true}
+    showPrice={true}
+    titleRows={3}
+    type="mockedType"
+  >
+    <Sheet
+      dispatch={[Function]}
+      headline="Mocked headline"
+      isOpen={false}
+      maxItemsPerLine={3}
+      onClose={[Function]}
+      productId="mockedId"
+      productsCount={2}
+      showName={true}
+      showPrice={true}
+      titleRows={3}
+      type="mockedType"
+    >
+      <MockedSheetComponent
+        backdrop={false}
+        className="css-k24m6j"
+        contentClassName="css-1vybkpy"
+        isOpen={false}
+        onClose={[Function]}
+        title="Mocked headline"
+      >
+        <div
+          id="sheet"
+        >
+          <MockedGridComponent
+            itemsPerLine={2}
+            productId="mockedId"
+            showName={true}
+            showPrice={true}
+            titleRows={3}
+            type="mockedType"
+          >
+            <div>
+              Hello world
+            </div>
+          </MockedGridComponent>
+        </div>
+      </MockedSheetComponent>
+    </Sheet>
+  </Connect(Sheet)>
+</Provider>
+`;
+
+exports[`Sheet should render with 3 items per line as default 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Sheet)
+    headline="Mocked headline"
+    isOpen={false}
+    maxItemsPerLine={3}
+    onClose={[Function]}
+    productId="mockedId"
+    showName={true}
+    showPrice={true}
+    titleRows={3}
+    type="mockedType"
+  >
+    <Sheet
+      dispatch={[Function]}
+      headline="Mocked headline"
+      isOpen={false}
+      maxItemsPerLine={3}
+      onClose={[Function]}
+      productId="mockedId"
+      productsCount={3}
+      showName={true}
+      showPrice={true}
+      titleRows={3}
+      type="mockedType"
+    >
+      <MockedSheetComponent
+        backdrop={false}
+        className="css-k24m6j"
+        contentClassName="css-1vybkpy"
+        isOpen={false}
+        onClose={[Function]}
+        title="Mocked headline"
+      >
+        <div
+          id="sheet"
+        >
+          <MockedGridComponent
+            itemsPerLine={3}
+            productId="mockedId"
+            showName={true}
+            showPrice={true}
+            titleRows={3}
+            type="mockedType"
+          >
+            <div>
+              Hello world
+            </div>
+          </MockedGridComponent>
+        </div>
+      </MockedSheetComponent>
+    </Sheet>
+  </Connect(Sheet)>
+</Provider>
+`;
