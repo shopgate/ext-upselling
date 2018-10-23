@@ -20,6 +20,7 @@ exports[`Sheet should keep the sheet closed when there are no items to show 1`] 
     productId="mockedId"
     showName={true}
     showPrice={true}
+    titleRows={3}
     type="mockedType"
   >
     <Sheet
@@ -31,6 +32,7 @@ exports[`Sheet should keep the sheet closed when there are no items to show 1`] 
       productsCount={0}
       showName={true}
       showPrice={true}
+      titleRows={3}
       type="mockedType"
     >
       <MockedSheetComponent
@@ -49,6 +51,7 @@ exports[`Sheet should keep the sheet closed when there are no items to show 1`] 
             productId="mockedId"
             showName={true}
             showPrice={true}
+            titleRows={3}
             type="mockedType"
           >
             <div>
@@ -82,6 +85,7 @@ exports[`Sheet should render with 1 item per line 1`] = `
     productId="mockedId"
     showName={true}
     showPrice={true}
+    titleRows={3}
     type="mockedType"
   >
     <Sheet
@@ -93,6 +97,7 @@ exports[`Sheet should render with 1 item per line 1`] = `
       productsCount={1}
       showName={true}
       showPrice={true}
+      titleRows={3}
       type="mockedType"
     >
       <MockedSheetComponent
@@ -111,6 +116,7 @@ exports[`Sheet should render with 1 item per line 1`] = `
             productId="mockedId"
             showName={true}
             showPrice={true}
+            titleRows={3}
             type="mockedType"
           >
             <div>
@@ -144,6 +150,7 @@ exports[`Sheet should render with 2 items per line 1`] = `
     productId="mockedId"
     showName={true}
     showPrice={true}
+    titleRows={3}
     type="mockedType"
   >
     <Sheet
@@ -155,6 +162,7 @@ exports[`Sheet should render with 2 items per line 1`] = `
       productsCount={2}
       showName={true}
       showPrice={true}
+      titleRows={3}
       type="mockedType"
     >
       <MockedSheetComponent
@@ -173,6 +181,7 @@ exports[`Sheet should render with 2 items per line 1`] = `
             productId="mockedId"
             showName={true}
             showPrice={true}
+            titleRows={3}
             type="mockedType"
           >
             <div>
@@ -206,6 +215,7 @@ exports[`Sheet should render with 3 items per line as default 1`] = `
     productId="mockedId"
     showName={true}
     showPrice={true}
+    titleRows={3}
     type="mockedType"
   >
     <Sheet
@@ -217,6 +227,7 @@ exports[`Sheet should render with 3 items per line as default 1`] = `
       productsCount={3}
       showName={true}
       showPrice={true}
+      titleRows={3}
       type="mockedType"
     >
       <MockedSheetComponent
@@ -235,6 +246,7 @@ exports[`Sheet should render with 3 items per line as default 1`] = `
             productId="mockedId"
             showName={true}
             showPrice={true}
+            titleRows={3}
             type="mockedType"
           >
             <div>
