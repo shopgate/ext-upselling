@@ -8,7 +8,7 @@
 ### Fixed
 ### Removed
 
-## [1.0.0] - 2018-10-23
+## [1.1.0] - 2018-10-23
 First version of the extension.
 ### Added
 - Upselling slider which is shown on the Product Detail Page within the configured portal position. Slider shows image (always), name (optional) and price (optional).
@@ -19,5 +19,5 @@ First version of the extension.
 ### Added
 Initial commmit.
 
-[Unreleased]: https://github.com/shopgate/ext-upselling/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/shopgate/ext-upselling/compare/v0.0.1...v1.0.0
+[Unreleased]: https://github.com/shopgate/ext-upselling/compare/v1.1.0...HEAD
+[1.0.0]: https://github.com/shopgate/ext-upselling/compare/v0.0.1...v1.1.0
