@@ -30,6 +30,7 @@ jest.mock('@shopgate/pwa-common-commerce/product/selectors/product', () => ({
 describe('PDPSlider', () => {
   // eslint-disable-next-line global-require
   const PDPSlider = require('./index').default;
+  // eslint-disable-next-line require-jsdoc
   const makeComponent = () => mount((
     <Provider store={configureStore()({})}>
       <PDPSlider />

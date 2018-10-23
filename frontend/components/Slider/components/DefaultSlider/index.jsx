@@ -20,7 +20,7 @@ const DefaultSlider = ({
   productIds,
   showPrice,
   showName,
-  titleRows
+  titleRows,
 }) => (
   <Slider
     slidesPerView={2.3}

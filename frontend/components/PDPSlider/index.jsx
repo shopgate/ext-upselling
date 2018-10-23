@@ -35,6 +35,9 @@ class PDPSlider extends Component {
     return !this.lastProductId;
   }
 
+  /**
+   * @inheritDoc
+   */
   render() {
     if (!this.props.productId) {
       return null;
