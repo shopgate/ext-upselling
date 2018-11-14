@@ -1,8 +1,9 @@
-# Shopgate Connect - Upselling extension
+# Shopgate Connect - Upselling Extension
+
+[![GitHub license](http://dmlc.github.io/img/apache2.svg)](LICENSE)
 [![Build Status](https://travis-ci.org/shopgate/ext-upselling.svg?branch=master)](https://travis-ci.org/shopgate/ext-upselling) [![Coverage Status](https://coveralls.io/repos/github/shopgate/ext-upselling/badge.svg?branch=master)](https://coveralls.io/github/shopgate/ext-upselling?branch=master)
 
 Frontend extension which shows the upselling/related products slider on a Product Detail Page.
-
 
 ## Configuration
 
@@ -38,6 +39,14 @@ Product page add to cart sheet is a json with following schema:
 }
 ```
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) file for more information.
+
+## Contributing
+
+See [CONTRIBUTING.md](docs/CONTRIBUTING.md) file for more information.
+
 ## About Shopgate
 
 Shopgate is the leading mobile commerce platform.
@@ -48,7 +57,6 @@ apps and mobile websites for the iPhone, iPad, Android smartphones and tablets.
 
 ## License
 
-Shopgate Cloud - Extension Boilerplate is available under the Apache License, Version 2.0.
+This extension is available under the Apache License, Version 2.0.
 
-See the [LICENSE](./LICENSE.md) file for more information.
-
+See the [LICENSE](./LICENSE) file for more information.
