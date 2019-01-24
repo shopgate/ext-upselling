@@ -38,7 +38,7 @@ exports[`DefaultSlider should render a placeholder 1`] = `
                 className="css-1jq41uq"
               >
                 <div
-                  className="css-1l0if7f css-1jq41uq"
+                  className="css-10h77kj css-1jq41uq"
                 >
                   <PlaceholderCard
                     hideName={true}

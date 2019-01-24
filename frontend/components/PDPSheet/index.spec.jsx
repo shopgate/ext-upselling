@@ -25,8 +25,8 @@ jest.mock('../../streams', () => ({
 }));
 
 const mockedRouteDidChangeSubscribe = jest.fn();
-jest.mock('@shopgate/pwa-common/streams/history', () => ({
-  routeDidChange$: {
+jest.mock('@shopgate/pwa-common/streams/router', () => ({
+  routeWillEnter$: {
     subscribe: (...args) => mockedRouteDidChangeSubscribe(...args),
   },
 }));

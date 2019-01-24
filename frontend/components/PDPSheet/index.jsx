@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCurrentBaseProductId } from '@shopgate/pwa-common-commerce/product/selectors/product';
-import getProductRelationsAction
-  from '@shopgate/pwa-common-commerce/product/actions/getProductRelations';
-import { routeDidChange$ } from '@shopgate/pwa-common/streams/history';
+import { getBaseProductId } from '@shopgate/pwa-common-commerce/product/selectors/product';
+import fetchProductRelations
+  from '@shopgate/pwa-common-commerce/product/actions/fetchProductRelations';
+import { routeWillLeave$ } from '@shopgate/pwa-common/streams/router';
 import Sheet from '../Sheet';
 import getConfig from '../../helpers/getConfig';
 import { pdpAddToCartSuccess$ } from '../../streams';
@@ -62,7 +62,7 @@ class PDPSheet extends Component {
       return;
     }
     pdpAddToCartSuccess$.subscribe(this.handleOpen);
-    routeDidChange$.subscribe(this.handleClose);
+    routeWillLeave$.subscribe(this.handleClose);
     this.fetchProductData();
   }
 
@@ -100,7 +100,7 @@ class PDPSheet extends Component {
     if (!this.props.productId) {
       return;
     }
-    this.props.dispatch(getProductRelationsAction({
+    this.props.dispatch(fetchProductRelations({
       productId: this.props.productId,
       type: productPageAddToCart.type,
     }));
@@ -156,10 +156,11 @@ class PDPSheet extends Component {
 /**
  * Maps currentProductId to productId prop.
  * @param {Object} state State.
+ * @param {Object} props Props.
  * @returns {Object}
  */
-const mapStateToProps = state => ({
-  productId: getCurrentBaseProductId(state),
+const mapStateToProps = (state, props) => ({
+  productId: getBaseProductId(state, props),
 });
 
 export default connect(mapStateToProps)(PDPSheet);
