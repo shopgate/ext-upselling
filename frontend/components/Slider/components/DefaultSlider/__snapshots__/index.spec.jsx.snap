@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DefaultSlider should  not render when no products are available 1`] = `
+exports[`DefaultSlider should not render when no products are available 1`] = `
 <DefaultSlider
   productIds={
     Array [
