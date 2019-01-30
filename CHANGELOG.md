@@ -2,9 +2,15 @@
  All notable changes to this project will be documented in this file.
  The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
- ## [Unreleased]
+## [Unreleased]
 ### Added
-- logic to handel unavailable related products
+### Changed
+### Fixed
+### Removed
+
+## [1.2.0]
+### Added
+- Logic to handle unavailable related products.
 ### Changed
 ### Fixed
 ### Removed
@@ -16,9 +22,10 @@ First version of the extension.
 - Upselling product list shown within a Sheet/Drawer which opens on `AddToCartSuccess` action.
 - It's possible to configure how many lines of item name is visible in the Product Card.
 
-## [0.0.1] - 2018-10-02
+## 0.0.1 - 2018-10-02
 ### Added
 Initial commmit.
 
 [Unreleased]: https://github.com/shopgate/ext-upselling/compare/v1.1.0...HEAD
-[1.0.0]: https://github.com/shopgate/ext-upselling/compare/v0.0.1...v1.1.0
+[1.2.0]: https://github.com/shopgate/ext-upselling/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/shopgate/ext-upselling/compare/v0.0.1...v1.1.0
