@@ -74,4 +74,58 @@ describe('Grid', () => {
     ));
     expect(component.find(MockedGridComponent.Item).key().startsWith('product')).toBe(true);
   });
+
+  it('should destroy placeholders after 2 seconds', (done) => {
+    mockedProductRelationsFiltered = ['mockedRelationIdOne', 'mockedRelationIdTwo'];
+    mockedRelatedProductsByIdFiltered = {
+      mockedRelationIdOne: {},
+    };
+
+    const component = mount((
+      <Provider store={mockedStore({})}>
+        <Grid {...defaultProps} />
+      </Provider>
+    ));
+    expect(component.find(MockedGridComponent.Item).length).toBe(2);
+    setTimeout(() => {
+      component.update();
+      expect(component.find(MockedGridComponent.Item).length).toBe(1);
+      done();
+    }, 2001);
+  });
+
+  it('should clear timeout when productIds matches available products', () => {
+    jest.useFakeTimers();
+    mockedProductRelationsFiltered = ['mockedRelationIdOne', 'mockedRelationIdTwo'];
+    mockedRelatedProductsByIdFiltered = {
+      mockedRelationIdOne: {},
+      mockedRelationIdTwo: {},
+    };
+
+    const component = mount((
+      <Provider store={mockedStore({})}>
+        <Grid {...defaultProps} />
+      </Provider>
+    ));
+    component.find(Grid).instance().componentWillReceiveProps();
+    component.setProps();
+    expect(clearTimeout).toHaveBeenCalledTimes(1);
+  });
+
+  it('should not clear timeout when productIds do not matche available products', () => {
+    jest.useFakeTimers();
+    mockedProductRelationsFiltered = ['mockedRelationIdOne', 'mockedRelationIdTwo'];
+    mockedRelatedProductsByIdFiltered = {
+      mockedRelationIdOne: {},
+    };
+
+    const component = mount((
+      <Provider store={mockedStore({})}>
+        <Grid {...defaultProps} />
+      </Provider>
+    ));
+    component.find(Grid).instance().componentWillReceiveProps();
+    component.setProps();
+    expect(clearTimeout).toHaveBeenCalledTimes(0);
+  });
 });

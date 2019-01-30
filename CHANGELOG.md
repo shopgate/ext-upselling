@@ -4,6 +4,7 @@
 
  ## [Unreleased]
 ### Added
+- logic to handel unavailable related products
 ### Changed
 ### Fixed
 ### Removed

@@ -55,11 +55,10 @@ describe('DefaultSlider', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should render a placeholder', () => {
+  it('should not render when no products are available', () => {
     const products = {};
     const component = mount(<DefaultSlider products={products} productIds={['mockedId']} />);
-    expect(component.find('Item').exists()).toBe(true);
-    expect(component.find(PlaceholderCard).exists()).toBe(true);
+    expect(component.find('Item').exists()).toBe(false);
     expect(component).toMatchSnapshot();
   });
 });

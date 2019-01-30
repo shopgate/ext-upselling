@@ -10,6 +10,8 @@ import {
 import styles from '../../styles/grid';
 import Item from '../Item';
 
+const REQUEST_TIMEOUT = 2000;
+
 /**
  * Grid component. Takes productId, type and additional props and renders Slider with real
  * products.
@@ -38,7 +40,19 @@ class Grid extends Component {
   };
 
   /**
-   * Fetches the products on component did mouont.
+   * Constructor.
+   * @inheritDoc
+   */
+  constructor(props) {
+    super(props);
+    this.destroyPlaceHolderTimeout = setTimeout(this.checkDestroyPlaceholders, REQUEST_TIMEOUT);
+    this.state = {
+      destroyPlaceHolders: false,
+    };
+  }
+
+  /**
+   * Fetches the products on component did mount.
    */
   componentDidMount() {
     const { dispatch } = this.props;
@@ -49,20 +63,45 @@ class Grid extends Component {
   }
 
   /**
+   * Checks if destroyPlaceHolderTimeout can be cleared
+   * @param {Object} nextProps New props coming in.
+   */
+  componentWillReceiveProps(nextProps) {
+    const nextAvailableProductIds = nextProps.productIds.filter(id => nextProps.products[id]);
+    if (nextAvailableProductIds.length === nextProps.productIds.length) {
+      clearTimeout(this.destroyPlaceHolderTimeout);
+    }
+  }
+
+  /**
+   * Sets destroyPlaceHolders state to true if there are more product ids than products
+   */
+  checkDestroyPlaceholders = () => {
+    const availableProductIds = this.props.productIds.filter(id => this.props.products[id]);
+    if (availableProductIds.length < this.props.productIds.length) {
+      this.setState({ destroyPlaceHolders: true });
+    }
+  }
+
+  /**
    * Renders.
    * @returns {JSX}
    */
   render() {
-    if (!this.props.productIds.length) {
+    const productIdsToUse = this.state.destroyPlaceHolders
+      ? this.props.productIds.filter(id => this.props.products[id])
+      : this.props.productIds;
+
+    if (!productIdsToUse.length) {
       return null;
     }
 
     return (
       <div className={styles.wrapper}>
         {this.props.headline && <h3 className={styles.headline}>{this.props.headline}</h3> }
-        <GridComponent className={styles.wrapper} wrap>
+        <GridComponent className={styles.wrapper} wrap key={`product-relation-grid-${productIdsToUse.length}`}>
           {
-            this.props.productIds.map((id) => {
+            productIdsToUse.map((id) => {
               const product = this.props.products[id];
               const key = product ? `product-${id}` : `placeholder-${id}`;
 
