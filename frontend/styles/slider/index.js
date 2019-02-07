@@ -1,5 +1,5 @@
 import { css } from 'glamor';
-import isiOSTheme from '../../helpers/isiOSTheme';
+import { isIOSTheme } from '@shopgate/pwa-extension-kit/env/helpers';
 import iosStyles from './ios';
 import gmdStyles from './gmd';
 
@@ -8,7 +8,7 @@ import gmdStyles from './gmd';
  * @returns {Object}
  */
 export default () => {
-  const styles = isiOSTheme() ? iosStyles : gmdStyles;
+  const styles = isIOSTheme() ? iosStyles : gmdStyles;
 
   const result = {};
   Object.keys(styles).forEach((key) => {

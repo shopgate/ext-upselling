@@ -16,7 +16,7 @@ jest.mock('./components/DefaultSlider', () => props => (
 ));
 
 const mockedGetProductRelationsAction = jest.fn();
-jest.mock('@shopgate/pwa-common-commerce/product/actions/getProductRelations', () => (...args) => {
+jest.mock('@shopgate/pwa-common-commerce/product/actions/fetchProductRelations', () => (...args) => {
   mockedGetProductRelationsAction(...args);
   return {
     type: 'action',
@@ -27,10 +27,12 @@ const mockedRelatedProducts = [];
 const mockedProductRelations = [];
 jest.mock('@shopgate/pwa-common-commerce/product/selectors/relations', () => ({
   getRelatedProducts: () => () => mockedRelatedProducts,
-  fetchProductRelations: () => () => mockedProductRelations,
+  getProductRelations: () => () => mockedProductRelations,
 }));
 
-jest.mock('../../helpers/isiOSTheme', () => () => false);
+jest.mock('@shopgate/pwa-extension-kit/env/helpers', () => ({
+  isIOSTheme: () => false,
+}));
 
 describe('Slider', () => {
   /**
