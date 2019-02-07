@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 import DefaultSlider from './index';
 import IOSProductCard from '../../../Item/components/ios11/ProductCard';
 import GMDProductCard from '../../../Item/components/gmd/ProductCard';
-import PlaceholderCard from '../../../Item/components/PlaceholderCard';
 
 jest.mock('@shopgate/pwa-common/components/Slider', () => class extends MockedComponent {
   // eslint-disable-next-line require-jsdoc
@@ -15,6 +14,11 @@ jest.mock('@shopgate/pwa-common/components/Slider', () => class extends MockedCo
     return (<div>{ children }</div>);
   }
 });
+// eslint-disable-next-line require-jsdoc, react/prop-types
+const MockedLink = props => <div>{props.children}</div>;
+jest.mock('@shopgate/pwa-common/components/Link', () => props => (
+  <MockedLink {...props}>{props.children}</MockedLink>
+));
 
 let mockedIsiOSTheme = false;
 jest.mock('../../../../helpers/isiOSTheme', () => () => mockedIsiOSTheme);

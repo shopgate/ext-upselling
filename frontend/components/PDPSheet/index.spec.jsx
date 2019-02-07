@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store';
 
 let mockedCurrentBaseProductId = null;
 jest.mock('@shopgate/pwa-common-commerce/product/selectors/product', () => ({
-  getCurrentBaseProductId: () => mockedCurrentBaseProductId,
+  getBaseProductId: () => mockedCurrentBaseProductId,
 }));
 
 const mockedConfig = {
@@ -26,13 +26,13 @@ jest.mock('../../streams', () => ({
 
 const mockedRouteDidChangeSubscribe = jest.fn();
 jest.mock('@shopgate/pwa-common/streams/router', () => ({
-  routeWillEnter$: {
+  routeWillLeave$: {
     subscribe: (...args) => mockedRouteDidChangeSubscribe(...args),
   },
 }));
 
 const mockedGetProductRelations = jest.fn();
-jest.mock('@shopgate/pwa-common-commerce/product/actions/getProductRelations', () => (...args) => {
+jest.mock('@shopgate/pwa-common-commerce/product/actions/fetchProductRelations', () => (...args) => {
   mockedGetProductRelations(...args);
   return { type: 'MOCKED_GET_PRODUCT_RELATIONS' };
 });

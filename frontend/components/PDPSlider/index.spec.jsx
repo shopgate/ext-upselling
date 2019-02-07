@@ -27,6 +27,11 @@ jest.mock('@shopgate/pwa-common-commerce/product/selectors/product', () => ({
   getCurrentBaseProductId: () => mockedProductId,
 }));
 
+jest.mock('@shopgate/pwa-extension-kit/connectors', () => ({
+  withPageProductId: ({ WrappedComponent }) => props =>
+    <WrappedComponent productId={mockedProductId} {...props} />,
+}));
+
 describe('PDPSlider', () => {
   // eslint-disable-next-line global-require
   const PDPSlider = require('./index').default;

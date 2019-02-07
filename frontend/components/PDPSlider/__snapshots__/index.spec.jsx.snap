@@ -13,9 +13,8 @@ exports[`PDPSlider should render with price and names 1`] = `
     }
   }
 >
-  <Connect(PDPSlider)>
+  <Component>
     <PDPSlider
-      dispatch={[Function]}
       productId="mockedProductId"
     >
       <Component
@@ -40,7 +39,7 @@ exports[`PDPSlider should render with price and names 1`] = `
         </MockedDummyComponent>
       </Component>
     </PDPSlider>
-  </Connect(PDPSlider)>
+  </Component>
 </Provider>
 `;
 
@@ -57,9 +56,8 @@ exports[`PDPSlider should render without price and names as default 1`] = `
     }
   }
 >
-  <Connect(PDPSlider)>
+  <Component>
     <PDPSlider
-      dispatch={[Function]}
       productId="mockedProductId"
     >
       <Component
@@ -84,6 +82,6 @@ exports[`PDPSlider should render without price and names as default 1`] = `
         </MockedDummyComponent>
       </Component>
     </PDPSlider>
-  </Connect(PDPSlider)>
+  </Component>
 </Provider>
 `;
