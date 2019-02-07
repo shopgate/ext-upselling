@@ -9,6 +9,7 @@ const wrapper = {
 };
 
 const headline = {
+  fontSize: 18,
   textAlign: 'center',
   margin: `0 0 ${variables.gap.small}px`,
 };

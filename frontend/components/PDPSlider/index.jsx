@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCurrentBaseProductId } from '@shopgate/pwa-common-commerce/product/selectors/product';
+import { getBaseProductId } from '@shopgate/pwa-common-commerce/product/selectors/product';
+import { withPageProductId } from '@shopgate/pwa-extension-kit/connectors';
 import Slider from '../Slider';
 import getConfig from '../../helpers/getConfig';
 
@@ -62,8 +63,8 @@ class PDPSlider extends Component {
  * @param {Object} state State.
  * @returns {Object}
  */
-const mapStateToProps = state => ({
-  productId: getCurrentBaseProductId(state),
+const mapStateToProps = (state, props) => ({
+  productId: getBaseProductId(state, props),
 });
 
-export default connect(mapStateToProps)(PDPSlider);
+export default withPageProductId(connect(mapStateToProps)(PDPSlider));
