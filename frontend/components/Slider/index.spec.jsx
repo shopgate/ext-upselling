@@ -27,7 +27,7 @@ const mockedRelatedProducts = [];
 const mockedProductRelations = [];
 jest.mock('@shopgate/pwa-common-commerce/product/selectors/relations', () => ({
   getRelatedProducts: () => () => mockedRelatedProducts,
-  getProductRelations: () => () => mockedProductRelations,
+  fetchProductRelations: () => () => mockedProductRelations,
 }));
 
 jest.mock('../../helpers/isiOSTheme', () => () => false);
