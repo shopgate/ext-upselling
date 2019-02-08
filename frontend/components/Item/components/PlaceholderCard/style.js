@@ -1,5 +1,5 @@
 import { css } from 'glamor';
-import isiOSTheme from '../../../../helpers/isiOSTheme';
+import { isIOSTheme } from '@shopgate/pwa-extension-kit/env/helpers';
 
 /**
  * Glow animation.
@@ -65,7 +65,7 @@ const getParagraphRemplateRows = (titleRows, hideName) => {
  * @returns {string}
  */
 const getParagraphMarginBottom = (hideName, hidePrice) => {
-  const isIOS = isiOSTheme();
+  const isIOS = isIOSTheme();
   if (hideName && hidePrice) {
     return '0';
   }
@@ -95,7 +95,7 @@ const paragraph = (titleRows, hideName, hidePrice) => css({
   gridTemplateRows: getParagraphRemplateRows(titleRows, hideName),
   marginBottom: getParagraphMarginBottom(hideName, hidePrice), // Price line height
   color: 'transparent',
-  fontSize: isiOSTheme() ? 14 : 'inherit',
+  fontSize: isIOSTheme() ? 14 : 'inherit',
 }).toString();
 
 export default {

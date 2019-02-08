@@ -1,14 +1,13 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { bin2hex } from '@shopgate/pwa-common/helpers/data';
-import Link from '@shopgate/pwa-common/components/Router/components/Link';
+import Link from '@shopgate/pwa-common/components/Link';
 import Ellipsis from '@shopgate/pwa-common/components/Ellipsis';
 import { ITEM_PATH } from '@shopgate/pwa-common-commerce/product/constants/index';
 import Portal from '@shopgate/pwa-common/components/Portal';
 import * as portals from '@shopgate/pwa-common-commerce/category/constants/Portals';
 import RatingStars from '@shopgate/pwa-ui-shared/RatingStars';
 import DiscountBadge from '@shopgate/pwa-ui-shared/DiscountBadge';
-import Trampoline from '../../../../Trampoline';
 import ProductImage from '../ProductImage';
 import ProductGridPrice from '../ProductGridPrice';
 import styles from './style';
@@ -28,7 +27,7 @@ const ProductCard = ({
 }) => (
   <Link
     tagName="a"
-    href={Trampoline.getTrampolineUrl(`${ITEM_PATH}/${bin2hex(product.id)}`)}
+    href={`${ITEM_PATH}/${bin2hex(product.id)}`}
     itemProp="item"
     itemScope
     itemType="http://schema.org/Product"

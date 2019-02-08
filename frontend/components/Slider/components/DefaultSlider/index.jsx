@@ -21,39 +21,31 @@ const DefaultSlider = ({
   showPrice,
   showName,
   titleRows,
-}) => {
-  const availableProductsIds = productIds.filter(id => products[id]);
-  if (!availableProductsIds.length) {
-    return null;
-  }
-
-  return (
-    <Slider
-      slidesPerView={2.3}
-      classNames={{
-        container: styles.defaultSliderContainer,
-      }}
-      key={`product-relations-slider-${availableProductsIds.length}`}
-    >
-      {
-        availableProductsIds.map((id) => {
-          const product = products[id] || undefined;
-          const key = `product-${id}`;
-          return (
-            <Slider.Item key={key}>
-              <Item
-                product={product}
-                showPrice={showPrice}
-                showName={showName}
-                titleRows={titleRows}
-              />
-            </Slider.Item>
-          );
-        })
-      }
-    </Slider>
-  );
-};
+}) => (
+  <Slider
+    slidesPerView={2.3}
+    classNames={{
+      container: styles.defaultSliderContainer,
+    }}
+  >
+    {
+      productIds.map((id) => {
+        const product = products[id] || undefined;
+        const key = product ? `product-${id}` : `placeholder-${id}`;
+        return (
+          <Slider.Item key={key}>
+            <Item
+              product={product}
+              showPrice={showPrice}
+              showName={showName}
+              titleRows={titleRows}
+            />
+          </Slider.Item>
+        );
+      })
+    }
+  </Slider>
+);
 
 DefaultSlider.propTypes = {
   productIds: PropTypes.arrayOf(PropTypes.string),

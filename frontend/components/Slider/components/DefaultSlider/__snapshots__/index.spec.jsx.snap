@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DefaultSlider should not render when no products are available 1`] = `
+exports[`DefaultSlider should not render a placeholder 1`] = `
 <DefaultSlider
   productIds={
     Array [
@@ -11,7 +11,65 @@ exports[`DefaultSlider should not render when no products are available 1`] = `
   showName={false}
   showPrice={false}
   titleRows={2}
-/>
+>
+  <_class
+    classNames={
+      Object {
+        "container": "css-13azwyo",
+      }
+    }
+    slidesPerView={2.3}
+  >
+    <div>
+      <Item
+        key="placeholder-mockedId"
+      >
+        <div>
+          <Item
+            product={null}
+            showName={false}
+            showPrice={false}
+            titleRows={2}
+          >
+            <div
+              className="css-35zqcf"
+            >
+              <Card
+                className="css-1jq41uq"
+              >
+                <div
+                  className="css-10h77kj css-1jq41uq"
+                >
+                  <PlaceholderCard
+                    hideName={true}
+                    hidePrice={true}
+                    hideRating={true}
+                    product={null}
+                    titleRows={2}
+                  >
+                    <div
+                      className="css-1dwnok8"
+                    >
+                      <div
+                        data-test-id="upselling-placeholder-image"
+                      >
+                        <img
+                          alt=""
+                          className="css-1kzppb9"
+                          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAG4CAQAAACdwzo4AAADg0lEQVR42u3TMQ0AAAzDsJU/6f0F0MuGECk5YCYSgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDwwGGA8OB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgMMB4YDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgPDAYYDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAeGAwwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MJwEYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4MBxgODAcYDgwHNAedDYBuQI5h3IAAAAASUVORK5CYII="
+                        />
+                      </div>
+                    </div>
+                  </PlaceholderCard>
+                </div>
+              </Card>
+            </div>
+          </Item>
+        </div>
+      </Item>
+    </div>
+  </_class>
+</DefaultSlider>
 `;
 
 exports[`DefaultSlider should render gmd slider 1`] = `
@@ -43,7 +101,6 @@ exports[`DefaultSlider should render gmd slider 1`] = `
         "container": "css-13azwyo",
       }
     }
-    key="product-relations-slider-1"
     slidesPerView={2.3}
   >
     <div>
@@ -73,7 +130,7 @@ exports[`DefaultSlider should render gmd slider 1`] = `
                 className="css-1jq41uq"
               >
                 <div
-                  className="css-1l0if7f css-1jq41uq"
+                  className="css-10h77kj css-1jq41uq"
                 >
                   <ProductCard
                     hideName={true}
@@ -91,84 +148,84 @@ exports[`DefaultSlider should render gmd slider 1`] = `
                     }
                     titleRows={2}
                   >
-                    <Link
-                      className=""
-                      disabled={false}
-                      href="/trampoline/item/6d6f636b65644964"
+                    <Component
+                      href="/item/6d6f636b65644964"
                       itemProp="item"
                       itemScope={true}
                       itemType="http://schema.org/Product"
                       tagName="a"
                     >
-                      <div
-                        aria-hidden={true}
-                        className="css-c6ki83 "
-                        data-test-id="link: /trampoline/item/6d6f636b65644964"
-                        onClick={[Function]}
-                        role="link"
+                      <MockedLink
+                        href="/item/6d6f636b65644964"
+                        itemProp="item"
+                        itemScope={true}
+                        itemType="http://schema.org/Product"
+                        tagName="a"
                       >
-                        <ProductImage
-                          alt="Mocked Product"
-                          animating={true}
-                          forcePlaceholder={false}
-                          highestResolutionLoaded={[Function]}
-                          itemProp="image"
-                          ratio={null}
-                          resolutions={
-                            Array [
-                              Object {
-                                "blur": 2,
-                                "height": 50,
-                                "width": 50,
-                              },
-                              Object {
-                                "height": 440,
-                                "width": 440,
-                              },
-                            ]
-                          }
-                          src={null}
-                        >
-                          <div
-                            className="css-y5kkpq"
+                        <div>
+                          <ProductImage
+                            alt="Mocked Product"
+                            animating={true}
+                            forcePlaceholder={false}
+                            highestResolutionLoaded={[Function]}
+                            itemProp="image"
+                            ratio={null}
+                            resolutions={
+                              Array [
+                                Object {
+                                  "blur": 2,
+                                  "height": 50,
+                                  "width": 50,
+                                },
+                                Object {
+                                  "height": 440,
+                                  "width": 440,
+                                },
+                              ]
+                            }
+                            src={null}
                           >
                             <div
-                              className="css-15j45j0"
-                              data-test-id="placeHolder"
+                              className="css-y5kkpq"
                             >
-                              <Placeholder
-                                className="css-19rc2oq"
+                              <div
+                                className="css-15j45j0"
+                                data-test-id="placeHolder"
                               >
-                                <Icon
+                                <Placeholder
                                   className="css-19rc2oq"
-                                  color={null}
-                                  content="<circle cx=\\"12\\" cy=\\"12\\" r=\\"3.2\\"/><path d=\\"M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\\"/><path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"/>"
-                                  size="inherit"
-                                  viewBox="0 0 24 24"
                                 >
-                                  <svg
-                                    className="css-yys9hb css-19rc2oq"
-                                    dangerouslySetInnerHTML={
-                                      Object {
-                                        "__html": "<circle cx=\\"12\\" cy=\\"12\\" r=\\"3.2\\"/><path d=\\"M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\\"/><path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"/>",
-                                      }
-                                    }
-                                    style={
-                                      Object {
-                                        "fill": null,
-                                        "fontSize": "inherit",
-                                      }
-                                    }
+                                  <Icon
+                                    className="css-19rc2oq"
+                                    color={null}
+                                    content="<circle cx=\\"12\\" cy=\\"12\\" r=\\"3.2\\"/><path d=\\"M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\\"/><path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"/>"
+                                    size="inherit"
                                     viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  />
-                                </Icon>
-                              </Placeholder>
+                                  >
+                                    <svg
+                                      className="css-yys9hb css-19rc2oq"
+                                      dangerouslySetInnerHTML={
+                                        Object {
+                                          "__html": "<circle cx=\\"12\\" cy=\\"12\\" r=\\"3.2\\"/><path d=\\"M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\\"/><path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"/>",
+                                        }
+                                      }
+                                      style={
+                                        Object {
+                                          "fill": null,
+                                          "fontSize": "inherit",
+                                        }
+                                      }
+                                      viewBox="0 0 24 24"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    />
+                                  </Icon>
+                                </Placeholder>
+                              </div>
                             </div>
-                          </div>
-                        </ProductImage>
-                      </div>
-                    </Link>
+                          </ProductImage>
+                        </div>
+                      </MockedLink>
+                    </Component>
                   </ProductCard>
                 </div>
               </Card>
@@ -210,7 +267,6 @@ exports[`DefaultSlider should render gmd slider 2`] = `
         "container": "css-13azwyo",
       }
     }
-    key="product-relations-slider-1"
     slidesPerView={2.3}
   >
     <div>
@@ -240,7 +296,7 @@ exports[`DefaultSlider should render gmd slider 2`] = `
                 className="css-1jq41uq"
               >
                 <div
-                  className="css-1l0if7f css-1jq41uq"
+                  className="css-10h77kj css-1jq41uq"
                 >
                   <ProductCard
                     hideName={true}
@@ -258,95 +314,97 @@ exports[`DefaultSlider should render gmd slider 2`] = `
                     }
                     titleRows={2}
                   >
-                    <Link
+                    <Component
                       className="css-b4pchx"
-                      disabled={false}
-                      href="/trampoline/item/6d6f636b65644964"
+                      href="/item/6d6f636b65644964"
                       itemProp="item"
                       itemScope={true}
                       itemType="http://schema.org/Product"
                       tagName="a"
                     >
-                      <div
-                        aria-hidden={true}
-                        className="css-c6ki83 css-b4pchx"
-                        data-test-id="link: /trampoline/item/6d6f636b65644964"
-                        onClick={[Function]}
-                        role="link"
+                      <MockedLink
+                        className="css-b4pchx"
+                        href="/item/6d6f636b65644964"
+                        itemProp="item"
+                        itemScope={true}
+                        itemType="http://schema.org/Product"
+                        tagName="a"
                       >
-                        <ProductImage
-                          alt="Mocked Product"
-                          animating={true}
-                          classNames={
-                            Object {
-                              "container": null,
-                              "glowContainer": null,
-                              "imageContainer": null,
+                        <div>
+                          <ProductImage
+                            alt="Mocked Product"
+                            animating={true}
+                            classNames={
+                              Object {
+                                "container": null,
+                                "glowContainer": null,
+                                "imageContainer": null,
+                              }
                             }
-                          }
-                          forcePlaceholder={false}
-                          highestResolutionLoaded={[Function]}
-                          itemProp="image"
-                          ratio={null}
-                          resolutions={
-                            Array [
-                              Object {
-                                "blur": 2,
-                                "height": 50,
-                                "width": 50,
-                              },
-                              Object {
-                                "height": 440,
-                                "width": 440,
-                              },
-                            ]
-                          }
-                          src={null}
-                        >
-                          <div
-                            className="css-3hjqnz"
+                            forcePlaceholder={false}
+                            highestResolutionLoaded={[Function]}
+                            itemProp="image"
+                            ratio={null}
+                            resolutions={
+                              Array [
+                                Object {
+                                  "blur": 2,
+                                  "height": 50,
+                                  "width": 50,
+                                },
+                                Object {
+                                  "height": 440,
+                                  "width": 440,
+                                },
+                              ]
+                            }
+                            src={null}
                           >
                             <div
-                              className="css-y5kkpq"
+                              className="css-3hjqnz"
                             >
                               <div
-                                className="css-15j45j0"
-                                data-test-id="placeHolder"
+                                className="css-y5kkpq"
                               >
-                                <Placeholder
-                                  className="css-19rc2oq"
+                                <div
+                                  className="css-15j45j0"
+                                  data-test-id="placeHolder"
                                 >
-                                  <Icon
+                                  <Placeholder
                                     className="css-19rc2oq"
-                                    color={null}
-                                    content="<circle cx=\\"12\\" cy=\\"12\\" r=\\"3.2\\"/><path d=\\"M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\\"/><path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"/>"
-                                    size="inherit"
-                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      className="css-yys9hb css-19rc2oq"
-                                      dangerouslySetInnerHTML={
-                                        Object {
-                                          "__html": "<circle cx=\\"12\\" cy=\\"12\\" r=\\"3.2\\"/><path d=\\"M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\\"/><path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"/>",
-                                        }
-                                      }
-                                      style={
-                                        Object {
-                                          "fill": null,
-                                          "fontSize": "inherit",
-                                        }
-                                      }
+                                    <Icon
+                                      className="css-19rc2oq"
+                                      color={null}
+                                      content="<circle cx=\\"12\\" cy=\\"12\\" r=\\"3.2\\"/><path d=\\"M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\\"/><path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"/>"
+                                      size="inherit"
                                       viewBox="0 0 24 24"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    />
-                                  </Icon>
-                                </Placeholder>
+                                    >
+                                      <svg
+                                        className="css-yys9hb css-19rc2oq"
+                                        dangerouslySetInnerHTML={
+                                          Object {
+                                            "__html": "<circle cx=\\"12\\" cy=\\"12\\" r=\\"3.2\\"/><path d=\\"M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\\"/><path d=\\"M0 0h24v24H0z\\" fill=\\"none\\"/>",
+                                          }
+                                        }
+                                        style={
+                                          Object {
+                                            "fill": null,
+                                            "fontSize": "inherit",
+                                          }
+                                        }
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      />
+                                    </Icon>
+                                  </Placeholder>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </ProductImage>
-                      </div>
-                    </Link>
+                          </ProductImage>
+                        </div>
+                      </MockedLink>
+                    </Component>
                   </ProductCard>
                 </div>
               </Card>
