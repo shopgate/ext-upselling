@@ -34,7 +34,7 @@ First version of the extension.
 ### Added
 Initial commmit.
 
-[Unreleased]: https://github.com/shopgate/ext-upselling/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/shopgate/ext-upselling/compare/v2.0.0...HEAD
 [2.0.0]: https://github.com/shopgate/ext-upselling/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/shopgate/ext-upselling/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/shopgate/ext-upselling/compare/v0.0.1...v1.1.0

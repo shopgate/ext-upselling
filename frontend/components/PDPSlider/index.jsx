@@ -61,6 +61,7 @@ class PDPSlider extends Component {
 /**
  * Maps state to props.
  * @param {Object} state State.
+ * @param {Object} props Props.
  * @returns {Object}
  */
 const mapStateToProps = (state, props) => ({
