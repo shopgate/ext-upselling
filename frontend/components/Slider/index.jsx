@@ -85,7 +85,7 @@ class Slider extends Component {
       availableProductIds = this.props.productIds.filter(id => this.props.products[id]);
 
       if (availableProductIds.length === 0) {
-        // Should never happen in real life. But it after timeout, there's still not even one
+        // Should never happen in real life. But if after timeout, there's still not even one
         // product available. Hide the whole thing and behave like it never happened.
         this.fatal = true;
         return null;
