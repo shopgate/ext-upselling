@@ -35,10 +35,10 @@ exports[`DefaultSlider should not render a placeholder 1`] = `
               className="css-35zqcf"
             >
               <Card
-                className="css-1jq41uq"
+                className="css-btkp0j"
               >
                 <div
-                  className="css-10h77kj css-1jq41uq"
+                  className="css-10h77kj css-btkp0j"
                 >
                   <PlaceholderCard
                     hideName={true}
@@ -127,10 +127,10 @@ exports[`DefaultSlider should render gmd slider 1`] = `
               className="css-35zqcf"
             >
               <Card
-                className="css-1jq41uq"
+                className="css-btkp0j"
               >
                 <div
-                  className="css-10h77kj css-1jq41uq"
+                  className="css-10h77kj css-btkp0j"
                 >
                   <ProductCard
                     hideName={true}
@@ -293,10 +293,10 @@ exports[`DefaultSlider should render gmd slider 2`] = `
               className="css-35zqcf"
             >
               <Card
-                className="css-1jq41uq"
+                className="css-btkp0j"
               >
                 <div
-                  className="css-10h77kj css-1jq41uq"
+                  className="css-10h77kj css-btkp0j"
                 >
                   <ProductCard
                     hideName={true}
