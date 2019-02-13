@@ -1,10 +1,9 @@
 import { themeConfig } from '@shopgate/pwa-common/helpers/config';
 
-const { colors, variables } = themeConfig;
+const { variables } = themeConfig;
 
 const wrapper = {
-  background: colors.background,
-  padding: variables.gap.small,
+  padding: `${variables.gap.small}px 0`,
   marginBottom: variables.gap.big,
 };
 
@@ -26,6 +25,8 @@ const defaultSliderItem = {
 const defaultSliderCard = {
   height: 'auto',
   width: '100%',
+  marginRight: variables.gap.small,
+  marginLeft: variables.gap.small,
 };
 
 export default {

@@ -4,7 +4,7 @@ export default {
   ...gmdStyles,
   headline: {
     ...gmdStyles.headline,
-    margin: '12px 8px',
+    margin: '12px 16px',
     fontSize: 22,
     textAlign: 'left',
   },
