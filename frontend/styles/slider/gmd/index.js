@@ -1,6 +1,6 @@
 import { themeConfig } from '@shopgate/pwa-common/helpers/config';
 
-const { colors, variables } = themeConfig;
+const { variables } = themeConfig;
 
 const wrapper = {
   padding: `${variables.gap.small}px 0`,
