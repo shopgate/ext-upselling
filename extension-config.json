@@ -1,7 +1,13 @@
 {
-  "version": "2.0.1",
+  "version": "2.0.2",
   "id": "@shopgate/upselling",
   "components": [
+    {
+      "id": "PDPDescriptionBefore",
+      "type": "portals",
+      "path": "frontend/portals/ProductDetailPageSlider",
+      "target": "product.description.before"
+    },
     {
       "id": "PDPDescriptionAfter",
       "type": "portals",
