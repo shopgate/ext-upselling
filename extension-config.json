@@ -1,18 +1,12 @@
 {
-  "version": "2.0.1",
+  "version": "2.1.0",
   "id": "@shopgate/upselling",
   "components": [
     {
-      "id": "PDPDescriptionAfter",
+      "id": "ProductDetailPage",
       "type": "portals",
       "path": "frontend/portals/ProductDetailPageSlider",
-      "target": "product.description.after"
-    },
-    {
-      "id": "PDPHeaderAfter",
-      "type": "portals",
-      "path": "frontend/portals/ProductDetailPageSlider",
-      "target": "product.header.after"
+      "target": ["product.description.before", "product.description.after", "product.header.after"]
     },
     {
       "id": "PDPAddToCartSheet",

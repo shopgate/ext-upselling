@@ -8,6 +8,13 @@
 ### Fixed
 ### Removed
 
+## [2.1.0] - 2019-09-12
+### Added
+- New portal position on Product Detail Page
+### Changed
+### Fixed
+### Removed
+
 ## [2.0.1]
 ### Added
 ### Changed
