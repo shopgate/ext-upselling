@@ -6,7 +6,6 @@ const { colors } = themeConfig;
 const wrapper = css({
   justifyContent: 'flex-start',
   background: colors.background,
-  padding: '0.5em',
 }).toString();
 
 /**

@@ -30,6 +30,7 @@ const getBaseHeight = (itemsCount, maxAllowed) => {
 const sheet = (itemsCount, maxAllowed) => css({
   maxHeight: getBaseHeight(itemsCount, maxAllowed),
   boxShadow: '0 0 5px rgba(0,0,0,0.5)',
+  zIndex: 10,
 }).toString();
 
 /**
