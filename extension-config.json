@@ -12,7 +12,7 @@
       "id": "PDPAddToCartSheet",
       "type": "portals",
       "path": "frontend/portals/ProductDetailPageAddToCartSheet",
-      "target": "app.globals"
+      "target": "view.content.after"
     }
   ],
   "configuration": {

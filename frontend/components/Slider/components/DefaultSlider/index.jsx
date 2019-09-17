@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Slider from '@shopgate/pwa-common/components/Slider';
+import { Swiper } from '@shopgate/engage/components';
 import Item from '../../../../components/Item';
 import getStyles from '../../../../styles/slider';
 
@@ -22,7 +22,7 @@ const DefaultSlider = ({
   showName,
   titleRows,
 }) => (
-  <Slider
+  <Swiper
     slidesPerView={2.3}
     classNames={{
       container: styles.defaultSliderContainer,
@@ -33,18 +33,18 @@ const DefaultSlider = ({
         const product = products[id] || undefined;
         const key = product ? `product-${id}` : `placeholder-${id}`;
         return (
-          <Slider.Item key={key}>
+          <Swiper.Item key={key}>
             <Item
               product={product}
               showPrice={showPrice}
               showName={showName}
               titleRows={titleRows}
             />
-          </Slider.Item>
+          </Swiper.Item>
         );
       })
     }
-  </Slider>
+  </Swiper>
 );
 
 DefaultSlider.propTypes = {

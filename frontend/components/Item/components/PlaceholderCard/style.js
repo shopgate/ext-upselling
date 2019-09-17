@@ -1,6 +1,17 @@
 import { css } from 'glamor';
 import { isIOSTheme } from '@shopgate/pwa-extension-kit/env/helpers';
 
+const details = css({
+  padding: '12px 16px',
+  lineHeight: 1.35,
+}).toString();
+
+const title = css({
+  fontWeight: '500',
+  lineHeight: 1.15,
+  marginTop: 1,
+}).toString();
+
 /**
  * Glow animation.
  */
@@ -99,6 +110,8 @@ const paragraph = (titleRows, hideName, hidePrice) => css({
 }).toString();
 
 export default {
+  details,
+  title,
   wrapper,
   image,
   paragraph,
