@@ -56,7 +56,7 @@ describe('Slider', () => {
       productId: 'mockedId',
       type: 'mockedType',
     });
-    expect(component.html()).toBe(null);
+    expect(component.html()).toBe('');
   });
 
   it('should render a slider', () => {

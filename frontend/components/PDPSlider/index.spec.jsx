@@ -68,7 +68,7 @@ describe('PDPSlider', () => {
     mockedProductId = undefined;
     const component = makeComponent();
 
-    expect(component.html()).toBe(null);
+    expect(component.html()).toBe('');
     expect(component.find('PDPSlider').instance().shouldComponentUpdate()).toBe(true);
     expect(component.find('PDPSlider').instance().shouldComponentUpdate()).toBe(true);
   });

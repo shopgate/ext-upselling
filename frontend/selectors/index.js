@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import {
   getProductRelations,
   getRelatedProducts,
-} from '@shopgate/engage/product';
+} from '@shopgate/pwa-common-commerce/product/selectors/relations';
 
 /**
  * Special selector factory that filters out products with same productId as parent.

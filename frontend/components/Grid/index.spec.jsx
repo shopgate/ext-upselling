@@ -49,7 +49,7 @@ describe('Grid', () => {
         <Grid {...defaultProps} />
       </Provider>
     ));
-    expect(component.html()).toBe(null);
+    expect(component.html()).toBe('');
     expect(mockedGetProductRelationsAction).toHaveBeenCalled();
   });
 
