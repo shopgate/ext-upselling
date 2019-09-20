@@ -5,6 +5,7 @@
 ## [Unreleased]
 ### Added
 ### Changed
+- Changed extension to use ProductCard from engage library.
 ### Fixed
 ### Removed
 

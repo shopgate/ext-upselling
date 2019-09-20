@@ -1,5 +1,5 @@
 {
-  "version": "2.1.0",
+  "version": "3.0.0-rc.1",
   "id": "@shopgate/upselling",
   "components": [
     {
@@ -12,7 +12,7 @@
       "id": "PDPAddToCartSheet",
       "type": "portals",
       "path": "frontend/portals/ProductDetailPageAddToCartSheet",
-      "target": "app.globals"
+      "target": "view.content.after"
     }
   ],
   "configuration": {

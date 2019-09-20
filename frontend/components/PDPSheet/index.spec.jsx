@@ -63,7 +63,7 @@ describe('PDPSheet', () => {
     const component = makeComponent();
     const instance = component.find('PDPSheet').instance();
 
-    expect(component.html()).toBe(null);
+    expect(component.html()).toBe('');
     expect(instance.state.disabled).toBe(false);
     expect(instance.state.isOpen).toBe(false);
     expect(mockedPDPAddToCartSuccessSubscribe).toHaveBeenCalled();
@@ -88,7 +88,7 @@ describe('PDPSheet', () => {
     const component = makeComponent();
     const instance = component.find('PDPSheet').instance();
 
-    expect(component.html()).toBe(null);
+    expect(component.html()).toBe('');
     expect(instance.state.disabled).toBe(true);
     expect(instance.state.isOpen).toBe(false);
     expect(mockedPDPAddToCartSuccessSubscribe).not.toHaveBeenCalled();

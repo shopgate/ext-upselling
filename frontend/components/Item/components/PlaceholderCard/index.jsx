@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './style';
-import cardStyles from '../gmd/ProductCard/style';
 
 /**
  * Placeholder card.
@@ -20,11 +19,11 @@ const PlaceholderCard = ({ titleRows, hideName, hidePrice }) => (
       />
     </div>
     {!(hideName && hidePrice) &&
-      <div className={cardStyles.details} data-test-id="upselling-placeholder-details">
+      <div className={styles.details} data-test-id="upselling-placeholder-details">
         <div
           className={[
             styles.paragraph(titleRows, hideName, hidePrice),
-            cardStyles.title,
+            styles.title,
           ].join(' ')}
           aria-hidden
         >

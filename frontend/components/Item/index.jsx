@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '@shopgate/pwa-ui-shared/Card';
-import { isIOSTheme } from '@shopgate/pwa-extension-kit/env/helpers';
-import IOSProductCard from './components/ios11/ProductCard';
-import GMDProductCard from './components/gmd/ProductCard';
+import { Card } from '@shopgate/engage/components';
+import { ProductCard as ProductCardBase } from '@shopgate/engage/product';
 import PlaceholderCard from './components/PlaceholderCard';
 import getStyles from '../../styles/slider';
 
@@ -24,9 +22,9 @@ const Item = ({
   showPrice,
   titleRows,
 }) => {
-  let ProductCard = isIOSTheme() ? IOSProductCard : GMDProductCard;
+  let ProductCard = ProductCardBase;
 
-  // Show a placehoolder if product is not yet available.
+  // Show a placeholder if product is not yet available.
   if (!product) {
     ProductCard = PlaceholderCard;
   }

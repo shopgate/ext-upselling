@@ -7,7 +7,7 @@ import {
 /**
  * Special selector factory that filters out products with same productId as parent.
  * @param {Object} params As in getRelatedProducts
- * @return {function}
+ * @return {Function}
  */
 export const getRelatedProductsFiltered = params => createSelector(
   getRelatedProducts(params),
@@ -17,7 +17,7 @@ export const getRelatedProductsFiltered = params => createSelector(
 /**
  * Special selector factory that filters out related products with same productId as parent.
  * @param {Object} params As in getProductRelations
- * @returns {function}
+ * @returns {Function}
  */
 export const getRelatedProductsByIdFiltered = params => createSelector(
   getRelatedProductsFiltered(params),
@@ -33,7 +33,7 @@ export const getRelatedProductsByIdFiltered = params => createSelector(
 /**
  * Special selector factory that filters out related product ids with same productId as parent.
  * @param {Object} params As in getProductRelations
- * @return {function}
+ * @return {Function}
  */
 export const getProductRelationsFiltered = params => createSelector(
   getProductRelations(params),
