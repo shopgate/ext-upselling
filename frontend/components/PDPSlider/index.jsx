@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getBaseProductId } from '@shopgate/pwa-common-commerce/product/selectors/product';
-import { withPageProductId } from '@shopgate/pwa-extension-kit/connectors';
+import { withPageProductId } from '@shopgate-ps/pwa-extension-kit/connectors';
 import Slider from '../Slider';
 import getConfig from '../../helpers/getConfig';
 

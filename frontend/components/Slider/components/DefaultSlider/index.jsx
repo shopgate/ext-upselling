@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper } from '@shopgate/engage/components';
-import Item from '../../../../components/Item';
+import Item from '../../../Item';
 import getStyles from '../../../../styles/slider';
 
 const styles = getStyles();
@@ -23,10 +23,9 @@ const DefaultSlider = ({
   titleRows,
 }) => (
   <Swiper
-    slidesPerView={2.3}
-    classNames={{
-      container: styles.defaultSliderContainer,
-    }}
+    classNames={
+      { container: styles.defaultSliderContainer}
+    }
   >
     {
       productIds.map((id) => {

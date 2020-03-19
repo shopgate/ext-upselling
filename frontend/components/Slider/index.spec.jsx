@@ -30,7 +30,7 @@ jest.mock('@shopgate/pwa-common-commerce/product/selectors/relations', () => ({
   getProductRelations: () => () => mockedProductRelations,
 }));
 
-jest.mock('@shopgate/pwa-extension-kit/env/helpers', () => ({
+jest.mock('@shopgate-ps/pwa-extension-kit/env/helpers', () => ({
   isIOSTheme: () => false,
 }));
 

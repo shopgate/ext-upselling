@@ -9,6 +9,11 @@
 ### Fixed
 ### Removed
 
+## [3.0.1]
+### Removed
+- static theme slides per view configuration for default slider
+
+
 ## [2.1.0] - 2019-09-12
 ### Added
 - New portal position on Product Detail Page
@@ -50,6 +55,7 @@ First version of the extension.
 Initial commmit.
 
 [Unreleased]: https://github.com/shopgate/ext-upselling/compare/v2.0.0...HEAD
+[3.0.1]: https://github.com/shopgate/ext-upselling/compare/v2.0.1...v3.0.1
 [2.0.1]: https://github.com/shopgate/ext-upselling/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/shopgate/ext-upselling/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/shopgate/ext-upselling/compare/v1.1.0...v1.2.0

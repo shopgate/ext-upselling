@@ -1,5 +1,5 @@
 import { css } from 'glamor';
-import { isIOSTheme } from '@shopgate/pwa-extension-kit/env/helpers';
+import { isIOSTheme } from '@shopgate-ps/pwa-extension-kit/env/helpers';
 
 /**
  * Base height helper.

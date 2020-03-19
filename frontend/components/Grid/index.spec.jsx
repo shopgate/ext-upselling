@@ -15,7 +15,7 @@ jest.mock('../../selectors', () => ({
   getRelatedProductsByIdFiltered: () => () => mockedRelatedProductsByIdFiltered,
 }));
 
-jest.mock('@shopgate/pwa-extension-kit/env/helpers', () => ({
+jest.mock('@shopgate-ps/pwa-extension-kit/env/helpers', () => ({
   isIOSTheme: () => false,
 }));
 
