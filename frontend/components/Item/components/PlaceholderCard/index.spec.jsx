@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import PlaceholderCard from './index';
 
 let mockedIsiOSTheme = false;
-jest.mock('@shopgate/pwa-extension-kit/env/helpers', () => ({
+jest.mock('@shopgate-ps/pwa-extension-kit/env/helpers', () => ({
   isIOSTheme: () => mockedIsiOSTheme,
 }));
 

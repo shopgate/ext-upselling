@@ -27,7 +27,7 @@ jest.mock('@shopgate/pwa-common-commerce/product/selectors/product', () => ({
   getCurrentBaseProductId: () => mockedProductId,
 }));
 
-jest.mock('@shopgate/pwa-extension-kit/connectors', () => ({
+jest.mock('@shopgate-ps/pwa-extension-kit/connectors', () => ({
   withPageProductId: ({ WrappedComponent }) => props =>
     <WrappedComponent productId={mockedProductId} {...props} />,
 }));

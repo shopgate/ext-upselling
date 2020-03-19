@@ -16,7 +16,7 @@ jest.mock('../../selectors', () => ({
 const MockedGridComponent = () => <div>Hello world</div>;
 jest.mock('../../components/Grid', () => MockedGridComponent);
 
-jest.mock('@shopgate/pwa-extension-kit/env/helpers', () => ({
+jest.mock('@shopgate-ps/pwa-extension-kit/env/helpers', () => ({
   isIOSTheme: () => false,
 }));
 
