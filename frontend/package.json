@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
     "@shopgate/engage": "^6.11.0",
     "@shopgate/eslint-config": "^6.11.0",
     "@shopgate/pwa-common": "^6.11.0",
