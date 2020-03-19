@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper } from '@shopgate/engage/components';
+import { useWidgetSettings } from '@shopgate/engage/core';
 import Item from '../../../Item';
 import getStyles from '../../../../styles/slider';
 
 const styles = getStyles();
+const WIDGET_ID = '@shopgate/engage/product/ProductSlider';
 
 /**
  * Renders default Slider.
@@ -21,13 +23,18 @@ const DefaultSlider = ({
   showPrice,
   showName,
   titleRows,
-}) => (
-  <Swiper
-    classNames={
-      { container: styles.defaultSliderContainer}
-    }
-  >
-    {
+}) => {
+  const widgetSettings = useWidgetSettings(WIDGET_ID) || {};
+  const { slidesPerView = 2.3 } = widgetSettings;
+
+  return (
+    <Swiper
+      slidesPerView={slidesPerView}
+      classNames={
+        { container: styles.defaultSliderContainer }
+      }
+    >
+      {
       productIds.map((id) => {
         const product = products[id] || undefined;
         const key = product ? `product-${id}` : `placeholder-${id}`;
@@ -43,8 +50,9 @@ const DefaultSlider = ({
         );
       })
     }
-  </Swiper>
-);
+    </Swiper>
+  );
+};
 
 DefaultSlider.propTypes = {
   productIds: PropTypes.arrayOf(PropTypes.string),

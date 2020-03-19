@@ -5,13 +5,13 @@
 ## [Unreleased]
 ### Added
 ### Changed
-- Changed extension to use ProductCard from engage library.
 ### Fixed
 ### Removed
 
 ## [3.0.1]
-### Removed
+### Changed
 - static theme slides per view configuration for default slider
+- Changed extension to use ProductCard from engage library.
 
 
 ## [2.1.0] - 2019-09-12
@@ -55,7 +55,7 @@ First version of the extension.
 Initial commmit.
 
 [Unreleased]: https://github.com/shopgate/ext-upselling/compare/v2.0.0...HEAD
-[3.0.1]: https://github.com/shopgate/ext-upselling/compare/v2.0.1...v3.0.1
+[3.0.1]: https://github.com/shopgate/ext-upselling/compare/v3.0.0...v3.0.1
 [2.0.1]: https://github.com/shopgate/ext-upselling/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/shopgate/ext-upselling/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/shopgate/ext-upselling/compare/v1.1.0...v1.2.0
