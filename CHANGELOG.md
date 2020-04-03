@@ -8,7 +8,7 @@
 ### Fixed
 ### Removed
 
-## [3.0.2]
+## [3.1.0]
 ### Changed
 - Added new portal position product.properties.after.
 
