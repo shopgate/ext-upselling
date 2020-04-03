@@ -8,6 +8,11 @@
 ### Fixed
 ### Removed
 
+## [3.1.0]
+### Changed
+- Added new portal position product.properties.after.
+
+
 ## [3.0.1]
 ### Changed
 - static theme slides per view configuration for default slider
