@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { getBaseProductId } from '@shopgate/pwa-common-commerce/product/selectors/product';
-import fetchProductRelations
-  from '@shopgate/pwa-common-commerce/product/actions/fetchProductRelations';
+import fetchProductRelations from '@shopgate/pwa-common-commerce/product/actions/fetchProductRelations';
 import { routeWillLeave$ } from '@shopgate/pwa-common/streams/router';
 import Sheet from '../Sheet';
-import getConfig from '../../helpers/getConfig';
 import { pdpAddToCartSuccess$ } from '../../streams';
+import { makeConnectProductWithRelations } from '../connectors';
+import getConfig from '../../helpers/getConfig';
 
 const { productPageAddToCart } = getConfig();
 
@@ -105,6 +103,7 @@ class PDPSheet extends Component {
       type: productPageAddToCart.type,
     }));
   };
+
   /**
    * Handles sheet opening.
    */
@@ -153,14 +152,7 @@ class PDPSheet extends Component {
     );
   }
 }
-/**
- * Maps currentProductId to productId prop.
- * @param {Object} state State.
- * @param {Object} props Props.
- * @returns {Object}
- */
-const mapStateToProps = (state, props) => ({
-  productId: getBaseProductId(state, props),
-});
 
-export default connect(mapStateToProps)(PDPSheet);
+export default makeConnectProductWithRelations(productPageAddToCart.type)(
+  PDPSheet
+);

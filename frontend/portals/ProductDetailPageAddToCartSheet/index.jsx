@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { getCurrentRoute } from '@shopgate/pwa-common/helpers/router';
 import { routeWillEnter$ } from '@shopgate/pwa-common/streams';
 import { ITEM_PATTERN } from '@shopgate/pwa-common-commerce/product/constants';
-import { hex2bin } from '@shopgate/pwa-common/helpers/data';
 import PDPSheet from '../../components/PDPSheet';
 
 /**
@@ -25,7 +24,7 @@ class ProductDetailPageAddToCartSheet extends Component {
     if (!currentPageIsPDP) {
       return { productId: null };
     }
-    return { productId: hex2bin(route.params.productId) };
+    return { productId: route.state.productId };
   }
 
   /**

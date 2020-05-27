@@ -13,6 +13,11 @@
       "type": "portals",
       "path": "frontend/portals/ProductDetailPageAddToCartSheet",
       "target": "view.content.after"
+    },
+    {
+      "id": "subscribers",
+      "path": "frontend/subscriptions",
+      "type": "subscribers"
     }
   ],
   "configuration": {
