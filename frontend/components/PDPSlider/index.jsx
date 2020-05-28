@@ -35,6 +35,4 @@ PDPSlider.defaultProps = {
   productId: null,
 };
 
-export default makeConnectProductWithRelations(productPage.type)(
-  memo(PDPSlider)
-);
+export default makeConnectProductWithRelations(productPage.type)(memo(PDPSlider));

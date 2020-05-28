@@ -153,6 +153,4 @@ class PDPSheet extends Component {
   }
 }
 
-export default makeConnectProductWithRelations(productPageAddToCart.type)(
-  PDPSheet
-);
+export default makeConnectProductWithRelations(productPageAddToCart.type)(PDPSheet);
