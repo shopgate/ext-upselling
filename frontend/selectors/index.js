@@ -48,3 +48,11 @@ export const getProductRelationsFiltered = params => createSelector(
   }
 );
 
+/**
+ * @param {Object} params .
+ * @return {boolean}
+ */
+export const hasProductRelationsFiltered = params => createSelector(
+  getProductRelations(params),
+  productIds => productIds && productIds.length
+);
