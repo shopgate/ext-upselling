@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeContext } from '@shopgate/engage/core';
 import { Card } from '@shopgate/engage/components';
 import { ProductCard as ProductCardBase } from '@shopgate/engage/product';
 import PlaceholderCard from './components/PlaceholderCard';
@@ -22,6 +23,8 @@ const Item = ({
   showPrice,
   titleRows,
 }) => {
+  const { contexts: { ProductContext } } = useContext(ThemeContext);
+
   let ProductCard = ProductCardBase;
 
   // Show a placeholder if product is not yet available.
@@ -32,20 +35,29 @@ const Item = ({
   return (
     <div className={styles.defaultSliderItem}>
       <Card className={styles.defaultSliderCard}>
-        <ProductCard
-          product={product}
-          hideName={!showName}
-          hidePrice={!showPrice}
-          hideRating
-          titleRows={titleRows}
-        />
+        {/** Add context with current product. Image component and image badges using it */}
+        <ProductContext.Provider
+          value={{
+            productId: product ? product.id : null,
+          }}
+        >
+          <ProductCard
+            product={product}
+            hideName={!showName}
+            hidePrice={!showPrice}
+            hideRating
+            titleRows={titleRows}
+          />
+        </ProductContext.Provider>
       </Card>
     </div>
   );
 };
 
 Item.propTypes = {
-  product: PropTypes.shape({}),
+  product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }),
   showName: PropTypes.bool,
   showPrice: PropTypes.bool,
   titleRows: PropTypes.number,
