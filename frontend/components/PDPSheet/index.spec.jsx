@@ -1,21 +1,18 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
+import PDPSheet from './index';
 
-let mockedCurrentBaseProductId = null;
-jest.mock('@shopgate/pwa-common-commerce/product/selectors/product', () => ({
-  getBaseProductId: () => mockedCurrentBaseProductId,
+let mockedType = '';
+let mockedHeadline = '';
+jest.mock('../../helpers/getConfig', () => () => ({
+  productPageAddToCart: {
+    get type() { return mockedType; },
+    get headline() { return mockedHeadline; },
+  },
 }));
-
-const mockedConfig = {
-  productPageAddToCart: {},
-};
-jest.mock('../../helpers/getConfig', () => () => mockedConfig);
-
-// eslint-disable-next-line require-jsdoc
-const MockedSheet = () => (<div>Hello world</div>);
-jest.mock('../Sheet', () => MockedSheet);
+jest.mock('../Sheet', () => function Sheet() {
+  return null;
+});
 
 const mockedPDPAddToCartSuccessSubscribe = jest.fn();
 jest.mock('../../streams', () => ({
@@ -37,16 +34,12 @@ jest.mock('@shopgate/pwa-common-commerce/product/actions/fetchProductRelations',
   return { type: 'MOCKED_GET_PRODUCT_RELATIONS' };
 });
 
+jest.mock('../connectors', () => ({
+  makeConnectProductWithRelations: () => PDPSheetComponent => PDPSheetComponent,
+}));
+
 describe('PDPSheet', () => {
-  // eslint-disable-next-line require-jsdoc
-  const makeComponent = () => {
-    const PDPSheet = require.requireActual('./index').default;
-    return mount((
-      <Provider store={configureStore()({})}>
-        <PDPSheet />
-      </Provider>
-    ));
-  };
+  const dispatch = jest.fn();
 
   beforeEach(() => {
     mockedPDPAddToCartSuccessSubscribe.mockReset();
@@ -54,16 +47,13 @@ describe('PDPSheet', () => {
   });
 
   it('should do nothing when productId is missing', () => {
-    mockedCurrentBaseProductId = null;
-    mockedConfig.productPageAddToCart = {
-      type: 'mockedType',
-      headline: 'mockedHeadline',
-    };
+    mockedType = 'mockedType';
+    mockedHeadline = 'mockedHeadline';
 
-    const component = makeComponent();
+    const component = mount(<PDPSheet dispatch={dispatch} />);
     const instance = component.find('PDPSheet').instance();
 
-    expect(component.html()).toBe('');
+    expect(component.html()).toBe(null);
     expect(instance.state.disabled).toBe(false);
     expect(instance.state.isOpen).toBe(false);
     expect(mockedPDPAddToCartSuccessSubscribe).toHaveBeenCalled();
@@ -83,12 +73,11 @@ describe('PDPSheet', () => {
   });
 
   it('should do nothing when disabled', () => {
-    mockedCurrentBaseProductId = 'mockedId';
-    mockedConfig.productPageAddToCart.type = null;
-    const component = makeComponent();
+    mockedType = null;
+    const component = mount(<PDPSheet productId="mockedId" dispatch={dispatch} />);
     const instance = component.find('PDPSheet').instance();
 
-    expect(component.html()).toBe('');
+    expect(component.html()).toBe(null);
     expect(instance.state.disabled).toBe(true);
     expect(instance.state.isOpen).toBe(false);
     expect(mockedPDPAddToCartSuccessSubscribe).not.toHaveBeenCalled();
@@ -109,12 +98,13 @@ describe('PDPSheet', () => {
     let addToCartSuccessFunc;
 
     it('should render Sheet and update when product changes', () => {
-      mockedCurrentBaseProductId = 'mockedId';
-      mockedConfig.productPageAddToCart.type = 'mockedType';
-      component = makeComponent();
+      mockedType = 'mockedType';
+      mockedHeadline = 'mockedHeadline';
+
+      component = mount(<PDPSheet productId="mockedId" dispatch={dispatch} />);
       instance = component.find('PDPSheet').instance();
 
-      expect(component.find('MockedSheet').exists()).toBe(true);
+      expect(component.find('Sheet').exists()).toBe(true);
       expect(instance.state.disabled).toBe(false);
       expect(instance.state.isOpen).toBe(false);
       expect(mockedGetProductRelations).toHaveBeenCalled();
