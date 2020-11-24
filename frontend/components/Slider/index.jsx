@@ -94,7 +94,7 @@ class Slider extends Component {
 
     return (
       <div className={styles.wrapper}>
-        {this.props.headline && <h3 className={styles.headline}>{this.props.headline}</h3> }
+        {this.props.headline && <h3 className={`${styles.headline} headline`}>{this.props.headline}</h3> }
         <DefaultSlider
           products={this.props.products}
           productIds={availableProductIds}

@@ -8,6 +8,10 @@
 ### Fixed
 ### Removed
 
+## [3.1.3]
+### Added
+- `headline` classname
+
 ## [3.1.0]
 ### Changed
 - Added new portal position product.properties.after.
