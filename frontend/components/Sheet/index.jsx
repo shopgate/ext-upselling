@@ -33,7 +33,7 @@ const getItemsPerLine = (count, max) => {
 const Sheet = props => (
   <SheetComponent
     title={props.headline}
-    className={styles.sheet(props.productsCount, props.maxItemsPerLine)}
+    className={`${styles.sheet(props.productsCount, props.maxItemsPerLine)} upselling-pdp-sheet`}
     contentClassName={styles.content(props.productsCount, props.maxItemsPerLine)}
     isOpen={props.isOpen && props.productsCount > 0}
     onClose={props.onClose}
