@@ -8,6 +8,10 @@
 ### Fixed
 ### Removed
 
+## [3.1.4]
+### Added
+- add `upselling` class to the tablet-adjustments
+
 ## [3.1.3]
 ### Added
 - `headline` classname
