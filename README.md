@@ -16,7 +16,7 @@ Product Detail Page configuration is a json with a following schema
 {
     "productPage": {
         "type": "Relation type. If empty no slider is rendered on Product Page. Possible: upselling, crossSelling, bonus, boughtWith, custom.",
-        "position": "Portal position. If empty no slider is rendered on Product Page. Possible portal positions: product.description.before, product.description.after, product.header.after, product.properties.after.",
+        "position": "Portal position. If empty no slider is rendered on Product Page. Possible portal positions: product.description.before, product.description.after, product.header.after, product.properties.after, product.reviews.after.",
         "headline": "Headline text rendered before the slider. If null or empty string, not headline is rendered.",
         "showPrice": "Boolean. If not true, no product price is shown",
         "showName": "Boolean. If not true, no product name is shown",

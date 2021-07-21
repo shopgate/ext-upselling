@@ -6,7 +6,13 @@
       "id": "ProductDetailPage",
       "type": "portals",
       "path": "frontend/portals/ProductDetailPageSlider",
-      "target": ["product.description.before", "product.description.after", "product.header.after", "product.properties.after"]
+      "target": [
+        "product.description.before",
+        "product.description.after",
+        "product.header.after",
+        "product.properties.after",
+        "product.reviews.after"
+      ]
     },
     {
       "id": "PDPAddToCartSheet",
