@@ -6,6 +6,7 @@ import {
 import fetchProductsById from '@shopgate/pwa-common-commerce/product/actions/fetchProductsById';
 import getConfig from '../helpers/getConfig';
 import { getProductRelationsFromProperty } from '../selectors';
+import { TYPE_PROPERTY } from '../helpers/constants';
 
 const { productPage, productPageAddToCart } = getConfig();
 
@@ -21,7 +22,7 @@ export default (subscribe) => {
 
     configs.forEach((config) => {
       if (config.type) {
-        if (config.type !== 'property') {
+        if (config.type !== TYPE_PROPERTY) {
           dispatch(fetchProductRelations({
             productId,
             type: config.type,

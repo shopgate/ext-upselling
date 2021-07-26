@@ -10,6 +10,7 @@ import {
 } from '../../selectors';
 import DefaultSlider from './components/DefaultSlider';
 import getStyles from '../../styles/slider';
+import { TYPE_PROPERTY } from '../../helpers/constants';
 
 const styles = getStyles();
 
@@ -55,7 +56,7 @@ class Slider extends Component {
    */
   componentDidMount() {
     const { dispatch } = this.props;
-    if (this.props.type !== 'property') {
+    if (this.props.type !== TYPE_PROPERTY) {
       dispatch(fetchProductRelations({
         productId: this.props.productId,
         type: this.props.type,
@@ -124,7 +125,7 @@ const mapStateToProps = (state, props) => {
     type: props.type,
   };
 
-  if (params.type === 'property') {
+  if (params.type === TYPE_PROPERTY) {
     return {
       productIds: getProductRelationsFromProperty(state, props),
       products: getProductsFromProperty(state, props),

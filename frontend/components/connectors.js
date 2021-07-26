@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { withRoute } from '@shopgate/engage/core';
 import { getBaseProductId } from '@shopgate/pwa-common-commerce/product/selectors/product';
 import { hasProductRelationsFiltered } from '../selectors';
+import { TYPE_PROPERTY } from '../helpers/constants';
 
 /**
  * @returns {Object}
@@ -17,7 +18,7 @@ const makeMapStateToProps = type => (state, props) => {
   let configType = type;
 
   if (!configType) {
-    if (config && config.type !== 'property') {
+    if (config && config.type !== TYPE_PROPERTY) {
       configType = config.type;
     } else {
       return { productId: baseProductId };
