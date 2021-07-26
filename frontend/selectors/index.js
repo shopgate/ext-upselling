@@ -65,6 +65,8 @@ export const getProductRelationsFromProperty = createSelector(
   getProductPropertiesUnfiltered,
   (state, props) => props.property,
   (properties, propertyLabel) => {
+    if (!properties) return []
+
     const relatedProperty = properties.find(property => {
       return property.label === propertyLabel
     })
