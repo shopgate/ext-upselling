@@ -28,7 +28,6 @@ class Slider extends Component {
     showName: PropTypes.bool,
     showPrice: PropTypes.bool,
     titleRows: PropTypes.number,
-    property: PropTypes.string,
   }
 
   static defaultProps = {
@@ -54,13 +53,13 @@ class Slider extends Component {
   /**
    * Fetches the products on component did mouont.
    */
-  componentDidMount () {
-    const { dispatch } = this.props
-    if (this.props.type !== "property") {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    if (this.props.type !== 'property') {
       dispatch(fetchProductRelations({
         productId: this.props.productId,
         type: this.props.type,
-      }))
+      }));
     }
     this.placeholderTimeout = setTimeout(() => {
       this.setState({
@@ -129,7 +128,7 @@ const mapStateToProps = (state, props) => {
     return {
       productIds: getProductRelationsFromProperty(state, props),
       products: getProductsFromProperty(state, props),
-    }
+    };
   }
 
   return {

@@ -5,8 +5,8 @@ import {
 } from '@shopgate/pwa-common-commerce/product/selectors/relations';
 import {
   getProducts,
-  getProductPropertiesUnfiltered
-} from '@shopgate/pwa-common-commerce/product/selectors/product'
+  getProductPropertiesUnfiltered,
+} from '@shopgate/pwa-common-commerce/product/selectors/product';
 
 /**
  * Special selector factory that filters out products with same productId as parent.
@@ -65,41 +65,38 @@ export const getProductRelationsFromProperty = createSelector(
   getProductPropertiesUnfiltered,
   (state, props) => props.property,
   (properties, propertyLabel) => {
-    if (!properties) return []
+    if (!properties) return [];
 
-    const relatedProperty = properties.find(property => {
-      return property.label === propertyLabel
-    })
+    const relatedProperty = properties.find(property => property.label === propertyLabel);
 
     if (relatedProperty) {
-      const { value } = relatedProperty
+      const { value } = relatedProperty;
       return value
-        .split(",")
+        .split(',')
         .filter(Boolean)
-        .map(s => s.trim())
+        .map(s => s.trim());
     }
 
-    return []
+    return [];
   }
 );
 
 export const getProductsFromProperty = createSelector(
   getProducts,
   getProductRelationsFromProperty,
-  (products, relatedIds) => {
-    return relatedIds
-      .map(relatedId => {
-        if (products[relatedId]) {
-          return products[relatedId].productData
-        }
-      })
-      .filter(Boolean)
-      .reduce(
-        (a, c) => ({
-          ...a,
-          [c.id]: c,
-        }),
-        {}
-      )
-  }
+  (products, relatedIds) => relatedIds
+    .map((relatedId) => {
+      if (products[relatedId]) {
+        return products[relatedId].productData;
+      }
+      return undefined;
+    })
+    .filter(Boolean)
+    .reduce(
+      (a, c) => ({
+        ...a,
+        [c.id]: c,
+      }),
+      {}
+    )
 );

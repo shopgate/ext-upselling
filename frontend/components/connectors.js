@@ -5,28 +5,29 @@ import { hasProductRelationsFiltered } from '../selectors';
 
 /**
  * @returns {Object}
+ * @param {string} type configuration type coming from the extension-config
  */
-const makeMapStateToProps = (type) => (state, props) => {
+const makeMapStateToProps = type => (state, props) => {
   const {
     route: { state: { productId } },
-    config
-  } = props
+    config,
+  } = props;
 
-  const baseProductId = getBaseProductId(state, { productId })
-  let configType = type
+  const baseProductId = getBaseProductId(state, { productId });
+  let configType = type;
 
   if (!configType) {
     if (config && config.type !== 'property') {
-      configType = config.type
+      configType = config.type;
     } else {
-      return { productId: baseProductId }
+      return { productId: baseProductId };
     }
   }
 
   const hasRelations = hasProductRelationsFiltered({
     productId,
     type: configType,
-  })(state)
+  })(state);
 
   if (hasRelations) {
     // Simple product or child product has relations

@@ -13,24 +13,23 @@ const { productPage } = getConfig();
  * @returns {JSX}
  */
 const ProductDetailPage = ({ name }) => {
-
-  const configs = Array.isArray(productPage) ? productPage : [productPage]
+  const configs = Array.isArray(productPage) ? productPage : [productPage];
 
   const sliders = configs.map((config, idx) => {
     // No relation type configured.
     if (!config.type) {
-      return null
+      return null;
     }
     // Portal position is different than configured.
     if (name !== config.position) {
-      return null
+      return null;
     }
 
-    return <PDPSlider key={idx} config={config}/>
-  })
+    return <PDPSlider key={`key_${idx}_${config.type}`} config={config} />;
+  });
 
-  return <div>{sliders}</div>
-}
+  return <div>{sliders}</div>;
+};
 
 ProductDetailPage.propTypes = {
   name: PropTypes.string.isRequired,

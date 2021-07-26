@@ -12,8 +12,8 @@ const PDPSlider = ({ productId, config }) => {
     return null;
   }
 
-  if (config.length === 0) {
-    return null
+  if (!config) {
+    return null;
   }
 
   return (
@@ -30,13 +30,22 @@ const PDPSlider = ({ productId, config }) => {
 };
 
 PDPSlider.propTypes = {
+  config: PropTypes.shape({
+    headline: PropTypes.string,
+    nameLines: PropTypes.number,
+    productId: PropTypes.string.isRequired,
+    property: PropTypes.string,
+    showName: PropTypes.bool,
+    showPrice: PropTypes.bool,
+    titleRows: PropTypes.number,
+    type: PropTypes.string.isRequired,
+  }),
   productId: PropTypes.string,
-  config: PropTypes.shape({})
 };
 
 PDPSlider.defaultProps = {
   productId: null,
-  config: {}
+  config: {},
 };
 
 export default makeConnectProductWithRelations()(memo(PDPSlider));

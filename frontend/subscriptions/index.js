@@ -3,9 +3,9 @@ import {
   cachedProductReceived$,
   productReceived$,
 } from '@shopgate/engage/product';
+import fetchProductsById from '@shopgate/pwa-common-commerce/product/actions/fetchProductsById';
 import getConfig from '../helpers/getConfig';
-import fetchProductsById from '@shopgate/pwa-common-commerce/product/actions/fetchProductsById'
-import { getProductRelationsFromProperty } from '../selectors'
+import { getProductRelationsFromProperty } from '../selectors';
 
 const { productPage, productPageAddToCart } = getConfig();
 
@@ -17,9 +17,9 @@ export default (subscribe) => {
   subscribe(processProduct$, ({ action, dispatch, getState }) => {
     const { id: productId, baseProductId } = action.productData;
 
-    const configs = Array.isArray(productPage) ? productPage : [productPage]
+    const configs = Array.isArray(productPage) ? productPage : [productPage];
 
-    configs.map(config => {
+    configs.forEach((config) => {
       if (config.type) {
         if (config.type !== 'property') {
           dispatch(fetchProductRelations({
@@ -36,12 +36,12 @@ export default (subscribe) => {
         } else {
           const ids = getProductRelationsFromProperty(getState(), {
             productId,
-            property: config.property
-          })
+            property: config.property,
+          });
           dispatch(fetchProductsById(ids));
         }
       }
-    })
+    });
     if (productPageAddToCart.type) {
       dispatch(fetchProductRelations({
         productId,

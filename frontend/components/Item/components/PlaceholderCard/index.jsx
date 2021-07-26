@@ -27,7 +27,7 @@ const PlaceholderCard = ({ titleRows, hideName, hidePrice }) => (
           ].join(' ')}
           aria-hidden
         >
-          {'.'}
+          .
         </div>
       </div>
     }
