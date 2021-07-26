@@ -34,8 +34,11 @@ export default (subscribe) => {
             }));
           }
         } else {
-          const ids = getProductRelationsFromProperty(getState(), {productId})
-          fetchProductsById(ids)
+          const ids = getProductRelationsFromProperty(getState(), {
+            productId,
+            property: config.property
+          })
+          dispatch(fetchProductsById(ids));
         }
       }
     })

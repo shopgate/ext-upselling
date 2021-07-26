@@ -30,7 +30,7 @@
     "productPage": {
       "type": "admin",
       "destination": "frontend",
-      "default": {},
+      "default": [],
       "params": {
         "type": "json",
         "label": "Product page settings (see README)",

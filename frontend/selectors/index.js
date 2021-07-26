@@ -73,7 +73,10 @@ export const getProductRelationsFromProperty = createSelector(
 
     if (relatedProperty) {
       const { value } = relatedProperty
-      return value.split(',')
+      return value
+        .split(",")
+        .filter(Boolean)
+        .map(s => s.trim())
     }
 
     return []
