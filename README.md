@@ -11,7 +11,7 @@ Currently it's possible to configure a slider which is rendered on the Product D
 
 The configuration is done in the deployment process, as an extension config.
 
-Product Detail Page configuration is a json with a following schema
+Product Detail Page configuration is an array of json objects, each with the following schema
 ```json
 {
     "productPage": {
@@ -21,6 +21,7 @@ Product Detail Page configuration is a json with a following schema
         "showPrice": "Boolean. If not true, no product price is shown",
         "showName": "Boolean. If not true, no product name is shown",
         "nameLines": "Number. Maximum lines item name should be possible. If empty defaults to 2",
+        "property": "(optional) can be used when type is set to 'property', refers to the product property to show the related products with"
     }
 }
 ```

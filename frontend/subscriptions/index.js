@@ -4,6 +4,8 @@ import {
   productReceived$,
 } from '@shopgate/engage/product';
 import getConfig from '../helpers/getConfig';
+import fetchProductsById from '@shopgate/pwa-common-commerce/product/actions/fetchProductsById'
+import { getProductRelationsFromProperty } from '../selectors'
 
 const { productPage, productPageAddToCart } = getConfig();
 
@@ -12,22 +14,31 @@ const { productPage, productPageAddToCart } = getConfig();
  */
 export default (subscribe) => {
   const processProduct$ = productReceived$.merge(cachedProductReceived$);
-  subscribe(processProduct$, ({ action, dispatch }) => {
+  subscribe(processProduct$, ({ action, dispatch, getState }) => {
     const { id: productId, baseProductId } = action.productData;
 
-    if (productPage.type) {
-      dispatch(fetchProductRelations({
-        productId,
-        type: productPage.type,
-      }));
+    const configs = Array.isArray(productPage) ? productPage : [productPage]
 
-      if (baseProductId) {
-        dispatch(fetchProductRelations({
-          productId: baseProductId,
-          type: productPage.type,
-        }));
+    configs.map(config => {
+      if (config.type) {
+        if (config.type !== 'property') {
+          dispatch(fetchProductRelations({
+            productId,
+            type: config.type,
+          }));
+
+          if (baseProductId) {
+            dispatch(fetchProductRelations({
+              productId: baseProductId,
+              type: config.type,
+            }));
+          }
+        } else {
+          const ids = getProductRelationsFromProperty(getState(), {productId})
+          fetchProductsById(ids)
+        }
       }
-    }
+    })
     if (productPageAddToCart.type) {
       dispatch(fetchProductRelations({
         productId,

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import fetchProductRelations from '@shopgate/pwa-common-commerce/product/actions/fetchProductRelations';
 import {
   getProductRelationsFiltered,
+  getProductRelationsFromProperty,
+  getProductsFromProperty,
   getRelatedProductsByIdFiltered,
 } from '../../selectors';
 import DefaultSlider from './components/DefaultSlider';
@@ -26,7 +28,8 @@ class Slider extends Component {
     showName: PropTypes.bool,
     showPrice: PropTypes.bool,
     titleRows: PropTypes.number,
-  };
+    property: PropTypes.string,
+  }
 
   static defaultProps = {
     headline: null,
@@ -51,12 +54,14 @@ class Slider extends Component {
   /**
    * Fetches the products on component did mouont.
    */
-  componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(fetchProductRelations({
-      productId: this.props.productId,
-      type: this.props.type,
-    }));
+  componentDidMount () {
+    const { dispatch } = this.props
+    if (this.props.type !== "property") {
+      dispatch(fetchProductRelations({
+        productId: this.props.productId,
+        type: this.props.type,
+      }))
+    }
     this.placeholderTimeout = setTimeout(() => {
       this.setState({
         allowPlaceholders: false,
@@ -119,6 +124,14 @@ const mapStateToProps = (state, props) => {
     productId: props.productId,
     type: props.type,
   };
+
+  if (params.type === 'property') {
+    return {
+      productIds: getProductRelationsFromProperty(state, props),
+      products: getProductsFromProperty(state, props),
+    }
+  }
+
   return {
     productIds: getProductRelationsFiltered(params)(state),
     products: getRelatedProductsByIdFiltered(params)(state),

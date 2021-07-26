@@ -4,15 +4,29 @@ import { getBaseProductId } from '@shopgate/pwa-common-commerce/product/selector
 import { hasProductRelationsFiltered } from '../selectors';
 
 /**
- * @param {string} type .
  * @returns {Object}
  */
-const makeMapStateToProps = type => (state, { route: { state: { productId } } }) => {
-  const baseProductId = getBaseProductId(state, { productId });
+const makeMapStateToProps = (type) => (state, props) => {
+  const {
+    route: { state: { productId } },
+    config
+  } = props
+
+  const baseProductId = getBaseProductId(state, { productId })
+  let configType = type
+
+  if (!configType) {
+    if (config && config.type !== 'property') {
+      configType = config.type
+    } else {
+      return { productId: baseProductId }
+    }
+  }
+
   const hasRelations = hasProductRelationsFiltered({
     productId,
-    type,
-  })(state);
+    type: configType,
+  })(state)
 
   if (hasRelations) {
     // Simple product or child product has relations
@@ -23,9 +37,9 @@ const makeMapStateToProps = type => (state, { route: { state: { productId } } })
 
 /**
  * @param {string} type .
- * @returns {JSX}
+ * @returns {Function}
  */
-export const makeConnectProductWithRelations = type => Component => withRoute(
+export const makeConnectProductWithRelations = (type = undefined) => Component => withRoute(
   connect(makeMapStateToProps(type))(Component),
   { prop: 'route' }
 );
