@@ -4,6 +4,7 @@ import PDPSlider from '../../components/PDPSlider';
 import getConfig from '../../helpers/getConfig';
 
 const { productPage } = getConfig();
+const configs = Array.isArray(productPage) ? productPage : [productPage];
 
 /**
  * Renders PDPSlider if type is condigured and position matches the productPage configuration.
@@ -13,8 +14,6 @@ const { productPage } = getConfig();
  * @returns {JSX}
  */
 const ProductDetailPage = ({ name }) => {
-  const configs = Array.isArray(productPage) ? productPage : [productPage];
-
   const sliders = configs.map((config, idx) => {
     // No relation type configured.
     if (!config.type) {
@@ -27,6 +26,10 @@ const ProductDetailPage = ({ name }) => {
 
     return <PDPSlider key={`key_${idx}_${config.type}`} config={config} />;
   });
+
+  if (sliders.length === 0) {
+    return null;
+  }
 
   return <div>{sliders}</div>;
 };

@@ -5,7 +5,7 @@ import {
 } from '@shopgate/engage/product';
 import fetchProductsById from '@shopgate/pwa-common-commerce/product/actions/fetchProductsById';
 import getConfig from '../helpers/getConfig';
-import { getProductRelationsFromProperty } from '../selectors';
+import { getProductRelationIdsFromProperty } from '../selectors';
 import { TYPE_PROPERTY } from '../helpers/constants';
 
 const { productPage, productPageAddToCart } = getConfig();
@@ -35,7 +35,7 @@ export default (subscribe) => {
             }));
           }
         } else {
-          const ids = getProductRelationsFromProperty(getState(), {
+          const ids = getProductRelationIdsFromProperty(getState(), {
             productId,
             property: config.property,
           });

@@ -22,7 +22,7 @@ Product Detail Page configuration is an array of json objects, each with the fol
         "showPrice": "Boolean. If not true, no product price is shown",
         "showName": "Boolean. If not true, no product name is shown",
         "nameLines": "Number. Maximum lines item name should be possible. If empty defaults to 2",
-        "property": "(optional) can be used when type is set to 'property', refers to the product property to show the related products with. Product ids needs to be comma seperated ids of the products related (e.g \"1,, 2,3 \")"
+        "property": "(optional) can be used when type is set to 'property', refers to the product property to show the related products with. Product ids needs to be comma seperated ids of the products related (e.g \"1,2,3\")"
       }
     ]
 }

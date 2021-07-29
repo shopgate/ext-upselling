@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import fetchProductRelations from '@shopgate/pwa-common-commerce/product/actions/fetchProductRelations';
 import {
   getProductRelationsFiltered,
-  getProductRelationsFromProperty,
+  getProductRelationIdsFromProperty,
   getProductsFromProperty,
   getRelatedProductsByIdFiltered,
 } from '../../selectors';
@@ -127,7 +127,7 @@ const mapStateToProps = (state, props) => {
 
   if (params.type === TYPE_PROPERTY) {
     return {
-      productIds: getProductRelationsFromProperty(state, props),
+      productIds: getProductRelationIdsFromProperty(state, props),
       products: getProductsFromProperty(state, props),
     };
   }

@@ -61,7 +61,7 @@ export const hasProductRelationsFiltered = params => createSelector(
   productIds => productIds && productIds.length
 );
 
-export const getProductRelationsFromProperty = createSelector(
+export const getProductRelationIdsFromProperty = createSelector(
   getProductPropertiesUnfiltered,
   (state, props) => props.property,
   (properties, propertyLabel) => {
@@ -69,21 +69,21 @@ export const getProductRelationsFromProperty = createSelector(
 
     const relatedProperty = properties.find(property => property.label === propertyLabel);
 
-    if (relatedProperty) {
-      const { value } = relatedProperty;
-      return value
-        .split(',')
-        .filter(Boolean)
-        .map(s => s.trim());
+    if (!relatedProperty) {
+      return [];
     }
 
-    return [];
+    const { value } = relatedProperty;
+    return value
+      .split(',')
+      .filter(Boolean)
+      .map(s => s.trim());
   }
 );
 
 export const getProductsFromProperty = createSelector(
   getProducts,
-  getProductRelationsFromProperty,
+  getProductRelationIdsFromProperty,
   (products, relatedIds) => relatedIds
     .map((relatedId) => {
       if (products[relatedId]) {
