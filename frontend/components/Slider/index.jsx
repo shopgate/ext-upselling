@@ -5,7 +5,7 @@ import fetchProductRelations from '@shopgate/pwa-common-commerce/product/actions
 import {
   getProductRelationsFiltered,
   getProductRelationIdsFromProperty,
-  getProductsFromProperty,
+  getProductsDataFromProperty,
   getRelatedProductsByIdFiltered,
 } from '../../selectors';
 import DefaultSlider from './components/DefaultSlider';
@@ -128,7 +128,7 @@ const mapStateToProps = (state, props) => {
   if (params.type === TYPE_PROPERTY) {
     return {
       productIds: getProductRelationIdsFromProperty(state, props),
-      products: getProductsFromProperty(state, props),
+      products: getProductsDataFromProperty(state, props),
     };
   }
 

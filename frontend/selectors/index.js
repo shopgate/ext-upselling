@@ -81,7 +81,7 @@ export const getProductRelationIdsFromProperty = createSelector(
   }
 );
 
-export const getProductsFromProperty = createSelector(
+export const getProductsDataFromProperty = createSelector(
   getProducts,
   getProductRelationIdsFromProperty,
   (products, relatedIds) => relatedIds
