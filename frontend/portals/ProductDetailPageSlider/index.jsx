@@ -25,7 +25,7 @@ const ProductDetailPage = ({ name }) => {
     }
 
     return <PDPSlider key={`key_${idx}_${config.type}`} config={config} />;
-  });
+  }).filter(Boolean);
 
   if (sliders.length === 0) {
     return null;
