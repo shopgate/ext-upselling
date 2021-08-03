@@ -33,7 +33,6 @@ PDPSlider.propTypes = {
   config: PropTypes.shape({
     headline: PropTypes.string,
     nameLines: PropTypes.number,
-    productId: PropTypes.string.isRequired,
     property: PropTypes.string,
     showName: PropTypes.bool,
     showPrice: PropTypes.bool,
