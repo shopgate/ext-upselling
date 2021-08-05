@@ -11,17 +11,20 @@ Currently it's possible to configure a slider which is rendered on the Product D
 
 The configuration is done in the deployment process, as an extension config.
 
-Product Detail Page configuration is a json with a following schema
+Product Detail Page configuration is an array of json objects, each with the following schema
 ```json
 {
-    "productPage": {
-        "type": "Relation type. If empty no slider is rendered on Product Page. Possible: upselling, crossSelling, bonus, boughtWith, custom.",
-        "position": "Portal position. If empty no slider is rendered on Product Page. Possible portal positions: product.description.before, product.description.after, product.header.after, product.properties.after.",
+    "productPage": [
+      {
+        "type": "Relation type. If empty no slider is rendered on Product Page. Possible: upselling, property, crossSelling, bonus, boughtWith, custom.",
+        "position": "Portal position. If empty no slider is rendered on Product Page. Possible portal positions: product.description.before, product.description.after, product.header.after, product.properties.after, product.reviews.after.",
         "headline": "Headline text rendered before the slider. If null or empty string, not headline is rendered.",
         "showPrice": "Boolean. If not true, no product price is shown",
         "showName": "Boolean. If not true, no product name is shown",
         "nameLines": "Number. Maximum lines item name should be possible. If empty defaults to 2",
-    }
+        "property": "(optional) can be used when type is set to 'property', refers to the product property to show the related products with. Product ids needs to be comma seperated ids of the products related (e.g \"1,2,3\")"
+      }
+    ]
 }
 ```
 

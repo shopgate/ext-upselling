@@ -48,4 +48,18 @@ describe('ProductDetailPage', () => {
 
     expect(component.find('div').exists()).toBe(true);
   });
+
+  it('should be backward compatible with configs as an object', () => {
+    mockedProductPageConfig = {
+      type: 'mockedType',
+      position: 'mockedPosition',
+    };
+    // eslint-disable-next-line global-require
+    const ProductDetailPage = require('./index').default;
+    const component = mount((
+      <ProductDetailPage name="mockedPosition" />
+    ));
+
+    expect(component.find('div').exists()).toBe(true);
+  });
 });

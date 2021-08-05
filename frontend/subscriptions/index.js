@@ -3,7 +3,10 @@ import {
   cachedProductReceived$,
   productReceived$,
 } from '@shopgate/engage/product';
+import fetchProductsById from '@shopgate/pwa-common-commerce/product/actions/fetchProductsById';
 import getConfig from '../helpers/getConfig';
+import { getProductRelationIdsFromProperty } from '../selectors';
+import { TYPE_PROPERTY } from '../helpers/constants';
 
 const { productPage, productPageAddToCart } = getConfig();
 
@@ -12,22 +15,34 @@ const { productPage, productPageAddToCart } = getConfig();
  */
 export default (subscribe) => {
   const processProduct$ = productReceived$.merge(cachedProductReceived$);
-  subscribe(processProduct$, ({ action, dispatch }) => {
+  subscribe(processProduct$, ({ action, dispatch, getState }) => {
     const { id: productId, baseProductId } = action.productData;
 
-    if (productPage.type) {
-      dispatch(fetchProductRelations({
-        productId,
-        type: productPage.type,
-      }));
+    const configs = Array.isArray(productPage) ? productPage : [productPage];
 
-      if (baseProductId) {
-        dispatch(fetchProductRelations({
-          productId: baseProductId,
-          type: productPage.type,
-        }));
+    configs.forEach((config) => {
+      if (config.type) {
+        if (config.type !== TYPE_PROPERTY) {
+          dispatch(fetchProductRelations({
+            productId,
+            type: config.type,
+          }));
+
+          if (baseProductId) {
+            dispatch(fetchProductRelations({
+              productId: baseProductId,
+              type: config.type,
+            }));
+          }
+        } else {
+          const ids = getProductRelationIdsFromProperty(getState(), {
+            productId,
+            property: config.property,
+          });
+          dispatch(fetchProductsById(ids));
+        }
       }
-    }
+    });
     if (productPageAddToCart.type) {
       dispatch(fetchProductRelations({
         productId,
