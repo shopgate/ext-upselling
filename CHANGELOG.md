@@ -8,9 +8,13 @@
 ### Fixed
 ### Removed
 
-## [3.2.0]
+## [3.3.0]
 ### Changed
 - changed `ProductCard` component from hiding rating to not hiding rating
+
+## [3.2.0]
+### Changed
+- Extend upselling extension to show more than one slider
 
 ## [3.1.4]
 ### Added
