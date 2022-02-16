@@ -45,7 +45,6 @@ const Item = ({
             product={product}
             hideName={!showName}
             hidePrice={!showPrice}
-            hideRating
             titleRows={titleRows}
           />
         </ProductContext.Provider>
