@@ -8,6 +8,10 @@
 ### Fixed
 ### Removed
 
+## [3.2.0]
+### Changed
+- changed `ProductCard` component from hiding rating to not hiding rating
+
 ## [3.1.4]
 ### Added
 - add `upselling` class to the tablet-adjustments
