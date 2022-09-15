@@ -46,6 +46,16 @@
         "label": "Product page add to cart settings (see README)",
         "required": false
       }
+    },
+    "hideRatingStars":{
+      "type": "admin",
+      "destination": "frontend",
+      "default": false,
+      "params": {
+        "type": "boolean",
+        "label": "toggle the visibilty of ratings on product slider",
+        "required": false
+      }
     }
   }
 }
