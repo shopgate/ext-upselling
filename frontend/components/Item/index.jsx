@@ -5,6 +5,7 @@ import { Card } from '@shopgate/engage/components';
 import { ProductCard as ProductCardBase } from '@shopgate/engage/product';
 import PlaceholderCard from './components/PlaceholderCard';
 import getStyles from '../../styles/slider';
+import getConfig from '../../helpers/getConfig';
 
 const styles = getStyles();
 
@@ -23,8 +24,8 @@ const Item = ({
   showPrice,
   titleRows,
 }) => {
+ const { hideRatingStars } = getConfig();
   const { contexts: { ProductContext } } = useContext(ThemeContext);
-
   let ProductCard = ProductCardBase;
 
   // Show a placeholder if product is not yet available.
@@ -46,6 +47,7 @@ const Item = ({
             hideName={!showName}
             hidePrice={!showPrice}
             titleRows={titleRows}
+            hideRating={hideRatingStars}
           />
         </ProductContext.Provider>
       </Card>
