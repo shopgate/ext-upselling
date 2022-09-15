@@ -8,6 +8,10 @@
 ### Fixed
 ### Removed
 
+## [3.4.0]
+### Changed
+- added configuration `hideRatingStars` to toggle rating stars
+
 ## [3.3.0]
 ### Changed
 - changed `ProductCard` component from hiding rating to not hiding rating

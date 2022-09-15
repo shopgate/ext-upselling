@@ -24,7 +24,7 @@ const Item = ({
   showPrice,
   titleRows,
 }) => {
- const { hideRatingStars } = getConfig();
+  const { hideRatingStars } = getConfig();
   const { contexts: { ProductContext } } = useContext(ThemeContext);
   let ProductCard = ProductCardBase;
 
