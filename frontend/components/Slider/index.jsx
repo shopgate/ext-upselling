@@ -11,6 +11,7 @@ import {
 import DefaultSlider from './components/DefaultSlider';
 import getStyles from '../../styles/slider';
 import { TYPE_PROPERTY } from '../../helpers/constants';
+import { fetchProductsById } from '@shopgate/pwa-common-commerce/product';
 
 const styles = getStyles();
 
@@ -67,6 +68,16 @@ class Slider extends Component {
         allowPlaceholders: false,
       });
     }, 3000);
+  }
+
+  /**
+   * Fetches the products from properties on component did update
+   */
+  componentDidUpdate() {
+    const { dispatch, type, productIds } = this.props;
+    if (type === TYPE_PROPERTY) {
+      dispatch(fetchProductsById(productIds))
+    }
   }
 
   /**
