@@ -8,6 +8,10 @@
 ### Fixed
 ### Removed
 
+## [3.4.1]
+### Fixed
+- fixed a bug where products from properties wasn't fetched
+
 ## [3.4.0]
 ### Changed
 - added configuration `hideRatingStars` to toggle rating stars
