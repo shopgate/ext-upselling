@@ -8,6 +8,10 @@
 ### Fixed
 ### Removed
 
+## [4.0.0]
+### Added
+- add ProductListProvider to Slider (only compatible from PWA Version 6.21.0)
+
 ## [3.4.1]
 ### Fixed
 - fixed a bug where products from properties wasn't fetched
