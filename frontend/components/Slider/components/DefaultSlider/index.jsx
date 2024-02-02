@@ -39,24 +39,24 @@ const DefaultSlider = ({
           { container: styles.defaultSliderContainer }
         }
       >
-      {
-        productIds.map((id) => {
-          const product = products[id] || undefined;
-          const key = product ? `product-${id}` : `placeholder-${id}`;
-          return (
-            <Swiper.Item key={key}>
-              <ProductListEntryProvider productId={id}>
-                <Item
-                  product={product}
-                  showPrice={showPrice}
-                  showName={showName}
-                  titleRows={titleRows}
-                />
-              </ProductListEntryProvider>
-            </Swiper.Item>
-          );
-        })
-      }
+        {
+          productIds.map((id) => {
+            const product = products[id] || undefined;
+            const key = product ? `product-${id}` : `placeholder-${id}`;
+            return (
+              <Swiper.Item key={key}>
+                <ProductListEntryProvider productId={id}>
+                  <Item
+                    product={product}
+                    showPrice={showPrice}
+                    showName={showName}
+                    titleRows={titleRows}
+                  />
+                </ProductListEntryProvider>
+              </Swiper.Item>
+            );
+          })
+        }
       </Swiper>
     </ProductListTypeProvider>
   );
