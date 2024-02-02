@@ -1,6 +1,5 @@
 {
   "name": "@shopgate/upselling",
-  "version": "3.4.1",
   "description": "",
   "license": "Apache-2.0",
   "scripts": {
@@ -20,13 +19,13 @@
     "@babel/plugin-transform-spread": "^7.2.2",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
-    "@shopgate/engage": "^6.11.0",
-    "@shopgate/eslint-config": "^6.11.0",
-    "@shopgate/pwa-common": "^6.11.0",
-    "@shopgate/pwa-common-commerce": "^6.11.0",
-    "@shopgate/pwa-core": "^6.11.0",
-    "@shopgate/pwa-ui-shared": "^6.11.0",
-    "@shopgate/pwa-unit-test": "^6.11.0",
+    "@shopgate/engage": "^6.21.0",
+    "@shopgate/eslint-config": "^6.21.0",
+    "@shopgate/pwa-common": "^6.21.0",
+    "@shopgate/pwa-common-commerce": "^6.21.0",
+    "@shopgate/pwa-core": "^6.21.0",
+    "@shopgate/pwa-ui-shared": "^6.21.0",
+    "@shopgate/pwa-unit-test": "^6.21.0",
     "babel-core": "^6.26.3",
     "babel-plugin-dynamic-import-webpack": "^1.0.2",
     "babel-plugin-lodash": "^3.3.2",
@@ -58,9 +57,9 @@
     "@shopgate-ps/pwa-extension-kit": "^0.6.0"
   },
   "peerDependencies": {
-    "@shopgate/pwa-common": "^6.11.0",
-    "@shopgate/pwa-common-commerce": "^6.11.0",
-    "@shopgate/pwa-core": "^6.11.0",
-    "@shopgate/pwa-ui-shared": "^6.11.0"
+    "@shopgate/pwa-common": "^6.21.0",
+    "@shopgate/pwa-common-commerce": "^6.21.0",
+    "@shopgate/pwa-core": "^6.21.0",
+    "@shopgate/pwa-ui-shared": "^6.21.0"
   }
 }

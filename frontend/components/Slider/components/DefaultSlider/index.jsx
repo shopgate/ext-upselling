@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper } from '@shopgate/engage/components';
 import { useWidgetSettings } from '@shopgate/engage/core';
+import {
+  ProductListTypeProvider,
+  ProductListEntryProvider,
+} from '@shopgate/engage/product';
 import Item from '../../../Item';
 import getStyles from '../../../../styles/slider';
 
@@ -28,29 +32,33 @@ const DefaultSlider = ({
   const { slidesPerView = 2.3 } = widgetSettings;
 
   return (
-    <Swiper
-      slidesPerView={slidesPerView}
-      classNames={
-        { container: styles.defaultSliderContainer }
-      }
-    >
-      {
-      productIds.map((id) => {
-        const product = products[id] || undefined;
-        const key = product ? `product-${id}` : `placeholder-${id}`;
-        return (
-          <Swiper.Item key={key}>
-            <Item
-              product={product}
-              showPrice={showPrice}
-              showName={showName}
-              titleRows={titleRows}
-            />
-          </Swiper.Item>
-        );
-      })
-    }
-    </Swiper>
+    <ProductListTypeProvider type="productSlider" subType="upselling">
+      <Swiper
+        slidesPerView={slidesPerView}
+        classNames={
+          { container: styles.defaultSliderContainer }
+        }
+      >
+        {
+          productIds.map((id) => {
+            const product = products[id] || undefined;
+            const key = product ? `product-${id}` : `placeholder-${id}`;
+            return (
+              <Swiper.Item key={key}>
+                <ProductListEntryProvider productId={id}>
+                  <Item
+                    product={product}
+                    showPrice={showPrice}
+                    showName={showName}
+                    titleRows={titleRows}
+                  />
+                </ProductListEntryProvider>
+              </Swiper.Item>
+            );
+          })
+        }
+      </Swiper>
+    </ProductListTypeProvider>
   );
 };
 
