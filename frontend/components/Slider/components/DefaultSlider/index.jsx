@@ -44,7 +44,7 @@ const DefaultSlider = ({
             const product = products[id] || undefined;
             const key = product ? `product-${id}` : `placeholder-${id}`;
             return (
-              <Swiper.Item key={key}>
+              <Swiper.Item key={key} tabIndex={0} aria-label={product?.name}>
                 <ProductListEntryProvider productId={id}>
                   <Item
                     product={product}
