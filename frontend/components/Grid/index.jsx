@@ -109,8 +109,6 @@ class Grid extends Component {
                 <GridComponent.Item
                   key={key}
                   className={styles.item(this.props.itemsPerLine)}
-                  tabIndex={0}
-                  aria-label={product?.name}
                 >
                   <Item
                     product={product}
