@@ -106,7 +106,10 @@ class Grid extends Component {
               const key = product ? `product-${id}` : `placeholder-${id}`;
 
               return (
-                <GridComponent.Item key={key} className={styles.item(this.props.itemsPerLine)}>
+                <GridComponent.Item
+                  key={key}
+                  className={styles.item(this.props.itemsPerLine)}
+                >
                   <Item
                     product={product}
                     showPrice={this.props.showPrice}

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SheetComponent from '@shopgate/pwa-ui-shared/Sheet';
-import Grid from '../../components/Grid';
+import Grid from '../Grid';
 import styles from '../../styles/sheet';
 import { getProductRelationsFiltered } from '../../selectors';
 
@@ -26,26 +26,37 @@ const getItemsPerLine = (count, max) => {
 
 /**
  * Sheet with related products with given type and productId.
- * Shows up then isOpen prop is true and when there are actually some items to show.
+ * Shows up when isOpen prop is true and when there are actually some items to show.
  * @param {Object} props Props.
  * @returns {JSX}
  */
-const Sheet = props => (
+const Sheet = ({
+  headline,
+  isOpen,
+  maxItemsPerLine,
+  onClose,
+  productId,
+  productsCount,
+  showName,
+  showPrice,
+  titleRows,
+  type,
+}) => (
   <SheetComponent
-    title={props.headline}
-    className={`${styles.sheet(props.productsCount, props.maxItemsPerLine)} upselling-pdp-sheet`}
-    contentClassName={styles.content(props.productsCount, props.maxItemsPerLine)}
-    isOpen={props.isOpen && props.productsCount > 0}
-    onClose={props.onClose}
+    title={headline}
+    className={`${styles.sheet(productsCount, maxItemsPerLine)} upselling-pdp-sheet`}
+    contentClassName={styles.content(productsCount, maxItemsPerLine)}
+    isOpen={isOpen && productsCount > 0}
+    onClose={onClose}
     backdrop={false}
   >
     <Grid
-      productId={props.productId}
-      type={props.type}
-      showName={props.showName}
-      showPrice={props.showPrice}
-      itemsPerLine={getItemsPerLine(props.productsCount, props.maxItemsPerLine)}
-      titleRows={props.titleRows}
+      productId={productId}
+      type={type}
+      showName={showName}
+      showPrice={showPrice}
+      itemsPerLine={getItemsPerLine(productsCount, maxItemsPerLine)}
+      titleRows={titleRows}
     />
   </SheetComponent>
 );

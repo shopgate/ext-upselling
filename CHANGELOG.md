@@ -2,11 +2,9 @@
  All notable changes to this project will be documented in this file.
  The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [4.1.0] - 2025-03-10
 ### Added
-### Changed
-### Fixed
-### Removed
+- improved accessibility for screen readers
 
 ## [4.0.0]
 ### Added
@@ -14,7 +12,7 @@
 
 ## [3.4.1]
 ### Fixed
-- fixed a bug where products from properties wasn't fetched
+- fixed a bug where products from properties weren't fetched
 
 ## [3.4.0]
 ### Changed
@@ -40,41 +38,27 @@
 ### Changed
 - Added new portal position product.properties.after.
 
-
 ## [3.0.1]
 ### Changed
 - static theme slides per view configuration for default slider
 - Changed extension to use ProductCard from engage library.
 
-
 ## [2.1.0] - 2019-09-12
 ### Added
 - New portal position on Product Detail Page
-### Changed
-### Fixed
-### Removed
 
 ## [2.0.1]
-### Added
 ### Changed
 - CSS fixes: no left/right padding inside the slider + no background  color + correct headline left margin.
-### Fixed
-### Removed
 
 ## [2.0.0]
 ### Added
 - Sliders item placeholders which were removed accidentally with 1.2.0.
 - 🔥 Breaking change: support for PWA6.x. Extension required PWA 6.1.0 at minimum.
-### Changed
-### Fixed
-### Removed
 
 ## [1.2.0]
 ### Added
 - Logic to handle unavailable related products.
-### Changed
-### Fixed
-### Removed
 
 ## [1.1.0] - 2018-10-23
 First version of the extension.
@@ -87,8 +71,10 @@ First version of the extension.
 ### Added
 Initial commmit.
 
-[Unreleased]: https://github.com/shopgate/ext-upselling/compare/v2.0.0...HEAD
-[3.0.1]: https://github.com/shopgate/ext-upselling/compare/v3.0.0...v3.0.1
+[4.1.0]: https://github.com/shopgate/ext-upselling/compare/v4.0.0...v4.1.0
+[4.0.0]: https://github.com/shopgate/ext-upselling/compare/v3.4.1...v4.0.0
+[3.0.1]: https://github.com/shopgate/ext-upselling/compare/v2.1.0...v3.0.1
+[2.1.0]: https://github.com/shopgate/ext-upselling/compare/v2.0.1...v2.1.0
 [2.0.1]: https://github.com/shopgate/ext-upselling/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/shopgate/ext-upselling/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/shopgate/ext-upselling/compare/v1.1.0...v1.2.0

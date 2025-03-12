@@ -1,5 +1,4 @@
 import { css } from 'glamor';
-import { isIOSTheme } from '@shopgate-ps/pwa-extension-kit/env/helpers';
 
 /**
  * Base height helper.
@@ -32,7 +31,7 @@ const sheet = (itemsCount, maxAllowed) => css({
   maxHeight: getBaseHeight(itemsCount, maxAllowed),
   boxShadow: '0 0 5px rgba(0,0,0,0.5)',
   zIndex: 10,
-  marginBottom: isIOSTheme() ? '62px' : '0px',
+  marginBottom: 'var(--footer-height)',
 }).toString();
 
 /**
