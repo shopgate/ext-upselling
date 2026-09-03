@@ -24,6 +24,7 @@ const ProductDetailPage = ({ name }) => {
       return null;
     }
 
+    // eslint-disable-next-line react/no-array-index-key
     return <PDPSlider key={`key_${idx}_${config.type}`} config={config} />;
   }).filter(Boolean);
 

@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 
 const mockedStore = configureStore();
-// eslint-disable-next-line react/prop-types, require-jsdoc
+// eslint-disable-next-line react/prop-types
 const MockedSheetComponent = props => (<div id="sheet">{props.children}</div>);
 jest.mock('@shopgate/pwa-ui-shared/Sheet', () => MockedSheetComponent);
 
@@ -12,13 +12,8 @@ let mockedProductRelationsFiltered = [];
 jest.mock('../../selectors', () => ({
   getProductRelationsFiltered: () => () => mockedProductRelationsFiltered,
 }));
-// eslint-disable-next-line require-jsdoc
 const MockedGridComponent = () => <div>Hello world</div>;
 jest.mock('../../components/Grid', () => MockedGridComponent);
-
-jest.mock('@shopgate-ps/pwa-extension-kit/env/helpers', () => ({
-  isIOSTheme: () => false,
-}));
 
 describe('Sheet', () => {
   // eslint-disable-next-line global-require

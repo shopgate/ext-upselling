@@ -1,9 +1,12 @@
 # Shopgate Connect - Upselling Extension
 
 [![GitHub license](http://dmlc.github.io/img/apache2.svg)](LICENSE)
-[![Build Status](https://travis-ci.org/shopgate/ext-upselling.svg?branch=master)](https://travis-ci.org/shopgate/ext-upselling) [![Coverage Status](https://coveralls.io/repos/github/shopgate/ext-upselling/badge.svg?branch=master)](https://coveralls.io/github/shopgate/ext-upselling?branch=master)
 
 Frontend extension which shows the upselling/related products slider on a Product Detail Page.
+
+## Requirements
+
+Version 5.x requires PWA 7.32.0 or newer. The slider, the product cards and the placeholders use the theme of the shop (`@shopgate/engage/styles`), so colors, typography, card styles and the number of visible slides follow the theme configuration in the admin. Use version 4.x for older PWA versions.
 
 ## Configuration
 
@@ -21,7 +24,7 @@ Product Detail Page configuration is an array of json objects, each with the fol
         "headline": "Headline text rendered before the slider. If null or empty string, not headline is rendered.",
         "showPrice": "Boolean. If not true, no product price is shown",
         "showName": "Boolean. If not true, no product name is shown",
-        "nameLines": "Number. Maximum lines item name should be possible. If empty defaults to 2",
+        "nameLines": "Number. Maximum lines item name should be possible. If empty, the product name lines configured in the app settings are used",
         "property": "(optional) can be used when type is set to 'property', refers to the product property to show the related products with. Product ids needs to be comma seperated ids of the products related (e.g \"1,2,3\")"
       }
     ]
@@ -36,7 +39,7 @@ Product page add to cart sheet is a json with following schema:
         "headline": "Headline text rendered as a Sheet title. If empty Sheet will never appear.",
         "showPrice": "Boolean. If not true, no product price is shown",
         "showName": "Boolean. If not true, no product name is shown",
-        "nameLines": "Number. Maximum lines item name should be possible. If empty defaults to 2",
+        "nameLines": "Number. Maximum lines item name should be possible. If empty, the product name lines configured in the app settings are used",
         "maxItemsPerLine": "Number. Maximum items per line. If empty defaults to 3. Must be a number between 1 and 3."
     }
 }

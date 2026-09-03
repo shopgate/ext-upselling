@@ -3,7 +3,7 @@
 exports[`Sheet should keep the sheet closed when there are no items to show 1`] = `
 <Provider
   store={
-    Object {
+    {
       "clearActions": [Function],
       "dispatch": [Function],
       "getActions": [Function],
@@ -39,8 +39,8 @@ exports[`Sheet should keep the sheet closed when there are no items to show 1`] 
     >
       <MockedSheetComponent
         backdrop={false}
-        className="css-ugpspb upselling-pdp-sheet"
-        contentClassName="css-1vybkpy"
+        className="sg-kl4k67-sheet upselling-pdp-sheet"
+        contentClassName="sg-1wginyy-content"
         isOpen={false}
         onClose={[Function]}
         title="Mocked headline"
@@ -70,7 +70,7 @@ exports[`Sheet should keep the sheet closed when there are no items to show 1`] 
 exports[`Sheet should render with 1 item per line 1`] = `
 <Provider
   store={
-    Object {
+    {
       "clearActions": [Function],
       "dispatch": [Function],
       "getActions": [Function],
@@ -106,8 +106,8 @@ exports[`Sheet should render with 1 item per line 1`] = `
     >
       <MockedSheetComponent
         backdrop={false}
-        className="css-ugpspb upselling-pdp-sheet"
-        contentClassName="css-1vybkpy"
+        className="sg-kl4k67-sheet upselling-pdp-sheet"
+        contentClassName="sg-1wginyy-content"
         isOpen={false}
         onClose={[Function]}
         title="Mocked headline"
@@ -137,7 +137,7 @@ exports[`Sheet should render with 1 item per line 1`] = `
 exports[`Sheet should render with 2 items per line 1`] = `
 <Provider
   store={
-    Object {
+    {
       "clearActions": [Function],
       "dispatch": [Function],
       "getActions": [Function],
@@ -173,8 +173,8 @@ exports[`Sheet should render with 2 items per line 1`] = `
     >
       <MockedSheetComponent
         backdrop={false}
-        className="css-ugpspb upselling-pdp-sheet"
-        contentClassName="css-1vybkpy"
+        className="sg-kl4k67-sheet upselling-pdp-sheet"
+        contentClassName="sg-1wginyy-content"
         isOpen={false}
         onClose={[Function]}
         title="Mocked headline"
@@ -204,7 +204,7 @@ exports[`Sheet should render with 2 items per line 1`] = `
 exports[`Sheet should render with 3 items per line as default 1`] = `
 <Provider
   store={
-    Object {
+    {
       "clearActions": [Function],
       "dispatch": [Function],
       "getActions": [Function],
@@ -240,8 +240,8 @@ exports[`Sheet should render with 3 items per line as default 1`] = `
     >
       <MockedSheetComponent
         backdrop={false}
-        className="css-ugpspb upselling-pdp-sheet"
-        contentClassName="css-1vybkpy"
+        className="sg-kl4k67-sheet upselling-pdp-sheet"
+        contentClassName="sg-1wginyy-content"
         isOpen={false}
         onClose={[Function]}
         title="Mocked headline"

@@ -146,7 +146,7 @@ class PDPSheet extends Component {
         headline={productPageAddToCart.headline}
         showName={productPageAddToCart.showName || false}
         showPrice={productPageAddToCart.showPrice || false}
-        titleRows={productPageAddToCart.nameLines || 2}
+        titleRows={productPageAddToCart.nameLines || null}
         maxItemsPerLine={this.constructor.maxItemsPerLine}
       />
     );

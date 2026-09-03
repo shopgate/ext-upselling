@@ -3,7 +3,7 @@
 exports[`PDPSlider should render with price and names 1`] = `
 <PDPSlider
   config={
-    Object {
+    {
       "headline": "mockedHeadline",
       "showName": true,
       "showPrice": true,
@@ -17,7 +17,7 @@ exports[`PDPSlider should render with price and names 1`] = `
     productId="mockedProductId"
     showName={true}
     showPrice={true}
-    titleRows={2}
+    titleRows={null}
     type="mockedType"
   />
 </PDPSlider>
@@ -26,7 +26,7 @@ exports[`PDPSlider should render with price and names 1`] = `
 exports[`PDPSlider should render without price and names as default 1`] = `
 <PDPSlider
   config={
-    Object {
+    {
       "headline": "mockedHeadline",
       "showName": null,
       "showPrice": null,
@@ -40,7 +40,7 @@ exports[`PDPSlider should render without price and names as default 1`] = `
     productId="mockedProductId"
     showName={false}
     showPrice={false}
-    titleRows={2}
+    titleRows={null}
     type="mockedType"
   />
 </PDPSlider>

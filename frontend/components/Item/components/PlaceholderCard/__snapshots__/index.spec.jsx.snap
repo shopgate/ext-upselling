@@ -4,65 +4,54 @@ exports[`PlaceholderCard should render all elements 1`] = `
 <PlaceholderCard
   hideName={false}
   hidePrice={false}
+  style={null}
   titleRows={2}
 >
-  <div
-    className="css-1dwnok8"
+  <Card
+    className="sg-z9sy2w-root"
+    data-test-id="upselling-placeholder"
+    style={null}
   >
-    <div
-      data-test-id="upselling-placeholder-image"
-    >
-      <img
-        alt=""
-        className="css-1kzppb9"
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAG4CAQAAACdwzo4AAADg0lEQVR42u3TMQ0AAAzDsJU/6f0F0MuGECk5YCYSgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDwwGGA8OB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgMMB4YDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgPDAYYDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAeGAwwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MJwEYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4MBxgODAcYDgwHNAedDYBuQI5h3IAAAAASUVORK5CYII="
-      />
-    </div>
-    <div
-      className="css-1rbh2c4"
-      data-test-id="upselling-placeholder-details"
+    <Paper
+      background="var(--sg-components-cards-backgroundColor)"
+      border="var(--sg-components-cards-border)"
+      borderRadius="var(--sg-components-cards-borderRadius)"
+      className="engage__card ui-shared__card sg-952ybx-Card-root-root"
+      data-test-id="upselling-placeholder"
+      elevation={1}
+      shadowColor="var(--sg-components-cards-shadowColor)"
+      square={false}
+      style={null}
+      variant="elevation"
     >
       <div
-        aria-hidden={true}
-        className="css-1ja63tu css-by38mh"
+        className="engage__paper engage__card ui-shared__card sg-mwsut3-Paper-root-Card-root-root"
+        data-test-id="upselling-placeholder"
+        style={null}
       >
-        .
+        <div
+          data-test-id="upselling-placeholder-image"
+        >
+          <img
+            alt=""
+            className="sg-1f3qo92-image"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAG4CAQAAACdwzo4AAADg0lEQVR42u3TMQ0AAAzDsJU/6f0F0MuGECk5YCYSgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDwwGGA8OB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgMMB4YDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgPDAYYDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAeGAwwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MJwEYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4MBxgODAcYDgwHNAedDYBuQI5h3IAAAAASUVORK5CYII="
+          />
+        </div>
+        <div
+          className="sg-ifr8u5-details"
+          data-test-id="upselling-placeholder-details"
+        >
+          <div
+            aria-hidden={true}
+            className="sg-k6m2oz-paragraph"
+          >
+            .
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</PlaceholderCard>
-`;
-
-exports[`PlaceholderCard should render different classNames on ios 1`] = `
-<PlaceholderCard
-  hideName={false}
-  hidePrice={false}
-  titleRows={2}
->
-  <div
-    className="css-1dwnok8"
-  >
-    <div
-      data-test-id="upselling-placeholder-image"
-    >
-      <img
-        alt=""
-        className="css-1kzppb9"
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAG4CAQAAACdwzo4AAADg0lEQVR42u3TMQ0AAAzDsJU/6f0F0MuGECk5YCYSgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDwwGGA8OB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgMMB4YDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgPDAYYDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAeGAwwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MJwEYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4MBxgODAcYDgwHNAedDYBuQI5h3IAAAAASUVORK5CYII="
-      />
-    </div>
-    <div
-      className="css-1rbh2c4"
-      data-test-id="upselling-placeholder-details"
-    >
-      <div
-        aria-hidden={true}
-        className="css-4nr6od css-by38mh"
-      >
-        .
-      </div>
-    </div>
-  </div>
+    </Paper>
+  </Card>
 </PlaceholderCard>
 `;
 
@@ -70,32 +59,54 @@ exports[`PlaceholderCard should render image and name 1`] = `
 <PlaceholderCard
   hideName={false}
   hidePrice={true}
+  style={null}
   titleRows={2}
 >
-  <div
-    className="css-1dwnok8"
+  <Card
+    className="sg-z9sy2w-root"
+    data-test-id="upselling-placeholder"
+    style={null}
   >
-    <div
-      data-test-id="upselling-placeholder-image"
-    >
-      <img
-        alt=""
-        className="css-1kzppb9"
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAG4CAQAAACdwzo4AAADg0lEQVR42u3TMQ0AAAzDsJU/6f0F0MuGECk5YCYSgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDwwGGA8OB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgMMB4YDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgPDAYYDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAeGAwwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MJwEYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4MBxgODAcYDgwHNAedDYBuQI5h3IAAAAASUVORK5CYII="
-      />
-    </div>
-    <div
-      className="css-1rbh2c4"
-      data-test-id="upselling-placeholder-details"
+    <Paper
+      background="var(--sg-components-cards-backgroundColor)"
+      border="var(--sg-components-cards-border)"
+      borderRadius="var(--sg-components-cards-borderRadius)"
+      className="engage__card ui-shared__card sg-952ybx-Card-root-root"
+      data-test-id="upselling-placeholder"
+      elevation={1}
+      shadowColor="var(--sg-components-cards-shadowColor)"
+      square={false}
+      style={null}
+      variant="elevation"
     >
       <div
-        aria-hidden={true}
-        className="css-aa007d css-by38mh"
+        className="engage__paper engage__card ui-shared__card sg-mwsut3-Paper-root-Card-root-root"
+        data-test-id="upselling-placeholder"
+        style={null}
       >
-        .
+        <div
+          data-test-id="upselling-placeholder-image"
+        >
+          <img
+            alt=""
+            className="sg-1f3qo92-image"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAG4CAQAAACdwzo4AAADg0lEQVR42u3TMQ0AAAzDsJU/6f0F0MuGECk5YCYSgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDwwGGA8OB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgMMB4YDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgPDAYYDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAeGAwwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MJwEYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4MBxgODAcYDgwHNAedDYBuQI5h3IAAAAASUVORK5CYII="
+          />
+        </div>
+        <div
+          className="sg-ifr8u5-details"
+          data-test-id="upselling-placeholder-details"
+        >
+          <div
+            aria-hidden={true}
+            className="sg-1ve23bu-paragraph"
+          >
+            .
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    </Paper>
+  </Card>
 </PlaceholderCard>
 `;
 
@@ -103,32 +114,54 @@ exports[`PlaceholderCard should render image and price 1`] = `
 <PlaceholderCard
   hideName={true}
   hidePrice={false}
+  style={null}
   titleRows={2}
 >
-  <div
-    className="css-1dwnok8"
+  <Card
+    className="sg-z9sy2w-root"
+    data-test-id="upselling-placeholder"
+    style={null}
   >
-    <div
-      data-test-id="upselling-placeholder-image"
-    >
-      <img
-        alt=""
-        className="css-1kzppb9"
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAG4CAQAAACdwzo4AAADg0lEQVR42u3TMQ0AAAzDsJU/6f0F0MuGECk5YCYSgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDwwGGA8OB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgMMB4YDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgPDAYYDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAeGAwwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MJwEYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4MBxgODAcYDgwHNAedDYBuQI5h3IAAAAASUVORK5CYII="
-      />
-    </div>
-    <div
-      className="css-1rbh2c4"
-      data-test-id="upselling-placeholder-details"
+    <Paper
+      background="var(--sg-components-cards-backgroundColor)"
+      border="var(--sg-components-cards-border)"
+      borderRadius="var(--sg-components-cards-borderRadius)"
+      className="engage__card ui-shared__card sg-952ybx-Card-root-root"
+      data-test-id="upselling-placeholder"
+      elevation={1}
+      shadowColor="var(--sg-components-cards-shadowColor)"
+      square={false}
+      style={null}
+      variant="elevation"
     >
       <div
-        aria-hidden={true}
-        className="css-1a6oiwk css-by38mh"
+        className="engage__paper engage__card ui-shared__card sg-mwsut3-Paper-root-Card-root-root"
+        data-test-id="upselling-placeholder"
+        style={null}
       >
-        .
+        <div
+          data-test-id="upselling-placeholder-image"
+        >
+          <img
+            alt=""
+            className="sg-1f3qo92-image"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAG4CAQAAACdwzo4AAADg0lEQVR42u3TMQ0AAAzDsJU/6f0F0MuGECk5YCYSgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDwwGGA8OB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgMMB4YDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgPDAYYDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAeGAwwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MJwEYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4MBxgODAcYDgwHNAedDYBuQI5h3IAAAAASUVORK5CYII="
+          />
+        </div>
+        <div
+          className="sg-ifr8u5-details"
+          data-test-id="upselling-placeholder-details"
+        >
+          <div
+            aria-hidden={true}
+            className="sg-1pxspo7-paragraph"
+          >
+            .
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    </Paper>
+  </Card>
 </PlaceholderCard>
 `;
 
@@ -136,20 +169,42 @@ exports[`PlaceholderCard should render image only 1`] = `
 <PlaceholderCard
   hideName={true}
   hidePrice={true}
+  style={null}
   titleRows={2}
 >
-  <div
-    className="css-1dwnok8"
+  <Card
+    className="sg-z9sy2w-root"
+    data-test-id="upselling-placeholder"
+    style={null}
   >
-    <div
-      data-test-id="upselling-placeholder-image"
+    <Paper
+      background="var(--sg-components-cards-backgroundColor)"
+      border="var(--sg-components-cards-border)"
+      borderRadius="var(--sg-components-cards-borderRadius)"
+      className="engage__card ui-shared__card sg-952ybx-Card-root-root"
+      data-test-id="upselling-placeholder"
+      elevation={1}
+      shadowColor="var(--sg-components-cards-shadowColor)"
+      square={false}
+      style={null}
+      variant="elevation"
     >
-      <img
-        alt=""
-        className="css-1kzppb9"
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAG4CAQAAACdwzo4AAADg0lEQVR42u3TMQ0AAAzDsJU/6f0F0MuGECk5YCYSgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDwwGGA8OB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgMMB4YDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgPDAYYDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAeGAwwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MJwEYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4MBxgODAcYDgwHNAedDYBuQI5h3IAAAAASUVORK5CYII="
-      />
-    </div>
-  </div>
+      <div
+        className="engage__paper engage__card ui-shared__card sg-mwsut3-Paper-root-Card-root-root"
+        data-test-id="upselling-placeholder"
+        style={null}
+      >
+        <div
+          data-test-id="upselling-placeholder-image"
+        >
+          <img
+            alt=""
+            className="sg-1f3qo92-image"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAG4CAQAAACdwzo4AAADg0lEQVR42u3TMQ0AAAzDsJU/6f0F0MuGECk5YCYSgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDwwGGA8OB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgMMB4YDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MB4YDDAeGAwwHhgPDAYYDwwGGA8MBhgPDgeEAw4HhAMOB4cBwgOHAcIDhwHCA4cBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAcGA4wHBgOMBwYDgwHGA4MBxgODAeGAwwHhgMMB4YDDAeGA8MBhgPDAYYDw4HhAMOB4QDDgeEAw4HhwHCA4cBwgOHAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MJwEYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcYDgwHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4wHBgODAcYDgwHGA4MBwYDjAcGA4wHBgODAcYDgwHGA4MBxgODAeGAwwHhgMMB4YDwwGGA8MBhgPDAYYDw4HhAMOB4QDDgeHAcIDhwHCA4cBwgOHAcGA4wHBgOMBwYDgwHGA4MBxgODAcGA4wHBgOMBwYDjAcGA4MBxgODAcYDgwHhgMMB4YDDAeGAwwHhgPDAYYDwwGGA8OB4QDDgeEAw4HhAMOB4cBwgOHAcIDhwHBgOMBwYDjAcGA4MBxgODAcYDgwHNAedDYBuQI5h3IAAAAASUVORK5CYII="
+          />
+        </div>
+      </div>
+    </Paper>
+  </Card>
 </PlaceholderCard>
 `;

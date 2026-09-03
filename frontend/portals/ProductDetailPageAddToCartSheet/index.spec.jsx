@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-// eslint-disable-next-line require-jsdoc
 const MockedPDPSheet = () => (<div>Hello world</div>);
 jest.mock('../../components/PDPSheet', () => MockedPDPSheet);
 
