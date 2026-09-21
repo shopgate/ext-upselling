@@ -1,4 +1,4 @@
-import { SUCCESS_ADD_PRODUCTS_TO_CART } from '@shopgate/pwa-common-commerce/cart/constants';
+import { SUCCESS_ADD_PRODUCTS_TO_CART } from '@shopgate/engage/cart';
 import { pdpAddToCartSuccess$ } from './index';
 
 describe('Streams', () => {

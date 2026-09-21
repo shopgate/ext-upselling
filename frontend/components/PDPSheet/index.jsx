@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import fetchProductRelations from '@shopgate/pwa-common-commerce/product/actions/fetchProductRelations';
-import { routeWillLeave$ } from '@shopgate/pwa-common/streams/router';
+import { fetchProductRelations } from '@shopgate/engage/product';
+import { routeWillLeave$ } from '@shopgate/engage/core';
 import Sheet from '../Sheet';
 import { pdpAddToCartSuccess$ } from '../../streams';
 import { makeConnectProductWithRelations } from '../connectors';

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRoute } from '@shopgate/engage/core';
-import { getBaseProductId } from '@shopgate/pwa-common-commerce/product/selectors/product';
+import { getBaseProductId } from '@shopgate/engage/product/selectors/product';
 import { hasProductRelationsFiltered } from '../selectors';
 import { TYPE_PROPERTY } from '../helpers/constants';
 

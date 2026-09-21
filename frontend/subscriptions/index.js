@@ -1,9 +1,9 @@
 import {
   fetchProductRelations,
+  fetchProductsById,
   cachedProductReceived$,
   productReceived$,
 } from '@shopgate/engage/product';
-import fetchProductsById from '@shopgate/pwa-common-commerce/product/actions/fetchProductsById';
 import getConfig from '../helpers/getConfig';
 import { getProductRelationIdsFromProperty } from '../selectors';
 import { TYPE_PROPERTY } from '../helpers/constants';

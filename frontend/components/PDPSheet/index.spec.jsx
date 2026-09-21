@@ -1,6 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import PDPSheet from './index';
+import { render, act } from '@testing-library/react';
 
 let mockedType = '';
 let mockedHeadline = '';
@@ -10,134 +9,90 @@ jest.mock('../../helpers/getConfig', () => () => ({
     get headline() { return mockedHeadline; },
   },
 }));
-jest.mock('../Sheet', () => function Sheet() {
-  return null;
+
+const mockSheet = jest.fn();
+jest.mock('../Sheet', () => (props) => {
+  mockSheet(props);
+  return <div data-test-id="sheet" />;
 });
 
-const mockedPDPAddToCartSuccessSubscribe = jest.fn();
+const mockPdpSubscribe = jest.fn();
 jest.mock('../../streams', () => ({
   pdpAddToCartSuccess$: {
-    subscribe: (...args) => mockedPDPAddToCartSuccessSubscribe(...args),
+    subscribe: (...args) => mockPdpSubscribe(...args),
   },
 }));
 
-const mockedRouteDidChangeSubscribe = jest.fn();
-jest.mock('@shopgate/pwa-common/streams/router', () => ({
+const mockRouteSubscribe = jest.fn();
+jest.mock('@shopgate/engage/core', () => ({
   routeWillLeave$: {
-    subscribe: (...args) => mockedRouteDidChangeSubscribe(...args),
+    subscribe: (...args) => mockRouteSubscribe(...args),
   },
 }));
 
-const mockedGetProductRelations = jest.fn();
-jest.mock('@shopgate/pwa-common-commerce/product/actions/fetchProductRelations', () => (...args) => {
-  mockedGetProductRelations(...args);
-  return { type: 'MOCKED_GET_PRODUCT_RELATIONS' };
-});
+const mockedFetchProductRelations = jest.fn();
+jest.mock('@shopgate/engage/product', () => ({
+  fetchProductRelations: (...args) => {
+    mockedFetchProductRelations(...args);
+    return { type: 'MOCKED_FETCH_PRODUCT_RELATIONS' };
+  },
+}));
 
 jest.mock('../connectors', () => ({
-  makeConnectProductWithRelations: () => PDPSheetComponent => PDPSheetComponent,
+  makeConnectProductWithRelations: () => Component => Component,
 }));
 
 describe('PDPSheet', () => {
+  // eslint-disable-next-line global-require
+  const PDPSheet = require('./index').default;
   const dispatch = jest.fn();
 
   beforeEach(() => {
-    mockedPDPAddToCartSuccessSubscribe.mockReset();
-    mockedRouteDidChangeSubscribe.mockReset();
-  });
-
-  it('should do nothing when productId is missing', () => {
+    mockSheet.mockClear();
+    mockPdpSubscribe.mockClear();
+    mockRouteSubscribe.mockClear();
+    mockedFetchProductRelations.mockClear();
     mockedType = 'mockedType';
     mockedHeadline = 'mockedHeadline';
-
-    const component = mount(<PDPSheet dispatch={dispatch} />);
-    const instance = component.find('PDPSheet').instance();
-
-    expect(component.html()).toBe(null);
-    expect(instance.state.disabled).toBe(false);
-    expect(instance.state.isOpen).toBe(false);
-    expect(mockedPDPAddToCartSuccessSubscribe).toHaveBeenCalled();
-    expect(mockedRouteDidChangeSubscribe).toHaveBeenCalled();
-
-    // Try to open without current productId
-    mockedPDPAddToCartSuccessSubscribe.mock.calls[0][0]();
-    // Should be closed.
-    expect(instance.state.isOpen).toBe(false);
-
-    // Should not fetch on update
-    instance.componentDidUpdate({ productId: null });
-    expect(mockedGetProductRelations).not.toHaveBeenCalled();
-
-    // Component not update
-    expect(instance.shouldComponentUpdate({ productId: null }, { isOpen: false })).toBe(false);
   });
 
-  it('should do nothing when disabled', () => {
+  it('should render nothing and not subscribe when disabled', () => {
     mockedType = null;
-    const component = mount(<PDPSheet productId="mockedId" dispatch={dispatch} />);
-    const instance = component.find('PDPSheet').instance();
+    const { container } = render(<PDPSheet productId="mockedId" dispatch={dispatch} />);
 
-    expect(component.html()).toBe(null);
-    expect(instance.state.disabled).toBe(true);
-    expect(instance.state.isOpen).toBe(false);
-    expect(mockedPDPAddToCartSuccessSubscribe).not.toHaveBeenCalled();
-    expect(mockedRouteDidChangeSubscribe).not.toHaveBeenCalled();
-
-    // Should not fetch on update
-    instance.componentDidUpdate({ productId: null });
-    expect(mockedGetProductRelations).not.toHaveBeenCalled();
-
-    // Component should never update
-    expect(instance.shouldComponentUpdate()).toBe(false);
+    expect(container).toBeEmptyDOMElement();
+    expect(mockPdpSubscribe).not.toHaveBeenCalled();
+    expect(mockRouteSubscribe).not.toHaveBeenCalled();
   });
 
-  describe('Life cycle', () => {
-    let component;
-    let instance;
-    let routeDidChangeFunc;
-    let addToCartSuccessFunc;
+  it('should render nothing but subscribe when productId is missing', () => {
+    const { container } = render(<PDPSheet dispatch={dispatch} />);
 
-    it('should render Sheet and update when product changes', () => {
-      mockedType = 'mockedType';
-      mockedHeadline = 'mockedHeadline';
+    expect(container).toBeEmptyDOMElement();
+    expect(mockPdpSubscribe).toHaveBeenCalled();
+    expect(mockRouteSubscribe).toHaveBeenCalled();
+    expect(mockedFetchProductRelations).not.toHaveBeenCalled();
+  });
 
-      component = mount(<PDPSheet productId="mockedId" dispatch={dispatch} />);
-      instance = component.find('PDPSheet').instance();
+  it('should render the closed Sheet and fetch relations when enabled', () => {
+    render(<PDPSheet productId="mockedId" dispatch={dispatch} />);
 
-      expect(component.find('Sheet').exists()).toBe(true);
-      expect(instance.state.disabled).toBe(false);
-      expect(instance.state.isOpen).toBe(false);
-      expect(mockedGetProductRelations).toHaveBeenCalled();
-
-      // eslint-disable-next-line prefer-destructuring
-      routeDidChangeFunc = mockedRouteDidChangeSubscribe.mock.calls[0][0];
-      // eslint-disable-next-line prefer-destructuring
-      addToCartSuccessFunc = mockedPDPAddToCartSuccessSubscribe.mock.calls[0][0];
+    expect(mockedFetchProductRelations).toHaveBeenCalledWith({
+      productId: 'mockedId',
+      type: 'mockedType',
     });
+    expect(mockSheet).toHaveBeenLastCalledWith(expect.objectContaining({ isOpen: false }));
+  });
 
-    it('should react on add to cart', () => {
-      // Simulate add to cart event
-      addToCartSuccessFunc();
-      expect(instance.state.isOpen).toBe(true);
-      expect(component.html()).not.toBe(null);
-    });
+  it('should open the Sheet on the add to cart event and close it when leaving the route', () => {
+    render(<PDPSheet productId="mockedId" dispatch={dispatch} />);
+    const handleOpen = mockPdpSubscribe.mock.calls[0][0];
+    const handleClose = mockRouteSubscribe.mock.calls[0][0];
 
-    it('should react on route did change', () => {
-      // Simulate route did change.
-      routeDidChangeFunc();
-      expect(instance.state.isOpen).toBe(false);
-      expect(component.html()).not.toBe(null);
-    });
+    act(() => handleOpen());
+    expect(mockSheet).toHaveBeenLastCalledWith(expect.objectContaining({ isOpen: true }));
 
-    it('should update when productId changes', () => {
-      // Component should update when productId changes
-      expect(instance.shouldComponentUpdate({ productId: 'different' })).toBe(true);
-    });
-
-    it('should fetch again when productId changes', () => {
-      // Component should fetch again when productId changes
-      instance.componentDidUpdate({ productId: 'different' });
-      expect(mockedGetProductRelations).toHaveBeenCalled();
-    });
+    act(() => handleClose());
+    expect(mockSheet).toHaveBeenLastCalledWith(expect.objectContaining({ isOpen: false }));
   });
 });

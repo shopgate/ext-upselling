@@ -63,3 +63,4 @@ typings/
 
 frontend/config.json
 extension/config.json
+frontend/package-lock.json

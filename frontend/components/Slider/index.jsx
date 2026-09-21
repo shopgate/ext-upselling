@@ -1,9 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import fetchProductRelations from '@shopgate/pwa-common-commerce/product/actions/fetchProductRelations';
-import { fetchProductsById } from '@shopgate/pwa-common-commerce/product';
-import Typography from '@shopgate/engage/components/Typography';
+import { fetchProductRelations, fetchProductsById } from '@shopgate/engage/product';
+import { Typography } from '@shopgate/engage/components/Typography';
 import { ProductSlider } from '@shopgate/engage/product/components';
 import { makeStyles } from '@shopgate/engage/styles';
 import {

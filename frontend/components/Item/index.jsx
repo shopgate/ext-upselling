@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useThemeComponents } from '@shopgate/engage/core/hooks';
-import { getProductDataById } from '@shopgate/pwa-common-commerce/product/selectors/product';
+import { getProductDataById } from '@shopgate/engage/product/selectors/product';
 import PlaceholderCard from './components/PlaceholderCard';
 import getConfig from '../../helpers/getConfig';
 

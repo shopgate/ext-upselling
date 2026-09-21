@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import SheetComponent from '@shopgate/pwa-ui-shared/Sheet';
+import { Sheet as SheetComponent } from '@shopgate/engage/components';
 import { makeStyles } from '@shopgate/engage/styles';
 import Grid from '../Grid';
 import { getProductRelationsFiltered } from '../../selectors';

@@ -1,22 +1,28 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 const mockedStore = configureStore();
 
-const MockedProductCard = () => <div>Mocked ProductCard</div>;
+const mockProductCard = jest.fn();
 jest.mock('@shopgate/engage/core/hooks', () => ({
   useThemeComponents: () => ({
-    ProductCard: MockedProductCard,
+    ProductCard: (props) => {
+      mockProductCard(props);
+      return <div>Mocked ProductCard</div>;
+    },
   }),
 }));
 
-const MockedPlaceholderCard = () => <div>Mocked PlaceholderCard</div>;
-jest.mock('./components/PlaceholderCard', () => MockedPlaceholderCard);
+const mockPlaceholderCard = jest.fn();
+jest.mock('./components/PlaceholderCard', () => (props) => {
+  mockPlaceholderCard(props);
+  return <div>Mocked PlaceholderCard</div>;
+});
 
 let mockedProducts = {};
-jest.mock('@shopgate/pwa-common-commerce/product/selectors/product', () => ({
+jest.mock('@shopgate/engage/product/selectors/product', () => ({
   getProductDataById: (state, { productId }) => mockedProducts[productId] || null,
 }));
 
@@ -28,59 +34,66 @@ jest.mock('../../helpers/getConfig', () => () => ({
 describe('Item', () => {
   // eslint-disable-next-line global-require
   const Item = require('./index').default;
+
   /**
    * @param {Object} props Props.
    * @returns {Object}
    */
-  const makeComponent = props => mount((
+  const makeComponent = props => render((
     <Provider store={mockedStore({})}>
       <Item productId="mockedId" {...props} />
     </Provider>
   ));
 
-  it('should render a placeholder when the product is not available yet', () => {
+  beforeEach(() => {
+    mockProductCard.mockClear();
+    mockPlaceholderCard.mockClear();
     mockedProducts = {};
-    const component = makeComponent({
+    mockedHideRatingStars = false;
+  });
+
+  it('should render a placeholder when the product is not available yet', () => {
+    makeComponent({
       showName: true,
       titleRows: 3,
     });
 
-    expect(component.find(MockedPlaceholderCard).props()).toMatchObject({
+    expect(mockPlaceholderCard).toHaveBeenCalledWith(expect.objectContaining({
       titleRows: 3,
       hideName: false,
       hidePrice: true,
-    });
-    expect(component.find(MockedProductCard).exists()).toBe(false);
+    }));
+    expect(mockProductCard).not.toHaveBeenCalled();
   });
 
   it('should render the product card of the theme when the product is available', () => {
     mockedProducts = { mockedId: { id: 'mockedId' } };
-    const component = makeComponent({
+    makeComponent({
       showName: true,
       showPrice: true,
       style: { margin: 4 },
     });
 
-    expect(component.find(MockedProductCard).props()).toEqual({
+    expect(mockProductCard).toHaveBeenCalledWith(expect.objectContaining({
       productId: 'mockedId',
       style: { margin: 4 },
       hideName: false,
       hidePrice: false,
       hideRating: false,
       titleRows: null,
-    });
-    expect(component.find(MockedPlaceholderCard).exists()).toBe(false);
+    }));
+    expect(mockPlaceholderCard).not.toHaveBeenCalled();
   });
 
   it('should hide the rating when configured', () => {
     mockedProducts = { mockedId: { id: 'mockedId' } };
     mockedHideRatingStars = true;
-    const component = makeComponent();
+    makeComponent();
 
-    expect(component.find(MockedProductCard).props()).toMatchObject({
+    expect(mockProductCard).toHaveBeenCalledWith(expect.objectContaining({
       hideName: true,
       hidePrice: true,
       hideRating: true,
-    });
+    }));
   });
 });

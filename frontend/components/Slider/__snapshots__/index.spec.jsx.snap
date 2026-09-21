@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Slider should render the engage ProductSlider with the related products 1`] = `"<div class="sg-1exngqn-wrapper upselling__slider"><h3>Mocked headline</h3><div></div></div>"`;

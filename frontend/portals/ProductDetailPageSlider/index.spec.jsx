@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 jest.mock('../../components/PDPSlider', () => () => <div>PDPSlider component</div>);
 
@@ -15,24 +15,25 @@ describe('ProductDetailPage', () => {
   beforeEach(() => {
     jest.resetModules();
   });
-  it('should render null when type is not configured', () => {
+
+  it('should render nothing when type is not configured', () => {
     // eslint-disable-next-line global-require
     const ProductDetailPage = require('./index').default;
-    const component = mount(<ProductDetailPage name="mockedPosition" />);
+    const { container } = render(<ProductDetailPage name="mockedPosition" />);
 
-    expect(component.html()).toBe(null);
+    expect(container).toBeEmptyDOMElement();
   });
 
-  it('should render null when position does not match', () => {
+  it('should render nothing when position does not match', () => {
     mockedProductPageConfig = {
       type: 'mockedType',
       position: 'mockedPosition',
     };
     // eslint-disable-next-line global-require
     const ProductDetailPage = require('./index').default;
-    const component = mount(<ProductDetailPage name="anotherPosition" />);
+    const { container } = render(<ProductDetailPage name="anotherPosition" />);
 
-    expect(component.html()).toBe(null);
+    expect(container).toBeEmptyDOMElement();
   });
 
   it('should render PDPSlider when position matches', () => {
@@ -42,11 +43,9 @@ describe('ProductDetailPage', () => {
     };
     // eslint-disable-next-line global-require
     const ProductDetailPage = require('./index').default;
-    const component = mount((
-      <ProductDetailPage name="mockedPosition" />
-    ));
+    render(<ProductDetailPage name="mockedPosition" />);
 
-    expect(component.find('div').exists()).toBe(true);
+    expect(screen.getByText('PDPSlider component')).toBeInTheDocument();
   });
 
   it('should be backward compatible with configs as an object', () => {
@@ -56,10 +55,8 @@ describe('ProductDetailPage', () => {
     };
     // eslint-disable-next-line global-require
     const ProductDetailPage = require('./index').default;
-    const component = mount((
-      <ProductDetailPage name="mockedPosition" />
-    ));
+    render(<ProductDetailPage name="mockedPosition" />);
 
-    expect(component.find('div').exists()).toBe(true);
+    expect(screen.getByText('PDPSlider component')).toBeInTheDocument();
   });
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import getConfig from '../../helpers/getConfig';
 import PDPSlider from './index';
 
@@ -7,6 +7,7 @@ jest.mock('react', () => ({
   ...jest.requireActual('react'),
   memo: cmp => cmp,
 }));
+
 let mockedShowPrice = true;
 let mockedShowName = true;
 jest.mock('../../helpers/getConfig', () => () => ({
@@ -19,34 +20,47 @@ jest.mock('../../helpers/getConfig', () => () => ({
     },
   ],
 }));
-jest.mock('../Slider', () => function Slider() {
-  return null;
+
+const mockSlider = jest.fn();
+jest.mock('../Slider', () => (props) => {
+  mockSlider(props);
+  return <div>Slider</div>;
 });
 jest.mock('../connectors', () => ({
-  makeConnectProductWithRelations: () => PDPSheetComponent => PDPSheetComponent,
+  makeConnectProductWithRelations: () => Component => Component,
 }));
 
 describe('PDPSlider', () => {
-  it('should render with price and names', () => {
-    const component = mount(<PDPSlider productId="mockedProductId" config={getConfig().productPage[0]} />);
+  beforeEach(() => {
+    mockSlider.mockClear();
+  });
 
-    expect(component.find('PDPSlider').props().productId).toBe('mockedProductId');
-    expect(component.find('Slider').props()).toMatchObject(getConfig().productPage[0]);
-    expect(component).toMatchSnapshot();
+  it('should render with price and names', () => {
+    render(<PDPSlider productId="mockedProductId" config={getConfig().productPage[0]} />);
+
+    expect(mockSlider).toHaveBeenCalledWith(expect.objectContaining({
+      productId: 'mockedProductId',
+      type: 'mockedType',
+      headline: 'mockedHeadline',
+      showPrice: true,
+      showName: true,
+    }));
   });
 
   it('should render without price and names as default', () => {
     mockedShowPrice = null;
     mockedShowName = null;
-    const component = mount(<PDPSlider productId="mockedProductId" config={getConfig().productPage[0]} />);
+    render(<PDPSlider productId="mockedProductId" config={getConfig().productPage[0]} />);
 
-    expect(component.find('Slider').props().showPrice).toBe(false);
-    expect(component.find('Slider').props().showName).toBe(false);
-    expect(component).toMatchSnapshot();
+    expect(mockSlider).toHaveBeenCalledWith(expect.objectContaining({
+      showPrice: false,
+      showName: false,
+    }));
   });
 
   it('should render nothing when productId is not ready', () => {
-    const component = mount(<PDPSlider config={getConfig().productPage[0]} />);
-    expect(component.html()).toBe(null);
+    const { container } = render(<PDPSlider config={getConfig().productPage[0]} />);
+
+    expect(container).toBeEmptyDOMElement();
   });
 });

@@ -10,7 +10,9 @@
 - The `nameLines` configuration is optional now. When it is not set, the number of product name lines configured in the app settings is used.
 - The placeholder cards shown while products are loading use theme colors.
 - Support for the discontinued GMD theme was removed.
-- Updated the development dependencies to PWA 7.32 (eslint 8, jest 29, react 17); the unit tests use the shared `@shopgate/pwa-unit-test` setup.
+- All imports now resolve through `@shopgate/engage/*`.
+- Migrated the component tests from enzyme to React Testing Library.
+- Updated the development dependencies to PWA 7.32 (eslint 8, jest 29, react 17); the unit tests use the shared `@shopgate/pwa-unit-test` setup. `@shopgate/engage` is a caret dev dependency and a `>=7.32.0-beta.20` peer dependency.
 
 ## [4.1.0] - 2025-03-10
 ### Added

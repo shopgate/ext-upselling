@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import getProductRelationsAction from '@shopgate/pwa-common-commerce/product/actions/getProductRelations';
-import GridComponent from '@shopgate/pwa-common/components/Grid';
+import { fetchProductRelations } from '@shopgate/engage/product';
+import { Grid as GridComponent } from '@shopgate/engage/components';
 import { makeStyles } from '@shopgate/engage/styles';
 import {
   getProductRelationsFiltered,
@@ -55,7 +55,7 @@ const Grid = ({
   const [destroyPlaceholders, setDestroyPlaceholders] = useState(false);
 
   useEffect(() => {
-    dispatch(getProductRelationsAction({
+    dispatch(fetchProductRelations({
       productId,
       type,
     }));

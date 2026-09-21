@@ -6,7 +6,7 @@ Frontend extension which shows the upselling/related products slider on a Produc
 
 ## Requirements
 
-Version 5.x requires PWA 7.32.0 or newer. The slider, the product cards and the placeholders use the theme of the shop (`@shopgate/engage/styles`), so colors, typography, card styles and the number of visible slides follow the theme configuration in the admin. Use version 4.x for older PWA versions.
+Version 5.x requires PWA 7.32.0 or newer. The slider now uses the core `ProductSlider` from `@shopgate/engage`, so the product cards, their border radius and the number of slides per view all follow the theme configuration in the admin. Use version 4.x for older PWA versions.
 
 ## Configuration
 
