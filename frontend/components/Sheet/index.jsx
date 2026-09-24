@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Sheet as SheetComponent } from '@shopgate/engage/components';
+import { SheetDrawer as SheetComponent } from '@shopgate/engage/components';
 import { makeStyles } from '@shopgate/engage/styles';
 import Grid from '../Grid';
 import { getProductRelationsFiltered } from '../../selectors';
@@ -27,15 +27,25 @@ const getBaseHeight = (itemsCount, maxAllowed) => {
   return '200vw';
 };
 
+/**
+ * Content height helper, based on the item grid.
+ * @param {Object} theme The theme.
+ * @param {number} itemsCount How many items are visible.
+ * @param {number} maxAllowed Maximum allowed items per line.
+ * @returns {string}
+ */
+const getContentHeight = (theme, itemsCount, maxAllowed) => (
+  `calc(${getBaseHeight(itemsCount, maxAllowed)} - 56px - ${theme.layout.safeArea.top})`
+);
+
 const useStyles = makeStyles()((theme, { itemsCount, maxAllowed }) => ({
   sheet: {
     maxHeight: getBaseHeight(itemsCount, maxAllowed),
     boxShadow: `0 0 5px ${theme.alpha(theme.palette.shadow, 0.5)}`,
     zIndex: 10,
-    marginBottom: 'var(--footer-height)',
   },
   content: {
-    maxHeight: `calc(${getBaseHeight(itemsCount, maxAllowed)} - 56px - var(--safe-area-inset-top))`,
+    maxHeight: `min(${getContentHeight(theme, itemsCount, maxAllowed)}, calc(var(--vh-100, 100vh) - ${theme.components.navigator.height} - ${theme.layout.safeArea.top}))`,
   },
 }));
 
@@ -87,7 +97,6 @@ const Sheet = ({
       contentClassName={classes.content}
       isOpen={isOpen && productsCount > 0}
       onClose={onClose}
-      backdrop={false}
     >
       <Grid
         productId={productId}

@@ -14,6 +14,9 @@
 - Migrated the component tests from enzyme to React Testing Library.
 - Updated the development dependencies to PWA 7.32 (eslint 8, jest 29, react 17); the unit tests use the shared `@shopgate/pwa-unit-test` setup. `@shopgate/engage` is a caret dev dependency and a `>=7.32.0-beta.20` peer dependency.
 
+### Fixed
+- The related products sheet no longer grows taller than the viewport. Its height limit, based on the number of products, is now capped by the viewport height of the core sheet.
+
 ## [4.1.0] - 2025-03-10
 ### Added
 - improved accessibility for screen readers

@@ -7,7 +7,7 @@ const mockedStore = configureStore();
 
 const mockSheetComponent = jest.fn();
 jest.mock('@shopgate/engage/components', () => ({
-  Sheet: (props) => {
+  SheetDrawer: (props) => {
     mockSheetComponent(props);
     // eslint-disable-next-line react/prop-types
     return <div id="sheet">{props.children}</div>;
