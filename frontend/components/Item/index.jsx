@@ -1,74 +1,71 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeContext } from '@shopgate/engage/core';
-import { Card } from '@shopgate/engage/components';
-import { ProductCard as ProductCardBase } from '@shopgate/engage/product';
+import { useSelector } from 'react-redux';
+import { useThemeComponents } from '@shopgate/engage/core/hooks';
+import { getProductDataById } from '@shopgate/engage/product/selectors/product';
 import PlaceholderCard from './components/PlaceholderCard';
-import getStyles from '../../styles/slider';
 import getConfig from '../../helpers/getConfig';
 
-const styles = getStyles();
-
 /**
- * Slider item component.
+ * Renders a single upselling product. It uses the ProductCard provided by the theme, so the card
+ * follows the merchant's theme configuration (colors, borders, shadows, name lines). While the
+ * product data is not available yet, a placeholder card is rendered instead.
  * @param {Object} props Props.
- * @param {Object} props.product Product data.
- * @param {boolean} showName Show name.
- * @param {boolean} showPrice Show price.
- * @param {number} titleRows Max possible title rows.
+ * @param {string} props.productId Product id.
+ * @param {Object} [props.style] Optional inline styles passed by the ProductSlider.
+ * @param {boolean} props.showName Whether the product name is shown.
+ * @param {boolean} props.showPrice Whether the product price is shown.
+ * @param {number|null} props.titleRows Max rows of the product name. `null` falls back to the
+ * value configured within the app settings.
  * @returns {JSX}
  */
 const Item = ({
-  product,
+  productId,
+  style,
   showName,
   showPrice,
   titleRows,
 }) => {
-  const { hideRatingStars } = getConfig();
-  const { contexts: { ProductContext } } = useContext(ThemeContext);
-  let ProductCard = ProductCardBase;
+  const { ProductCard } = useThemeComponents();
+  const product = useSelector(state => getProductDataById(state, { productId }));
+  const { hideRatingStars = false } = getConfig();
 
-  // Show a placeholder if product is not yet available.
   if (!product) {
-    ProductCard = PlaceholderCard;
+    return (
+      <PlaceholderCard
+        style={style}
+        titleRows={titleRows}
+        hideName={!showName}
+        hidePrice={!showPrice}
+      />
+    );
   }
 
   return (
-    <div className={styles.defaultSliderItem}>
-      <Card className={styles.defaultSliderCard}>
-        {/** Add context with current product. Image component and image badges using it */}
-        <ProductContext.Provider
-          value={{
-            productId: product ? product.id : null,
-          }}
-        >
-          <ProductCard
-            product={product}
-            hideName={!showName}
-            hidePrice={!showPrice}
-            titleRows={titleRows}
-            hideRating={hideRatingStars}
-          />
-        </ProductContext.Provider>
-      </Card>
-    </div>
+    <ProductCard
+      productId={productId}
+      style={style}
+      hideName={!showName}
+      hidePrice={!showPrice}
+      hideRating={hideRatingStars}
+      titleRows={titleRows}
+    />
   );
 };
 
 Item.propTypes = {
-  product: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-  }),
+  productId: PropTypes.string.isRequired,
   showName: PropTypes.bool,
   showPrice: PropTypes.bool,
+  style: PropTypes.shape(),
   titleRows: PropTypes.number,
 };
 
 Item.defaultProps = {
-  product: null,
   showName: false,
   showPrice: false,
-  titleRows: 2,
+  style: null,
+  titleRows: null,
 };
 
 export default Item;

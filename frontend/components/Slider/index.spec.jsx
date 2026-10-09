@@ -1,74 +1,134 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import { mount } from 'enzyme';
-import Slider from './index';
+import { render, screen, act } from '@testing-library/react';
 
 const mockedStore = configureStore();
 
-// eslint-disable-next-line react/prop-types, require-jsdoc
-const MockedDummyComponent = props => (<div>{props.children}</div>);
+const mockProductSlider = jest.fn();
+jest.mock('@shopgate/engage/product/components', () => ({
+  ProductSlider: (props) => {
+    mockProductSlider(props);
+    return <div data-test-id="product-slider" />;
+  },
+}));
+jest.mock('@shopgate/engage/components/Typography', () => ({
+  // eslint-disable-next-line react/prop-types
+  Typography: ({ children }) => <h3>{children}</h3>,
+}));
+jest.mock('../Item', () => () => null);
 
-jest.mock('./components/DefaultSlider', () => props => (
-  <MockedDummyComponent {...props}>
-    Mocked Slider
-  </MockedDummyComponent>
-));
-
-const mockedGetProductRelationsAction = jest.fn();
-jest.mock('@shopgate/pwa-common-commerce/product/actions/fetchProductRelations', () => (...args) => {
-  mockedGetProductRelationsAction(...args);
-  return {
-    type: 'action',
-  };
-});
-
-const mockedRelatedProducts = [];
-const mockedProductRelations = [];
-jest.mock('@shopgate/pwa-common-commerce/product/selectors/relations', () => ({
-  getRelatedProducts: () => () => mockedRelatedProducts,
-  getProductRelations: () => () => mockedProductRelations,
+const mockedFetchProductRelations = jest.fn();
+const mockedFetchProductsById = jest.fn();
+jest.mock('@shopgate/engage/product', () => ({
+  fetchProductRelations: (...args) => {
+    mockedFetchProductRelations(...args);
+    return { type: 'action' };
+  },
+  fetchProductsById: (...args) => {
+    mockedFetchProductsById(...args);
+    return { type: 'action' };
+  },
 }));
 
-jest.mock('@shopgate-ps/pwa-extension-kit/env/helpers', () => ({
-  isIOSTheme: () => false,
+let mockedProductIds = [];
+let mockedProducts = {};
+let mockedPropertyProductIds = [];
+let mockedPropertyProducts = {};
+jest.mock('../../selectors', () => ({
+  getProductRelationsFiltered: () => () => mockedProductIds,
+  getRelatedProductsByIdFiltered: () => () => mockedProducts,
+  getProductRelationIdsFromProperty: () => mockedPropertyProductIds,
+  getProductsDataFromProperty: () => mockedPropertyProducts,
 }));
 
 describe('Slider', () => {
+  // eslint-disable-next-line global-require
+  const Slider = require('./index').default;
+
   /**
-   * Makes a component.
+   * @param {Object} props Additional props.
    * @returns {Object}
    */
-  const makeComponent = () => mount((
+  const makeComponent = props => render((
     <Provider store={mockedStore({})}>
       <Slider
         productId="mockedId"
         type="mockedType"
         showPrice
         showName
+        {...props}
       />
     </Provider>
   ));
-  it('should call action on mount and render nothing', () => {
-    const component = makeComponent();
 
-    expect(mockedGetProductRelationsAction).toHaveBeenCalledWith({
+  beforeEach(() => {
+    jest.useFakeTimers();
+    mockProductSlider.mockClear();
+    mockedFetchProductRelations.mockClear();
+    mockedFetchProductsById.mockClear();
+    mockedProductIds = [];
+    mockedProducts = {};
+    mockedPropertyProductIds = [];
+    mockedPropertyProducts = {};
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
+  it('should fetch the relations on mount and render nothing without relations', () => {
+    const { container } = makeComponent();
+
+    expect(mockedFetchProductRelations).toHaveBeenCalledWith({
       productId: 'mockedId',
       type: 'mockedType',
     });
-    expect(component.html()).toBe('');
+    expect(container).toBeEmptyDOMElement();
   });
 
-  it('should render a slider', () => {
-    mockedRelatedProducts.push({ id: 'mockedRelatedId' });
-    mockedProductRelations.push('mockedRelatedId');
-    const component = makeComponent();
-
-    expect(component.find('MockedDummyComponent').props()).toMatchObject({
-      products: { mockedRelatedId: { id: 'mockedRelatedId' } },
-      showPrice: true,
-      showName: true,
+  it('should render the engage ProductSlider with the related products', () => {
+    mockedProductIds = ['mockedRelatedId', 'mockedPendingId'];
+    mockedProducts = { mockedRelatedId: { id: 'mockedRelatedId' } };
+    makeComponent({
+      headline: 'Mocked headline',
+      titleRows: 3,
     });
-    expect(component.html()).toMatchSnapshot();
+
+    expect(screen.getByText('Mocked headline')).toBeInTheDocument();
+    expect(mockProductSlider).toHaveBeenCalledWith(expect.objectContaining({
+      productIds: ['mockedRelatedId', 'mockedPendingId'],
+      scope: 'upselling',
+      productItemProps: {
+        showName: true,
+        showPrice: true,
+        titleRows: 3,
+      },
+    }));
+  });
+
+  it('should drop products without data after the placeholder timeout', () => {
+    mockedProductIds = ['mockedRelatedId', 'mockedPendingId'];
+    mockedProducts = { mockedRelatedId: { id: 'mockedRelatedId' } };
+    makeComponent();
+
+    act(() => {
+      jest.advanceTimersByTime(3001);
+    });
+
+    expect(mockProductSlider).toHaveBeenLastCalledWith(expect.objectContaining({
+      productIds: ['mockedRelatedId'],
+    }));
+  });
+
+  it('should fetch products by id for property relations', () => {
+    mockedPropertyProductIds = ['propertyRelatedId'];
+    makeComponent({
+      type: 'property',
+      property: 'mockedProperty',
+    });
+
+    expect(mockedFetchProductRelations).not.toHaveBeenCalled();
+    expect(mockedFetchProductsById).toHaveBeenCalledWith(['propertyRelatedId']);
   });
 });

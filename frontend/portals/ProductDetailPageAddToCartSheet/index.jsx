@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getCurrentRoute } from '@shopgate/pwa-common/helpers/router';
-import { routeWillEnter$ } from '@shopgate/pwa-common/streams';
-import { ITEM_PATTERN } from '@shopgate/pwa-common-commerce/product/constants';
+import { routeWillEnter$ } from '@shopgate/engage/core';
+import { ITEM_PATTERN } from '@shopgate/engage/product';
 import PDPSheet from '../../components/PDPSheet';
 
 /**

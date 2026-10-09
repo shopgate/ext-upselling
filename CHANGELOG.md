@@ -2,6 +2,21 @@
  All notable changes to this project will be documented in this file.
  The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [5.0.0] - 2026-09-03
+### Changed
+- 🔥 Breaking change: the extension now requires PWA 7.32.0 or newer. It uses the theme provided by `@shopgate/engage/styles` (colors, typography, spacing) instead of the static `themeConfig`, so it follows the theme configuration of the shop, including the dark color scheme.
+- 🔥 Breaking change: the product slider is now the `ProductSlider` from `@shopgate/engage/product/components`. The number of visible slides comes from the app settings (theme configuration) instead of the widget setting `@shopgate/engage/product/ProductSlider`.
+- 🔥 Breaking change: products are rendered with the `ProductCard` provided by the theme. The extension no longer wraps them into its own card, so card colors, borders, radius and shadows follow the theme configuration.
+- The `nameLines` configuration is optional now. When it is not set, the number of product name lines configured in the app settings is used.
+- The placeholder cards shown while products are loading use theme colors.
+- Support for the discontinued GMD theme was removed.
+- All imports now resolve through `@shopgate/engage/*`.
+- Migrated the component tests from enzyme to React Testing Library.
+- Updated the development dependencies to PWA 7.32 (eslint 8, jest 29, react 17); the unit tests use the shared `@shopgate/pwa-unit-test` setup. `@shopgate/engage` is a caret dev dependency and a `>=7.32.0-beta.20` peer dependency.
+
+### Fixed
+- The related products sheet no longer grows taller than the viewport. Its height limit, based on the number of products, is now capped by the viewport height of the core sheet.
+
 ## [4.1.0] - 2025-03-10
 ### Added
 - improved accessibility for screen readers
@@ -71,6 +86,7 @@ First version of the extension.
 ### Added
 Initial commmit.
 
+[5.0.0]: https://github.com/shopgate/ext-upselling/compare/v4.1.0...v5.0.0
 [4.1.0]: https://github.com/shopgate/ext-upselling/compare/v4.0.0...v4.1.0
 [4.0.0]: https://github.com/shopgate/ext-upselling/compare/v3.4.1...v4.0.0
 [3.0.1]: https://github.com/shopgate/ext-upselling/compare/v2.1.0...v3.0.1

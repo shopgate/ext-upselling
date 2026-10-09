@@ -1,10 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import SheetComponent from '@shopgate/pwa-ui-shared/Sheet';
+import { SheetDrawer as SheetComponent } from '@shopgate/engage/components';
+import { makeStyles } from '@shopgate/engage/styles';
 import Grid from '../Grid';
-import styles from '../../styles/sheet';
 import { getProductRelationsFiltered } from '../../selectors';
+
+/**
+ * Base height helper.
+ * @param {number} itemsCount How many items are visible.
+ * @param {number} maxAllowed Maximum allowed items per line.
+ * @returns {string}
+ */
+const getBaseHeight = (itemsCount, maxAllowed) => {
+  if (itemsCount > maxAllowed) {
+    switch (maxAllowed) {
+      case 1:
+        return '150vw';
+      case 2:
+        return '125vw';
+      default:
+        return '100vw';
+    }
+  }
+  // Items count less or equal max -> one line, no need to shrink it.
+  return '200vw';
+};
+
+/**
+ * Content height helper, based on the item grid.
+ * @param {Object} theme The theme.
+ * @param {number} itemsCount How many items are visible.
+ * @param {number} maxAllowed Maximum allowed items per line.
+ * @returns {string}
+ */
+const getContentHeight = (theme, itemsCount, maxAllowed) => (
+  `calc(${getBaseHeight(itemsCount, maxAllowed)} - 56px - ${theme.layout.safeArea.top})`
+);
+
+const useStyles = makeStyles()((theme, { itemsCount, maxAllowed }) => ({
+  sheet: {
+    maxHeight: getBaseHeight(itemsCount, maxAllowed),
+    boxShadow: `0 0 5px ${theme.alpha(theme.palette.shadow, 0.5)}`,
+    zIndex: 10,
+  },
+  content: {
+    maxHeight: `min(${getContentHeight(theme, itemsCount, maxAllowed)}, calc(var(--vh-100, 100vh) - ${theme.components.navigator.height} - ${theme.layout.safeArea.top}))`,
+  },
+}));
 
 /**
  * Gets items per line.
@@ -41,25 +84,31 @@ const Sheet = ({
   showPrice,
   titleRows,
   type,
-}) => (
-  <SheetComponent
-    title={headline}
-    className={`${styles.sheet(productsCount, maxItemsPerLine)} upselling-pdp-sheet`}
-    contentClassName={styles.content(productsCount, maxItemsPerLine)}
-    isOpen={isOpen && productsCount > 0}
-    onClose={onClose}
-    backdrop={false}
-  >
-    <Grid
-      productId={productId}
-      type={type}
-      showName={showName}
-      showPrice={showPrice}
-      itemsPerLine={getItemsPerLine(productsCount, maxItemsPerLine)}
-      titleRows={titleRows}
-    />
-  </SheetComponent>
-);
+}) => {
+  const { classes, cx } = useStyles({
+    itemsCount: productsCount,
+    maxAllowed: maxItemsPerLine,
+  });
+
+  return (
+    <SheetComponent
+      title={headline}
+      className={cx(classes.sheet, 'upselling-pdp-sheet')}
+      contentClassName={classes.content}
+      isOpen={isOpen && productsCount > 0}
+      onClose={onClose}
+    >
+      <Grid
+        productId={productId}
+        type={type}
+        showName={showName}
+        showPrice={showPrice}
+        itemsPerLine={getItemsPerLine(productsCount, maxItemsPerLine)}
+        titleRows={titleRows}
+      />
+    </SheetComponent>
+  );
+};
 
 Sheet.propTypes = {
   headline: PropTypes.string.isRequired,
@@ -70,8 +119,12 @@ Sheet.propTypes = {
   productsCount: PropTypes.number.isRequired,
   showName: PropTypes.bool.isRequired,
   showPrice: PropTypes.bool.isRequired,
-  titleRows: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
+  titleRows: PropTypes.number,
+};
+
+Sheet.defaultProps = {
+  titleRows: null,
 };
 
 /**
@@ -85,6 +138,7 @@ const mapStateToProps = (state, props) => {
     productId: props.productId,
     type: props.type,
   };
+
   return {
     productsCount: getProductRelationsFiltered(params)(state).length,
   };
