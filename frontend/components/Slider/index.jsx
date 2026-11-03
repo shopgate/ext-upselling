@@ -1,128 +1,132 @@
-import React, { Component } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import fetchProductRelations from '@shopgate/pwa-common-commerce/product/actions/fetchProductRelations';
+import { fetchProductRelations, fetchProductsById } from '@shopgate/engage/product';
+import { Typography } from '@shopgate/engage/components/Typography';
+import { ProductSlider } from '@shopgate/engage/product/components';
+import { makeStyles } from '@shopgate/engage/styles';
 import {
   getProductRelationsFiltered,
   getProductRelationIdsFromProperty,
   getProductsDataFromProperty,
   getRelatedProductsByIdFiltered,
 } from '../../selectors';
-import DefaultSlider from './components/DefaultSlider';
-import getStyles from '../../styles/slider';
 import { TYPE_PROPERTY } from '../../helpers/constants';
-import { fetchProductsById } from '@shopgate/pwa-common-commerce/product';
+import Item from '../Item';
 
-const styles = getStyles();
+const PLACEHOLDER_TIMEOUT = 3000;
+
+const useStyles = makeStyles()(theme => ({
+  wrapper: {
+    padding: `${theme.spacing(1)}px 0`,
+    marginBottom: theme.spacing(2),
+  },
+  headline: {
+    margin: '12px 16px',
+  },
+}));
 
 /**
- * Slider component. Takes productId, type and additional props and renders Slider with real
- * products.
+ * Slider component. Takes productId, type and additional props and renders the ProductSlider of
+ * the engage library with the related products. Placeholders are shown until the product data is
+ * available.
+ * @param {Object} props Props.
+ * @returns {JSX}
  */
-class Slider extends Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    productId: PropTypes.string.isRequired,
-    productIds: PropTypes.arrayOf(PropTypes.string).isRequired,
-    type: PropTypes.string.isRequired,
-    headline: PropTypes.string,
-    products: PropTypes.shape({}),
-    showName: PropTypes.bool,
-    showPrice: PropTypes.bool,
-    titleRows: PropTypes.number,
-  }
+const Slider = ({
+  dispatch,
+  productId,
+  productIds,
+  products,
+  type,
+  headline,
+  showName,
+  showPrice,
+  titleRows,
+}) => {
+  const { classes, cx } = useStyles();
+  const [allowPlaceholders, setAllowPlaceholders] = useState(true);
 
-  static defaultProps = {
-    headline: null,
-    products: [],
-    showName: false,
-    showPrice: false,
-    titleRows: 2,
-  };
-
-  /**
-   * @inheritDoc
-   */
-  constructor(props) {
-    super(props);
-    this.placeholderTimeout = undefined;
-    this.state = {
-      allowPlaceholders: true,
-    };
-    this.fatal = false;
-  }
-
-  /**
-   * Fetches the products on component did mouont.
-   */
-  componentDidMount() {
-    const { dispatch } = this.props;
-    if (this.props.type !== TYPE_PROPERTY) {
+  useEffect(() => {
+    if (type !== TYPE_PROPERTY) {
       dispatch(fetchProductRelations({
-        productId: this.props.productId,
-        type: this.props.type,
+        productId,
+        type,
       }));
     }
-    this.placeholderTimeout = setTimeout(() => {
-      this.setState({
-        allowPlaceholders: false,
-      });
-    }, 3000);
-  }
 
-  /**
-   * Fetches the products from properties on component did update
-   */
-  componentDidUpdate() {
-    const { dispatch, type, productIds } = this.props;
-    if (type === TYPE_PROPERTY) {
-      dispatch(fetchProductsById(productIds))
+    const timeout = setTimeout(() => setAllowPlaceholders(false), PLACEHOLDER_TIMEOUT);
+
+    return () => clearTimeout(timeout);
+    // Only fetch on mount like before. The parent re-mounts the slider when the product changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    // Products that are related via a product property need to be fetched separately.
+    if (type === TYPE_PROPERTY && productIds.length) {
+      dispatch(fetchProductsById(productIds));
     }
-  }
+  }, [dispatch, productIds, type]);
 
-  /**
-   * @inheritDoc
-   */
-  componentWillUnmount() {
-    clearTimeout(this.placeholderTimeout);
-  }
-
-  /**
-   * Renders.
-   * @returns {JSX}
-   */
-  render() {
-    if (this.fatal || !this.props.productIds.length) {
-      return null;
+  const availableProductIds = useMemo(() => {
+    if (allowPlaceholders) {
+      return productIds;
     }
 
-    let availableProductIds = this.props.productIds;
-    if (this.state.allowPlaceholders === false) {
-      availableProductIds = this.props.productIds.filter(id => this.props.products[id]);
+    return productIds.filter(id => products[id]);
+  }, [allowPlaceholders, productIds, products]);
 
-      if (availableProductIds.length === 0) {
-        // Should never happen in real life. But if after timeout, there's still not even one
-        // product available. Hide the whole thing and behave like it never happened.
-        this.fatal = true;
-        return null;
-      }
-    }
-
-    return (
-      <div className={styles.wrapper}>
-        {this.props.headline && <h3 className={`${styles.headline} headline`}>{this.props.headline}</h3> }
-        <DefaultSlider
-          products={this.props.products}
-          productIds={availableProductIds}
-          showPrice={this.props.showPrice}
-          showName={this.props.showName}
-          titleRows={this.props.titleRows}
-          allowPlaceholders={this.state.allowPlaceholders}
-        />
-      </div>
-    );
+  if (!availableProductIds.length) {
+    // Should never happen in real life. But if after the timeout there's still not even one
+    // product available, hide the whole thing and behave like it never happened.
+    return null;
   }
-}
+
+  return (
+    <div className={cx(classes.wrapper, 'upselling__slider')}>
+      {headline && (
+        <Typography
+          variant="h2"
+          component="h3"
+          className={cx(classes.headline, 'headline')}
+        >
+          {headline}
+        </Typography>
+      )}
+      <ProductSlider
+        productIds={availableProductIds}
+        scope="upselling"
+        item={Item}
+        productItemProps={{
+          showName,
+          showPrice,
+          titleRows,
+        }}
+      />
+    </div>
+  );
+};
+
+Slider.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  productId: PropTypes.string.isRequired,
+  productIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  type: PropTypes.string.isRequired,
+  headline: PropTypes.string,
+  products: PropTypes.shape({}),
+  showName: PropTypes.bool,
+  showPrice: PropTypes.bool,
+  titleRows: PropTypes.number,
+};
+
+Slider.defaultProps = {
+  headline: null,
+  products: {},
+  showName: false,
+  showPrice: false,
+  titleRows: null,
+};
 
 /**
  * Returns products from redux.

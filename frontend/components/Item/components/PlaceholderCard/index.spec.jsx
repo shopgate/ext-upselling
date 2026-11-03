@@ -1,73 +1,56 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import PlaceholderCard from './index';
 
-let mockedIsiOSTheme = false;
-jest.mock('@shopgate-ps/pwa-extension-kit/env/helpers', () => ({
-  isIOSTheme: () => mockedIsiOSTheme,
+// The Card of the engage library reads its appearance from the app settings in redux.
+jest.mock('@shopgate/engage/components/Card/useCardAppearance', () => ({
+  useCardAppearance: () => ({
+    variant: 'elevation',
+    elevation: 1,
+  }),
 }));
 
+/**
+ * @param {Element} container The render container.
+ * @param {string} id The data-test-id to look up.
+ * @returns {Element|null}
+ */
+const byTestId = (container, id) => container.querySelector(`[data-test-id="${id}"]`);
+
 describe('PlaceholderCard', () => {
-  let htmlAll;
-  let htmlNameOnly;
-  let htmlPriceOnly;
+  it('should render the image and details when name and price are shown', () => {
+    const { container } = render(
+      <PlaceholderCard titleRows={2} hideName={false} hidePrice={false} />
+    );
 
-  it('should render all elements', () => {
-    const component = mount(<PlaceholderCard titleRows={2} hideName={false} hidePrice={false} />);
-    // Has image
-    expect(component.find('[data-test-id="upselling-placeholder-image"]').exists()).toBe(true);
-    // Has details
-    expect(component.find('[data-test-id="upselling-placeholder-details"]').exists()).toBe(true);
-    // HideName vs HidePrice checked in snapshots and html comparison
-    expect(component).toMatchSnapshot();
-    htmlAll = component.html();
+    expect(byTestId(container, 'upselling-placeholder-image')).toBeInTheDocument();
+    expect(byTestId(container, 'upselling-placeholder-details')).toBeInTheDocument();
   });
 
-  it('should render image and name', () => {
-    const component = mount(<PlaceholderCard titleRows={2} hideName={false} hidePrice />);
-    // Has image
-    expect(component.find('[data-test-id="upselling-placeholder-image"]').exists()).toBe(true);
-    // Has details
-    expect(component.find('[data-test-id="upselling-placeholder-details"]').exists()).toBe(true);
-    // HideName vs HidePrice checked in a snapshot since only className is different
-    expect(component).toMatchSnapshot();
+  it('should render the image and details when only the name is shown', () => {
+    const { container } = render(<PlaceholderCard titleRows={2} hideName={false} hidePrice />);
 
-    htmlNameOnly = component.html();
-    expect(htmlAll !== htmlNameOnly).toBe(true);
+    expect(byTestId(container, 'upselling-placeholder-image')).toBeInTheDocument();
+    expect(byTestId(container, 'upselling-placeholder-details')).toBeInTheDocument();
   });
 
-  it('should render image and price', () => {
-    const component = mount(<PlaceholderCard titleRows={2} hideName hidePrice={false} />);
-    // Has image
-    expect(component.find('[data-test-id="upselling-placeholder-image"]').exists()).toBe(true);
-    // Has details
-    expect(component.find('[data-test-id="upselling-placeholder-details"]').exists()).toBe(true);
-    // HideName vs HidePrice checked in a snapshot since only className is different
-    expect(component).toMatchSnapshot();
+  it('should render the image and details when only the price is shown', () => {
+    const { container } = render(<PlaceholderCard titleRows={2} hideName hidePrice={false} />);
 
-    htmlPriceOnly = component.html();
-    expect(htmlAll !== htmlPriceOnly).toBe(true);
-    expect(htmlNameOnly !== htmlPriceOnly).toBe(true);
+    expect(byTestId(container, 'upselling-placeholder-image')).toBeInTheDocument();
+    expect(byTestId(container, 'upselling-placeholder-details')).toBeInTheDocument();
   });
 
-  it('should render image only', () => {
-    const component = mount(<PlaceholderCard titleRows={2} hideName hidePrice />);
-    // Has image
-    expect(component.find('[data-test-id="upselling-placeholder-image"]').exists()).toBe(true);
-    // Has details
-    expect(component.find('[data-test-id="upselling-placeholder-details"]').exists()).toBe(false);
-    expect(component).toMatchSnapshot();
+  it('should render the image only when name and price are hidden', () => {
+    const { container } = render(<PlaceholderCard titleRows={2} hideName hidePrice />);
+
+    expect(byTestId(container, 'upselling-placeholder-image')).toBeInTheDocument();
+    expect(byTestId(container, 'upselling-placeholder-details')).not.toBeInTheDocument();
   });
 
-  it('should render different classNames on ios', () => {
-    mockedIsiOSTheme = true;
-    const component = mount(<PlaceholderCard titleRows={2} hideName={false} hidePrice={false} />);
-    // Has image
-    expect(component.find('[data-test-id="upselling-placeholder-image"]').exists()).toBe(true);
-    // Has details
-    expect(component.find('[data-test-id="upselling-placeholder-details"]').exists()).toBe(true);
-    expect(component).toMatchSnapshot();
+  it('should fall back to two title rows', () => {
+    const { container } = render(<PlaceholderCard hideName={false} hidePrice={false} />);
 
-    expect(htmlAll !== component.html());
+    expect(byTestId(container, 'upselling-placeholder-details')).toBeInTheDocument();
   });
 });

@@ -3,10 +3,8 @@ import {
   getProductRelations,
   getRelatedProducts,
 } from '@shopgate/pwa-common-commerce/product/selectors/relations';
-import {
-  getProducts,
-  getProductPropertiesUnfiltered,
-} from '@shopgate/pwa-common-commerce/product/selectors/product';
+import { getProducts } from '@shopgate/engage/product/selectors/product';
+import { getProductPropertiesUnfiltered } from '@shopgate/engage/product';
 
 /**
  * Special selector factory that filters out products with same productId as parent.

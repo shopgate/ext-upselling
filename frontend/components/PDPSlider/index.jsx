@@ -23,7 +23,7 @@ const PDPSlider = ({ productId, config }) => {
       productId={productId}
       showPrice={config.showPrice || false}
       showName={config.showName || false}
-      titleRows={config.nameLines || 2}
+      titleRows={config.nameLines || null}
       property={config.property}
     />
   );

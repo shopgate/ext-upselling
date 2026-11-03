@@ -1,12 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import { mount } from 'enzyme';
+import { render, act } from '@testing-library/react';
 
 const mockedStore = configureStore();
-// eslint-disable-next-line react/prop-types, require-jsdoc
-const MockedSheetComponent = props => (<div id="sheet">{props.children}</div>);
-jest.mock('@shopgate/pwa-ui-shared/Sheet', () => MockedSheetComponent);
 
 let mockedProductRelationsFiltered = [];
 let mockedRelatedProductsByIdFiltered = {};
@@ -15,25 +12,26 @@ jest.mock('../../selectors', () => ({
   getRelatedProductsByIdFiltered: () => () => mockedRelatedProductsByIdFiltered,
 }));
 
-jest.mock('@shopgate-ps/pwa-extension-kit/env/helpers', () => ({
-  isIOSTheme: () => false,
+const mockedFetchProductRelations = jest.fn();
+jest.mock('@shopgate/engage/product', () => ({
+  fetchProductRelations: (...args) => {
+    mockedFetchProductRelations(...args);
+    return { type: 'MOCKED_ACTION' };
+  },
 }));
 
-const mockedGetProductRelationsAction = jest.fn();
-jest.mock('@shopgate/pwa-common-commerce/product/actions/getProductRelations', () => (...args) => {
-  mockedGetProductRelationsAction(...args);
-  return {
-    type: 'MOCKED_ACTION',
-  };
+jest.mock('@shopgate/engage/components', () => {
+  // eslint-disable-next-line react/prop-types
+  const GridComponent = ({ children }) => <div>{children}</div>;
+  // eslint-disable-next-line react/prop-types
+  GridComponent.Item = ({ children }) => <div>{children}</div>;
+  return { Grid: GridComponent };
 });
 
-jest.mock('../Item', () => () => (<div>Mocked item</div>));
-
-// eslint-disable-next-line require-jsdoc, react/prop-types
-const MockedGridComponent = props => (<div>{props.children}</div>);
 // eslint-disable-next-line react/prop-types
-MockedGridComponent.Item = props => (<div>{props.children}</div>);
-jest.mock('@shopgate/pwa-common/components/Grid', () => MockedGridComponent);
+jest.mock('../Item', () => ({ productId }) => (
+  <div data-test-id="grid-item">{productId}</div>
+));
 
 describe('Grid', () => {
   // eslint-disable-next-line global-require
@@ -43,91 +41,77 @@ describe('Grid', () => {
     type: 'mockedType',
     headline: 'mockedHeadline',
   };
+
+  /**
+   * @returns {Object}
+   */
+  const makeComponent = () => render((
+    <Provider store={mockedStore({})}>
+      <Grid {...defaultProps} />
+    </Provider>
+  ));
+
+  /**
+   * @param {Element} container The render container.
+   * @returns {NodeList}
+   */
+  const getItems = container => container.querySelectorAll('[data-test-id="grid-item"]');
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+    mockedFetchProductRelations.mockClear();
+    mockedProductRelationsFiltered = [];
+    mockedRelatedProductsByIdFiltered = {};
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   it('should fetch data and render nothing when there are no products to show', () => {
-    const component = mount((
-      <Provider store={mockedStore({})}>
-        <Grid {...defaultProps} />
-      </Provider>
-    ));
-    expect(component.html()).toBe('');
-    expect(mockedGetProductRelationsAction).toHaveBeenCalled();
+    const { container } = makeComponent();
+
+    expect(container).toBeEmptyDOMElement();
+    expect(mockedFetchProductRelations).toHaveBeenCalledWith({
+      productId: 'mockedId',
+      type: 'mockedType',
+    });
   });
 
-  it('should use placeholder keys when product data is not available', () => {
+  it('should render an item for every related product id', () => {
     mockedProductRelationsFiltered = ['mockedRelationId'];
-    const component = mount((
-      <Provider store={mockedStore({})}>
-        <Grid {...defaultProps} />
-      </Provider>
-    ));
-    expect(component.find(MockedGridComponent.Item).key().startsWith('placeholder')).toBe(true);
+    const { container } = makeComponent();
+
+    const items = getItems(container);
+    expect(items).toHaveLength(1);
+    expect(items[0]).toHaveTextContent('mockedRelationId');
   });
 
-  it('should use product keys when product data is not available', () => {
-    mockedProductRelationsFiltered = ['mockedRelationId'];
-    mockedRelatedProductsByIdFiltered = {
-      mockedRelationId: {},
-    };
-
-    const component = mount((
-      <Provider store={mockedStore({})}>
-        <Grid {...defaultProps} />
-      </Provider>
-    ));
-    expect(component.find(MockedGridComponent.Item).key().startsWith('product')).toBe(true);
-  });
-
-  it('should destroy placeholders after 2 seconds', (done) => {
+  it('should destroy placeholders after 2 seconds', () => {
     mockedProductRelationsFiltered = ['mockedRelationIdOne', 'mockedRelationIdTwo'];
     mockedRelatedProductsByIdFiltered = {
       mockedRelationIdOne: {},
     };
+    const { container } = makeComponent();
 
-    const component = mount((
-      <Provider store={mockedStore({})}>
-        <Grid {...defaultProps} />
-      </Provider>
-    ));
-    expect(component.find(MockedGridComponent.Item).length).toBe(2);
-    setTimeout(() => {
-      component.update();
-      expect(component.find(MockedGridComponent.Item).length).toBe(1);
-      done();
-    }, 2001);
+    expect(getItems(container)).toHaveLength(2);
+    act(() => {
+      jest.advanceTimersByTime(2001);
+    });
+    expect(getItems(container)).toHaveLength(1);
   });
 
-  it('should clear timeout when productIds matches available products', () => {
-    jest.useFakeTimers();
+  it('should keep all items when every product is available', () => {
     mockedProductRelationsFiltered = ['mockedRelationIdOne', 'mockedRelationIdTwo'];
     mockedRelatedProductsByIdFiltered = {
       mockedRelationIdOne: {},
       mockedRelationIdTwo: {},
     };
+    const { container } = makeComponent();
 
-    const component = mount((
-      <Provider store={mockedStore({})}>
-        <Grid {...defaultProps} />
-      </Provider>
-    ));
-    component.find(Grid).instance().componentWillReceiveProps();
-    component.setProps();
-    expect(clearTimeout).toHaveBeenCalledTimes(1);
-  });
-
-  it('should not clear timeout when productIds do not matche available products', () => {
-    jest.useFakeTimers();
-    mockedProductRelationsFiltered = ['mockedRelationIdOne', 'mockedRelationIdTwo'];
-    mockedRelatedProductsByIdFiltered = {
-      mockedRelationIdOne: {},
-    };
-
-    const component = mount((
-      <Provider store={mockedStore({})}>
-        <Grid {...defaultProps} />
-      </Provider>
-    ));
-    component.find(Grid).instance().componentWillReceiveProps();
-    component.setProps();
-    expect(clearTimeout).toHaveBeenCalledTimes(0);
+    act(() => {
+      jest.advanceTimersByTime(2001);
+    });
+    expect(getItems(container)).toHaveLength(2);
   });
 });

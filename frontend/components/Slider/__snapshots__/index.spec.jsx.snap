@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Slider should render a slider 1`] = `"<div class=\\"css-1v3lwar\\"><div>Mocked Slider</div></div>"`;
