@@ -28,10 +28,12 @@ jest.mock('@shopgate/engage/components', () => {
   return { Grid: GridComponent };
 });
 
-// eslint-disable-next-line react/prop-types
-jest.mock('../Item', () => ({ productId }) => (
-  <div data-test-id="grid-item">{productId}</div>
-));
+const mockItem = jest.fn();
+jest.mock('../Item', () => (props) => {
+  mockItem(props);
+  // eslint-disable-next-line react/prop-types
+  return <div data-test-id="grid-item">{props.productId}</div>;
+});
 
 describe('Grid', () => {
   // eslint-disable-next-line global-require
@@ -43,11 +45,12 @@ describe('Grid', () => {
   };
 
   /**
+   * @param {Object} [props] Additional props.
    * @returns {Object}
    */
-  const makeComponent = () => render((
+  const makeComponent = props => render((
     <Provider store={mockedStore({})}>
-      <Grid {...defaultProps} />
+      <Grid {...defaultProps} {...props} />
     </Provider>
   ));
 
@@ -85,6 +88,20 @@ describe('Grid', () => {
     const items = getItems(container);
     expect(items).toHaveLength(1);
     expect(items[0]).toHaveTextContent('mockedRelationId');
+  });
+
+  it('should pass the hidden buttons to every item', () => {
+    mockedProductRelationsFiltered = ['mockedRelationId'];
+    makeComponent({
+      hideFavorites: true,
+      hideAddToCart: true,
+    });
+
+    expect(mockItem).toHaveBeenCalledWith(expect.objectContaining({
+      productId: 'mockedRelationId',
+      hideFavorites: true,
+      hideAddToCart: true,
+    }));
   });
 
   it('should destroy placeholders after 2 seconds', () => {

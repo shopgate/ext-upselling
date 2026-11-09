@@ -10,6 +10,8 @@ jest.mock('react', () => ({
 
 let mockedShowPrice = true;
 let mockedShowName = true;
+let mockedHideFavorites;
+let mockedHideAddToCart;
 jest.mock('../../helpers/getConfig', () => () => ({
   productPage: [
     {
@@ -17,6 +19,8 @@ jest.mock('../../helpers/getConfig', () => () => ({
       headline: 'mockedHeadline',
       get showPrice() { return mockedShowPrice; },
       get showName() { return mockedShowName; },
+      get hideFavorites() { return mockedHideFavorites; },
+      get hideAddToCart() { return mockedHideAddToCart; },
     },
   ],
 }));
@@ -55,6 +59,19 @@ describe('PDPSlider', () => {
     expect(mockSlider).toHaveBeenCalledWith(expect.objectContaining({
       showPrice: false,
       showName: false,
+      hideFavorites: false,
+      hideAddToCart: false,
+    }));
+  });
+
+  it('should pass the hidden buttons of the slider', () => {
+    mockedHideFavorites = true;
+    mockedHideAddToCart = true;
+    render(<PDPSlider productId="mockedProductId" config={getConfig().productPage[0]} />);
+
+    expect(mockSlider).toHaveBeenCalledWith(expect.objectContaining({
+      hideFavorites: true,
+      hideAddToCart: true,
     }));
   });
 

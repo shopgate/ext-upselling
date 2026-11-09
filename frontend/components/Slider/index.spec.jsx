@@ -103,6 +103,8 @@ describe('Slider', () => {
         showName: true,
         showPrice: true,
         titleRows: 3,
+        hideFavorites: false,
+        hideAddToCart: false,
       },
     }));
   });

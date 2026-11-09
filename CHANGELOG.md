@@ -2,6 +2,10 @@
  All notable changes to this project will be documented in this file.
  The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [5.1.0] - 2026-11-09
+### Added
+- Every slider in `productPage` and the add to cart sheet in `productPageAddToCart` can hide the favorites button (`hideFavorites`) and the add to cart button (`hideAddToCart`) of their products, e.g. when the slider is used to pick a variant. The buttons on product cards exist from PWA 7.34 on; older versions ignore the settings.
+
 ## [5.0.0] - 2026-09-03
 ### Changed
 - 🔥 Breaking change: the extension now requires PWA 7.32.0 or newer. It uses the theme provided by `@shopgate/engage/styles` (colors, typography, spacing) instead of the static `themeConfig`, so it follows the theme configuration of the shop, including the dark color scheme.
