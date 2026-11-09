@@ -25,8 +25,8 @@ Product Detail Page configuration is an array of json objects, each with the fol
         "showPrice": "Boolean. If not true, no product price is shown",
         "showName": "Boolean. If not true, no product name is shown",
         "nameLines": "Number. Maximum lines item name should be possible. If empty, the product name lines configured in the app settings are used",
-        "hideFavorites": "(optional) Boolean. If true, the products of this slider have no favorites button. If empty, the app settings decide",
-        "hideAddToCart": "(optional) Boolean. If true, the products of this slider have no add to cart button. If empty, the app settings decide",
+        "hideFavorites": "(optional) Boolean. If true, the products of this slider have no favorites button. If empty, the app settings decide. Needs PWA 7.34.0 or newer",
+        "hideAddToCart": "(optional) Boolean. If true, the products of this slider have no add to cart button. If empty, the app settings decide. Needs PWA 7.34.0 or newer",
         "property": "(optional) can be used when type is set to 'property', refers to the product property to show the related products with. Product ids needs to be comma seperated ids of the products related (e.g \"1,2,3\")"
       }
     ]
@@ -43,8 +43,8 @@ Product page add to cart sheet is a json with following schema:
         "showName": "Boolean. If not true, no product name is shown",
         "nameLines": "Number. Maximum lines item name should be possible. If empty, the product name lines configured in the app settings are used",
         "maxItemsPerLine": "Number. Maximum items per line. If empty defaults to 3. Must be a number between 1 and 3.",
-        "hideFavorites": "(optional) Boolean. If true, the products in the sheet have no favorites button. If empty, the app settings decide",
-        "hideAddToCart": "(optional) Boolean. If true, the products in the sheet have no add to cart button. If empty, the app settings decide"
+        "hideFavorites": "(optional) Boolean. If true, the products in the sheet have no favorites button. If empty, the app settings decide. Needs PWA 7.34.0 or newer",
+        "hideAddToCart": "(optional) Boolean. If true, the products in the sheet have no add to cart button. If empty, the app settings decide. Needs PWA 7.34.0 or newer"
     }
 }
 ```

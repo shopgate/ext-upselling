@@ -4,7 +4,7 @@
 
 ## [5.1.0] - 2026-11-09
 ### Added
-- Every slider in `productPage` and the add to cart sheet in `productPageAddToCart` can hide the favorites button (`hideFavorites`) and the add to cart button (`hideAddToCart`) of their products, e.g. when the slider is used to pick a variant. The buttons on product cards exist from PWA 7.34 on; older versions ignore the settings.
+- Every slider in `productPage` and the add to cart sheet in `productPageAddToCart` can hide the favorites button (`hideFavorites`) and the add to cart button (`hideAddToCart`) of their products, e.g. when the slider is used to pick a variant. The product cards support the settings from PWA 7.34.0 on. Earlier versions, including the 7.34.0 betas up to beta.4, ignore them.
 
 ## [5.0.0] - 2026-09-03
 ### Changed
