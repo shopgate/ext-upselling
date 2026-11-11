@@ -24,6 +24,6 @@
     "reselect": "^4.1.8"
   },
   "peerDependencies": {
-    "@shopgate/engage": ">=7.34.0-beta.5"
+    "@shopgate/engage": ">=7.34.0-beta.6"
   }
 }
