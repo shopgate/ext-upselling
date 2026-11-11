@@ -77,6 +77,19 @@ describe('Sheet', () => {
     expect(mockGrid).toHaveBeenCalledWith(expect.objectContaining({ itemsPerLine: 1 }));
   });
 
+  it('should pass the hidden buttons to the grid', () => {
+    mockedProductRelationsFiltered = [1];
+    makeComponent({
+      hideFavorites: true,
+      hideAddToCart: true,
+    });
+
+    expect(mockGrid).toHaveBeenCalledWith(expect.objectContaining({
+      hideFavorites: true,
+      hideAddToCart: true,
+    }));
+  });
+
   it('should keep the sheet closed when there are no items to show', () => {
     mockedProductRelationsFiltered = [];
     makeComponent({ isOpen: true });

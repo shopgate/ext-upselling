@@ -24,6 +24,8 @@ const PDPSlider = ({ productId, config }) => {
       showPrice={config.showPrice || false}
       showName={config.showName || false}
       titleRows={config.nameLines || null}
+      hideFavorites={config.hideFavorites || false}
+      hideAddToCart={config.hideAddToCart || false}
       property={config.property}
     />
   );
@@ -32,6 +34,8 @@ const PDPSlider = ({ productId, config }) => {
 PDPSlider.propTypes = {
   config: PropTypes.shape({
     headline: PropTypes.string,
+    hideAddToCart: PropTypes.bool,
+    hideFavorites: PropTypes.bool,
     nameLines: PropTypes.number,
     property: PropTypes.string,
     showName: PropTypes.bool,

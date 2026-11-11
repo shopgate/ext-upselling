@@ -3,10 +3,14 @@ import { render, act } from '@testing-library/react';
 
 let mockedType = '';
 let mockedHeadline = '';
+let mockedHideFavorites;
+let mockedHideAddToCart;
 jest.mock('../../helpers/getConfig', () => () => ({
   productPageAddToCart: {
     get type() { return mockedType; },
     get headline() { return mockedHeadline; },
+    get hideFavorites() { return mockedHideFavorites; },
+    get hideAddToCart() { return mockedHideAddToCart; },
   },
 }));
 
@@ -54,6 +58,8 @@ describe('PDPSheet', () => {
     mockedFetchProductRelations.mockClear();
     mockedType = 'mockedType';
     mockedHeadline = 'mockedHeadline';
+    mockedHideFavorites = undefined;
+    mockedHideAddToCart = undefined;
   });
 
   it('should render nothing and not subscribe when disabled', () => {
@@ -81,7 +87,22 @@ describe('PDPSheet', () => {
       productId: 'mockedId',
       type: 'mockedType',
     });
-    expect(mockSheet).toHaveBeenLastCalledWith(expect.objectContaining({ isOpen: false }));
+    expect(mockSheet).toHaveBeenLastCalledWith(expect.objectContaining({
+      isOpen: false,
+      hideFavorites: false,
+      hideAddToCart: false,
+    }));
+  });
+
+  it('should pass the hidden buttons of the sheet', () => {
+    mockedHideFavorites = true;
+    mockedHideAddToCart = true;
+    render(<PDPSheet productId="mockedId" dispatch={dispatch} />);
+
+    expect(mockSheet).toHaveBeenLastCalledWith(expect.objectContaining({
+      hideFavorites: true,
+      hideAddToCart: true,
+    }));
   });
 
   it('should open the Sheet on the add to cart event and close it when leaving the route', () => {

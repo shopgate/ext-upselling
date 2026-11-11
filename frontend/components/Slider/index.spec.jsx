@@ -103,7 +103,25 @@ describe('Slider', () => {
         showName: true,
         showPrice: true,
         titleRows: 3,
+        hideFavorites: false,
+        hideAddToCart: false,
       },
+    }));
+  });
+
+  it('should pass the hidden buttons to the items', () => {
+    mockedProductIds = ['mockedRelatedId'];
+    mockedProducts = { mockedRelatedId: { id: 'mockedRelatedId' } };
+    makeComponent({
+      hideFavorites: true,
+      hideAddToCart: true,
+    });
+
+    expect(mockProductSlider).toHaveBeenCalledWith(expect.objectContaining({
+      productItemProps: expect.objectContaining({
+        hideFavorites: true,
+        hideAddToCart: true,
+      }),
     }));
   });
 
