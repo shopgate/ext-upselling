@@ -50,6 +50,8 @@ const Grid = ({
   showName,
   showPrice,
   titleRows,
+  hideFavorites,
+  hideAddToCart,
 }) => {
   const { classes, cx } = useStyles({ itemsPerLine });
   const [destroyPlaceholders, setDestroyPlaceholders] = useState(false);
@@ -96,6 +98,8 @@ const Grid = ({
                 showPrice={showPrice}
                 showName={showName}
                 titleRows={titleRows}
+                hideFavorites={hideFavorites}
+                hideAddToCart={hideAddToCart}
               />
             </GridComponent.Item>
           );
@@ -111,6 +115,8 @@ Grid.propTypes = {
   productIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   type: PropTypes.string.isRequired,
   headline: PropTypes.string,
+  hideAddToCart: PropTypes.bool,
+  hideFavorites: PropTypes.bool,
   itemsPerLine: PropTypes.number,
   products: PropTypes.shape({}),
   showName: PropTypes.bool,
@@ -120,6 +126,8 @@ Grid.propTypes = {
 
 Grid.defaultProps = {
   headline: null,
+  hideAddToCart: false,
+  hideFavorites: false,
   itemsPerLine: 3,
   products: {},
   showName: false,

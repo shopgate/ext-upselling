@@ -43,6 +43,8 @@ const Slider = ({
   showName,
   showPrice,
   titleRows,
+  hideFavorites,
+  hideAddToCart,
 }) => {
   const { classes, cx } = useStyles();
   const [allowPlaceholders, setAllowPlaceholders] = useState(true);
@@ -102,6 +104,8 @@ const Slider = ({
           showName,
           showPrice,
           titleRows,
+          hideFavorites,
+          hideAddToCart,
         }}
       />
     </div>
@@ -114,6 +118,8 @@ Slider.propTypes = {
   productIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   type: PropTypes.string.isRequired,
   headline: PropTypes.string,
+  hideAddToCart: PropTypes.bool,
+  hideFavorites: PropTypes.bool,
   products: PropTypes.shape({}),
   showName: PropTypes.bool,
   showPrice: PropTypes.bool,
@@ -122,6 +128,8 @@ Slider.propTypes = {
 
 Slider.defaultProps = {
   headline: null,
+  hideAddToCart: false,
+  hideFavorites: false,
   products: {},
   showName: false,
   showPrice: false,

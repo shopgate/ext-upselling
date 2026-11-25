@@ -80,6 +80,8 @@ describe('Item', () => {
       hideName: false,
       hidePrice: false,
       hideRating: false,
+      hideFavorites: false,
+      hideAddToCart: false,
       titleRows: null,
     }));
     expect(mockPlaceholderCard).not.toHaveBeenCalled();
@@ -94,6 +96,19 @@ describe('Item', () => {
       hideName: true,
       hidePrice: true,
       hideRating: true,
+    }));
+  });
+
+  it('should hide the favorites and add to cart buttons when requested', () => {
+    mockedProducts = { mockedId: { id: 'mockedId' } };
+    makeComponent({
+      hideFavorites: true,
+      hideAddToCart: true,
+    });
+
+    expect(mockProductCard).toHaveBeenCalledWith(expect.objectContaining({
+      hideFavorites: true,
+      hideAddToCart: true,
     }));
   });
 });

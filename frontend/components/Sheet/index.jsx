@@ -75,6 +75,8 @@ const getItemsPerLine = (count, max) => {
  */
 const Sheet = ({
   headline,
+  hideAddToCart,
+  hideFavorites,
   isOpen,
   maxItemsPerLine,
   onClose,
@@ -105,6 +107,8 @@ const Sheet = ({
         showPrice={showPrice}
         itemsPerLine={getItemsPerLine(productsCount, maxItemsPerLine)}
         titleRows={titleRows}
+        hideFavorites={hideFavorites}
+        hideAddToCart={hideAddToCart}
       />
     </SheetComponent>
   );
@@ -120,10 +124,14 @@ Sheet.propTypes = {
   showName: PropTypes.bool.isRequired,
   showPrice: PropTypes.bool.isRequired,
   type: PropTypes.string.isRequired,
+  hideAddToCart: PropTypes.bool,
+  hideFavorites: PropTypes.bool,
   titleRows: PropTypes.number,
 };
 
 Sheet.defaultProps = {
+  hideAddToCart: false,
+  hideFavorites: false,
   titleRows: null,
 };
 

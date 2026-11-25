@@ -17,6 +17,8 @@ import getConfig from '../../helpers/getConfig';
  * @param {boolean} props.showPrice Whether the product price is shown.
  * @param {number|null} props.titleRows Max rows of the product name. `null` falls back to the
  * value configured within the app settings.
+ * @param {boolean} props.hideFavorites Whether the favorites button is hidden.
+ * @param {boolean} props.hideAddToCart Whether the add to cart button is hidden.
  * @returns {JSX}
  */
 const Item = ({
@@ -25,6 +27,8 @@ const Item = ({
   showName,
   showPrice,
   titleRows,
+  hideFavorites,
+  hideAddToCart,
 }) => {
   const { ProductCard } = useThemeComponents();
   const product = useSelector(state => getProductDataById(state, { productId }));
@@ -48,6 +52,8 @@ const Item = ({
       hideName={!showName}
       hidePrice={!showPrice}
       hideRating={hideRatingStars}
+      hideFavorites={hideFavorites}
+      hideAddToCart={hideAddToCart}
       titleRows={titleRows}
     />
   );
@@ -55,6 +61,8 @@ const Item = ({
 
 Item.propTypes = {
   productId: PropTypes.string.isRequired,
+  hideAddToCart: PropTypes.bool,
+  hideFavorites: PropTypes.bool,
   showName: PropTypes.bool,
   showPrice: PropTypes.bool,
   style: PropTypes.shape(),
@@ -62,6 +70,8 @@ Item.propTypes = {
 };
 
 Item.defaultProps = {
+  hideAddToCart: false,
+  hideFavorites: false,
   showName: false,
   showPrice: false,
   style: null,
